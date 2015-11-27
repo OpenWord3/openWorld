@@ -1,2 +1,0 @@
-# openWorld
-Repository d'openWorld
