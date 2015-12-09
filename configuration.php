@@ -17,7 +17,8 @@
 	define("BOOTSTRAPJS","./bootstrap/js/bootstrap.min.js");
 	define("JQUERYEASING","./bootstrap/js/jquery.easing.min.js");
 	define("JQUERY","./bootstrap/js/jquery.min.js");
-	define("TWEELINE","./bootstrap/js/TweenLite.min.js");
+	define("JQUERYSCRIPT","./bootstrap/js/jqueryscript.js");
+	define("TWEENLITE","./bootstrap/js/TweenLite.min.js");
 	define("CONNECTION","./bootstrap/js/connexion.js");
 
 ?>

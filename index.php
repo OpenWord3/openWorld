@@ -11,6 +11,12 @@
 			case "vue_connexion":
 				include("./controleur/controleur_connexion.php");
 				break;
+			case "vue_inscription":
+				include("./controleur/controleur_inscription.php");
+				break;
+			case "vue_conditions":
+				include("./controleur/controleur_conditions.php");
+				break;
 		}
 
 	}
