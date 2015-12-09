@@ -18,7 +18,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">                                
                                 <div class="row-fluid user-row">
-                                    <img src="../bootstrap/images/profile.png" class="img-responsive" alt="Conxole Admin"/>
+                                    <img src="./bootstrap/images/profile.png" class="img-responsive" alt="Conxole Admin"/>
                                 </div>
                             </div>
                             <div class="panel-body">

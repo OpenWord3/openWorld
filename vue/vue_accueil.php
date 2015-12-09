@@ -47,7 +47,7 @@
                 <h1 class="cursive">Share your amazing blog !</h1>
                 <h4>Une blogosphère attrayante pour partager vos émotions</h4>
                 <hr>
-                <a href="#video-background" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">INSCRIPTION</a> &nbsp; <a href="#one" class="btn btn-primary btn-xl page-scroll">CONNEXION</a>
+                <a href="<?php echo INDEX ?>?index=vue_inscription" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">INSCRIPTION</a> &nbsp; <a href="<?php echo INDEX ?>?index=vue_connexion" class="btn btn-primary btn-xl page-scroll">CONNEXION</a>
             </div>
         </div>
         <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="<?PHP echo IMAGE."background_accueil.jpg" ?>" id="video-background">
