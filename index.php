@@ -4,7 +4,9 @@
 	if(!isset($_GET["index"])){
 		include('./vue/vue_accueil.php');
 	} else {
-		include("./vue/vue_test.php");
+		switch($_GET["index.php"]){
+			
+		}
 
 	}
 ?>
