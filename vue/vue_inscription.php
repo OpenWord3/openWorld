@@ -20,7 +20,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">                                
                                 <div class="row-fluid user-row">
-                                    <img src="./bootstrap/images/wait.gif" width="150" height="150" class="img-responsive" alt="Conxole Admin"/>
+                                    <img src="./bootstrap/images/inscription.gif" width="200" height="200" class="img-responsive" alt="Conxole Admin"/>
                                 </div>
                             </div>
                             <div class="panel-body">
