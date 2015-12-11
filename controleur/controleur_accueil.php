@@ -1,4 +1,4 @@
 <?php
 	
-	include("./vue/vue_inscription.php");
+	include("./vue/vue_accueil.php");
 ?>
