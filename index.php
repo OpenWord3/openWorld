@@ -6,9 +6,9 @@
 	} else {
 
 		switch($_GET["index"]){
-			case "vue_inscription":
+			/*case "vue_inscription":
 				include("./controleur/controleur_accueil.php");
-				break;
+				break;*/
 			case "vue_connexion":
 				include("./controleur/controleur_connexion.php");
 				break;

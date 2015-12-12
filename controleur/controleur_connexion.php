@@ -13,7 +13,8 @@
 				$status = status_user($pseudo);
 				if($status == "0"){
 					$_SESSION["pseudo"] = $pseudo;
-					include("./dashboard");
+					
+					include("./vue/vue_gestion_blog.php");
 				} else {
 					$_SESSION["pseudo"] = $pseudo;
 					include("./vue/vue_admin.php");

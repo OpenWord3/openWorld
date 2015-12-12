@@ -95,7 +95,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue {Utilisateur}</h1>
+                    <h1 class="page-header">Bienvenue <?php echo $_SESSION["pseudo"];?></h1>
                 </div>
             </div>
 

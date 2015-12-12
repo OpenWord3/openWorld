@@ -24,6 +24,7 @@
                                 </div>
                             </div>
                             <div class="panel-body">
+                                <?php if(isset($_POST["valider"])){echo $alerte;} ?>
                                 <form accept-charset="UTF-8" action="<?php echo INDEX ?>?index=vue_inscription" role="form" class="form-signin" method="POST">
                                     <fieldset>
                                         <label class="panel-login">

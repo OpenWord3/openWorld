@@ -40,5 +40,17 @@
 		return $result;
 	}
 
-	//Function 
+	//Function qui inscrit un vsiteur
+	function inscription($pseudo,$mdp,$nom,$prenom,$mail){
+		global $bdd;
+
+		$req = $bdd->prepare("INSERT INTO `utilisateur` (`pseudo`,`mdp`,`mail`,`nom`,`prenom`,`status_utilisateur`) values (:pseudo,:mdp,:mail,:nom,:prenom,FALSE);");
+		$req->execute(array(
+							'pseudo'=>$pseudo,
+							'mdp'=>$mdp,
+							'mail'=>$mail,
+							'nom'=>$nom,
+							'prenom'=>$prenom));
+		$req->closeCursor();
+	}
 ?>
