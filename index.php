@@ -4,10 +4,11 @@
 	if(!isset($_GET["index"])){
 		include('./vue/vue_accueil.php');
 	} else {
-		switch($_GET["index"]){
+
+		switch($_GET["index"])
 			case "vue_accueil":
 				include("./controleur/controleur_accueil.php");
-				break;
+				break;*/
 			case "vue_connexion":
 				include("./controleur/controleur_connexion.php");
 				break;
