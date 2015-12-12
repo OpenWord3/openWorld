@@ -5,7 +5,7 @@
 		include('./vue/vue_accueil.php');
 	} else {
 		switch($_GET["index"]){
-			case "vue_inscription":
+			case "vue_accueil":
 				include("./controleur/controleur_accueil.php");
 				break;
 			case "vue_connexion":

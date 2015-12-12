@@ -5,6 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="<?PHP echo IMAGE."logo.png"; ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Tableau de bord OPENWORLD">
     <meta name="author" content="Serge Louis Adolphe">
@@ -33,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -42,9 +43,9 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="vue_gestion_profil.php"><i class="fa fa-user fa-fw"></i> Gérer son profil</a>
+                        <li><a href="<?php echo INDEX ?>?index=vue_gestion_profil"><i class="fa fa-user fa-fw"></i> Gérer son profil</a>
                         </li>
-                        <li><a href="vue_parametres.php"><i class="fa fa-gear fa-fw"></i> Paramètres</a>
+                        <li><a href="<?php echo INDEX ?>?index=vue_parametres"><i class="fa fa-gear fa-fw"></i> Paramètres</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Se Deconnecter</a>
@@ -58,7 +59,7 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Recherche...">
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -68,24 +69,24 @@
                         </li>
 
                         <li>
-                            <a href="vue_gestion_blog.php"><i class="fa fa-dashboard fa-fw"></i> Gérer son blog</a>
+                            <a href="<?php echo INDEX ?>?index=vue_gestion_blog"><i class="fa fa-dashboard fa-fw"></i> Gérer son blog</a>
                         </li>
                         
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="vue_gestion_relais.php">Gérer les relais</a>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_relais">Gérer les relais</a>
                                 </li>
 
                                 <li>
-                                    <a href="vue_gestion_mail.php">Gérer son compte mail</a>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_mail">Gérer son compte mail</a>
                                 </li>
                             </ul>
                         </li>
                         
                         <li>
-                            <a href="vue_gestion_timeline.php"><i class="fa fa-table fa-fw"></i> Gérer sa timeline</a>
+                            <a href="<?php echo INDEX ?>?index=vue_gestion_timeline"><i class="fa fa-table fa-fw"></i> Gérer sa timeline</a>
                         </li>
                     </ul>
                 </div>
@@ -111,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#myModalAjout" data-toggle="modal" data-target="#myModalAjout">
                             <div class="panel-footer">
                                 <span class="pull-left">Ajouter un domaine</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -132,7 +133,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#myModalSuppr" data-toggle="modal" data-target="#myModalSuppr">
                             <div class="panel-footer">
                                 <span class="pull-left">Supprimer un domaine</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -144,11 +145,47 @@
             </div>
 
             <ol>
-                Ajout de domaine.
+                Pour ajouter un domaine, entrez l'adresse IP.
             </ol>
             <ol>
-                La suppression du domaine est définitive.
+                La suppression du domaine est définitive. Vous devez entrer une adresse IP.
             </ol>
+
+            <!-- Modal -->
+				<div class="modal fade" id="myModalAjout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Ajout de domaine</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input type="textbox" placeholder="Entrer l'adresse IP" class="form-control">
+						<center><input type="submit" value="Ajouter" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalSuppr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Suppression de domaine</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input type="textbox" placeholder="Entrer l'adresse IP" class="form-control">
+						<center><input type="submit" value="Supprimer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div>
+			<!-- /.modal -->
 
     <!-- jQuery -->
     <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
