@@ -24,15 +24,16 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form" class="form-signin" method="GET">
+                                <?php if(isset($_POST["valider"])){echo $alerte;} ?>
+                                <form accept-charset="UTF-8" action="<?php echo INDEX ?>?index=vue_connexion" role="form" class="form-signin" method="POST">
                                     <fieldset>
                                         <label class="panel-login">
                                             <div class="login_result"></div>
                                         </label>
-                                        <input class="form-control" placeholder="Votre pseudo" id="username" type="text">
-                                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password">
+                                        <input class="form-control" placeholder="Votre pseudo" id="username" type="text" name="pseudo">
+                                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp">
                                         <br></br>
-                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="SE CONNECTER »">
+                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="SE CONNECTER »" name="valider">
                                         <br>
                                         <a href="<?PHP echo INDEX ?>"><input class="btn btn-lg btn-success btn-block" type="cancel" id="cancel" value="« ANNULER"></a>
                                     </fieldset>

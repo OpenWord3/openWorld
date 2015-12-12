@@ -24,21 +24,21 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form" class="form-signin" method="GET">
+                                <form accept-charset="UTF-8" action="<?php echo INDEX ?>?index=vue_inscription" role="form" class="form-signin" method="POST">
                                     <fieldset>
                                         <label class="panel-login">
                                             <div class="login_result"></div>
                                         </label>
-                                        <input class="form-control" placeholder="Votre Nom" id="name" type="name" required>
-                                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" required>
-                                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" required>
-                                        <input class="form-control" placeholder="Votre pseudo" id="username" type="text" required>
-                                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" required>
-                                        <input class="form-control" placeholder="Confirmez le mot de passe" id="passworda" type="passworda" required>
+                                        <input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" required>
+                                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" required>
+                                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="mail" required>
+                                        <input class="form-control" placeholder="Votre pseudo" id="username" type="text" name="pseudo" required>
+                                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp" required>
+                                        <input class="form-control" placeholder="Confirmez le mot de passe" id="passworda" type="passworda" name="mdp2" required>
                                         <br>
                                         <input type="checkbox" name="verif" value="verif" required> Accepter les <a href="<?php echo INDEX ?>?index=vue_conditions">conditions</a> de OpenWorld
                                         <br></br>
-                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="register" value="S'INSCRIRE »">
+                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="register" value="S'INSCRIRE »" name="valider">
                                         <br>
                                          <a href="<?PHP echo INDEX ?>"><input class="btn btn-lg btn-success btn-block" type="cancel" id="cancel" value="« ANNULER"></a>
                                     </fieldset>
