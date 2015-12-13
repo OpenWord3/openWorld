@@ -69,11 +69,11 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo INDEX ?>?index=vue_gestion_blog"><i class="fa fa-dashboard fa-fw"></i> Gérer son blog</a>
+                            <a href="<?php echo INDEX ?>?index=vue_gestion_blog"><i class="fa fa-youtube-play fa-fw"></i> Gérer son blog</a>
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-comments fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo INDEX ?>?index=vue_gestion_relais">Gérer les relais</a>
@@ -106,7 +106,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-plus fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                 </div>
@@ -127,7 +127,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-trash fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                 </div>
