@@ -36,6 +36,9 @@
 			case "vue_parametres":
 				include("./controleur/controleur_parametres.php");
 				break;
+			case "vue_admin":
+				include("./controleur/controleur_admin.php");
+				break;
 		}
 
 	}
