@@ -23,6 +23,8 @@
 
 <body>
 
+    <div id="wrapper">
+
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -50,7 +52,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
                         <i class="fa fa-globe"></i>  <i>(Cpt)</i>
                     </a>
                 </li>
@@ -58,7 +60,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
                         <i class="fa fa-envelope"></i>  <i>(Cpt)</i>
                     </a>
                 </li>
@@ -79,187 +81,19 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à son blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-unlock-alt fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#myModalActivationBlog"  data-toggle="modal" data-target="#myModalActivationBlog">
                             <div class="panel-footer">
-                                <span class="pull-left">Activer son blog</span>
+                                <span class="pull-left">Activer un blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -272,15 +106,15 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-unlock fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#myModalDesactivationBlog"  data-toggle="modal" data-target="#myModalDesactivationBlog">
                             <div class="panel-footer">
-                                <span class="pull-left">Desactiver son blog</span>
+                                <span class="pull-left">Désactiver un blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -293,22 +127,291 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-trash fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#myModalSuppressionBlog"  data-toggle="modal" data-target="#myModalSuppressionBlog">
                             <div class="panel-footer">
-                                <span class="pull-left">Supprimer son blog</span>
+                                <span class="pull-left">Supprimer un blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
                         </a>
                     </div>
                 </div>
-            </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-power-off fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#myModalReboot"  data-toggle="modal" data-target="#myModalReboot">
+                            <div class="panel-footer">
+                                <span class="pull-left">Redemarrer le serveur</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-unlock-alt fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#myModalActivationMail"  data-toggle="modal" data-target="#myModalActivationMail">
+                            <div class="panel-footer">
+                                <span class="pull-left">Activer une adresse mail</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-unlock fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#myModalDesactivationMail"  data-toggle="modal" data-target="#myModalDesactivationMail">
+                            <div class="panel-footer">
+                                <span class="pull-left">Désactiver une adresse mail</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-trash fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#myModalSuppressionMail"  data-toggle="modal" data-target="#myModalSuppressionMail">
+                            <div class="panel-footer">
+                                <span class="pull-left">Supprimer une adresse mail</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-refresh fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#myModalRebootService"  data-toggle="modal" data-target="#myModalRebootService">
+                            <div class="panel-footer">
+                                <span class="pull-left">Redemarrer un service</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+			<!-- Modal -->
+				<div class="modal fade" id="myModalActivationBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Activation de blog</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
+						<center><input type="submit" value="Activer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalDesactivationBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Désactivation de blog</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
+						<center><input type="submit" value="Désactiver" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalSuppressionBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Suppression de blog</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
+						<center><input type="submit" value="Supprimer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalReboot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Redemarrer le serveur ?</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<center><input type="submit" value="OUI" class="panel panel-green"><input type="button" value="NON" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalActivationMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Activation de Mail</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
+						<center><input type="submit" value="Activer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalDesactivationMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Désactivation de Mail</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
+						<center><input type="submit" value="Désactiver" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalSuppressionMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Suppression de Mail</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
+						<center><input type="submit" value="Supprimer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalRebootService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Redemarrer un service ?</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="form-control" placeholder="Le nom du service" id="name" type="name" required>
+						<center><input type="submit" value="Redemarrer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					</form>
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Mail</h4>
+				</div>
+				<div class="modal-body">
+					Mail
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+				<div class="modal fade" id="myModalNotifications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Notifications</h4>
+				</div>
+				<div class="modal-body">
+					Notifications
+				</div>
+				</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+			<!-- /.modal -->
 
     <!-- jQuery -->
     <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
