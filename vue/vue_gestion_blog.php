@@ -113,7 +113,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">
+                        <!--<a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">-->
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_blog&action=acceder_blog">
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -134,7 +136,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "activer_blog"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_blog&action=activer_blog">
                             <div class="panel-footer">
                                 <span class="pull-left">Activer son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -155,7 +158,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "desactiver_blog"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_blog&action=desactiver_blog">
                             <div class="panel-footer">
                                 <span class="pull-left">Desactiver son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -176,7 +180,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "supprimer_blog"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_blog&action=supprimer_blog">
                             <div class="panel-footer">
                                 <span class="pull-left">Supprimer son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

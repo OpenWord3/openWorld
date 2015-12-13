@@ -101,6 +101,7 @@
 		global $bdd;
 
 		$req = $bdd->query("UPDATE `utilisateur` SET `mail_open` = '$adresse_mail' WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `status_mail` = '1' WHERE `id_utilisateur` = $id");
 		
 		$req->closeCursor();
 	}
@@ -129,6 +130,63 @@
 
 		$req = $bdd->prepare("UPDATE `utilisateur` SET `mail_open` = NULL WHERE id_utilisateur = :id");
 		$req->execute(array('id'=>$id));
+		$req->closeCursor();
+	}
+
+	//Fonction qui verifie le blog
+	function blog($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT blog FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["blog"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui ajoute un blog
+	function add_blog($id,$blog,$status){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `blog` = '$blog' WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `status_blog` = '$status' WHERE `id_utilisateur` = $id");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui retourne le status d'un blog
+	function status_blog($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT status_blog FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["status_blog"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui change le status d'un blog
+	function active_blog($id,$status){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `status_blog` = '$status' WHERE `id_utilisateur` = $id");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui ferme un blog
+	function del_blog($id,$status){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `blog` = NULL WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `status_blog` = '$status' WHERE `id_utilisateur` = $id");
+		
 		$req->closeCursor();
 	}
 ?>

@@ -51,6 +51,7 @@
 					$alerte = "Votre compte mail vient d'être définitivement fermé.";
 					//exec('sudo -u www-data /var/script/del_mail_account.sh '.$pseudo); exit;
 					del_mail($id);
+					desactive_mail($id);
 					include("./vue/vue_gestion_mail.php");
 				} else {
 					$alerte = "Vous n'avez aucun compte mail actuellement.";
