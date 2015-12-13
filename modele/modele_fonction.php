@@ -26,7 +26,7 @@
 		return $result;
 	}
 
-	//Fonction qui recupere le status de l'utilisateur
+	//Fonction qui retourne le status de l'utilisateur
 	function status_user($pseudo){
 		global $bdd;
 
@@ -51,6 +51,84 @@
 							'mail'=>$mail,
 							'nom'=>$nom,
 							'prenom'=>$prenom));
+		$req->closeCursor();
+	}
+
+	//Fonction qui verifie si un compte mail existe ou pas
+	function mail_open($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT mail_open FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["mail_open"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui retourne l'id de l'utilisateur
+	function id($pseudo){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT id_utilisateur FROM utilisateur WHERE pseudo = :pseudo");
+		$req->execute(array("pseudo"=>$pseudo));
+
+		while($results = $req->fetch()){
+			$result = $results["id_utilisateur"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui retourne le status d'un compte mail
+	function status_mail($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT status_mail FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["status_mail"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui ajoute un compte mail
+	function add_mail($id,$adresse_mail){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `mail_open` = '$adresse_mail' WHERE `id_utilisateur` = $id");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui active un compte mail
+	function active_mail($id){
+		global $bdd;
+
+		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = TRUE WHERE id_utilisateur = :id");
+		$req->execute(array('id'=>$id));
+		$req->closeCursor();
+	}
+
+	//Fonction qui desactive un compte mail
+	function desactive_mail($id){
+		global $bdd;
+
+		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = FALSE WHERE id_utilisateur = :id");
+		$req->execute(array('id'=>$id));
+		$req->closeCursor();
+	}
+
+	//Fonction qui supprime une adresse mail
+	function del_mail($id){
+		global $bdd;
+
+		$req = $bdd->prepare("UPDATE `utilisateur` SET `mail_open` = NULL WHERE id_utilisateur = :id");
+		$req->execute(array('id'=>$id));
 		$req->closeCursor();
 	}
 ?>

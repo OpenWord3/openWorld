@@ -96,7 +96,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue {Utilisateur}</h1>
+                    <h1 class="page-header">Bienvenue <?php echo $_SESSION["pseudo"];?></h1>
                 </div>
             </div>
 
@@ -112,7 +112,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "activer_mail"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_mail&action=activer_mail">
                             <div class="panel-footer">
                                 <span class="pull-left">Activer son mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -133,7 +134,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "desactiver_mail"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_mail&action=desactiver_mail">
                             <div class="panel-footer">
                                 <span class="pull-left">Desactiver son mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -154,7 +156,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "supprimer_mail"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_mail&action=supprimer_mail">
                             <div class="panel-footer">
                                 <span class="pull-left">Supprimer son mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

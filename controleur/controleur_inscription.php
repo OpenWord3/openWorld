@@ -17,6 +17,9 @@
 			inscription($pseudo,$mdp,$nom,$prenom,$mail);
 			$_SESSION["pseudo"] = $pseudo;
 			$_SESSION["prenom"] = $prenom;
+			$_SESSION["mdp"] = $mdp;
+			$id = id($pseudo);
+			$_SESSION["id"] = $id;
 			include("./vue/vue_gestion_blog.php");
 		}		
 	} else {

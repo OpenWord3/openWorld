@@ -13,7 +13,9 @@
 				$status = status_user($pseudo);
 				if($status == "0"){
 					$_SESSION["pseudo"] = $pseudo;
-					
+					$id = id($pseudo);
+					$_SESSION["id"] = $id;
+					$_SESSION["mdp"] = $mdp;
 					include("./vue/vue_gestion_blog.php");
 				} else {
 					$_SESSION["pseudo"] = $pseudo;
