@@ -92,6 +92,7 @@
                             </div>
                         </div>
                         <a href="#myModalActivationBlog"  data-toggle="modal" data-target="#myModalActivationBlog">
+                        <?php if(isset($_POST["activer_blog"])){echo $alerte;}?>
                             <div class="panel-footer">
                                 <span class="pull-left">Activer un blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -113,6 +114,7 @@
                             </div>
                         </div>
                         <a href="#myModalDesactivationBlog"  data-toggle="modal" data-target="#myModalDesactivationBlog">
+                        <?php if(isset($_POST["desactiver_blog"])){echo $alerte;}?>
                             <div class="panel-footer">
                                 <span class="pull-left">Désactiver un blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -134,6 +136,7 @@
                             </div>
                         </div>
                         <a href="#myModalSuppressionBlog"  data-toggle="modal" data-target="#myModalSuppressionBlog">
+                        <?php if(isset($_POST["supprimer_blog"])){echo $alerte;}?>
                             <div class="panel-footer">
                                 <span class="pull-left">Supprimer un blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -176,6 +179,7 @@
                             </div>
                         </div>
                         <a href="#myModalActivationMail"  data-toggle="modal" data-target="#myModalActivationMail">
+                        <?php if(isset($_POST["activer_mail"])){echo $alerte;}?>
                             <div class="panel-footer">
                                 <span class="pull-left">Activer une adresse mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -197,6 +201,7 @@
                             </div>
                         </div>
                         <a href="#myModalDesactivationMail"  data-toggle="modal" data-target="#myModalDesactivationMail">
+                        <?php if(isset($_POST["desactiver_mail"])){echo $alerte;}?>
                             <div class="panel-footer">
                                 <span class="pull-left">Désactiver une adresse mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -218,6 +223,7 @@
                             </div>
                         </div>
                         <a href="#myModalSuppressionMail"  data-toggle="modal" data-target="#myModalSuppressionMail">
+                        <?php if(isset($_POST["supprimer_mail"])){echo $alerte;}?>
                             <div class="panel-footer">
                                 <span class="pull-left">Supprimer une adresse mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
