@@ -160,9 +160,10 @@
 				<h4 class="modal-title" id="myModalLabel">Ajout de domaine</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input type="textbox" placeholder="Entrer l'adresse IP" class="form-control">
-						<center><input type="submit" value="Ajouter" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					<form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
+                        <input type="textbox" placeholder="Entrer le nom de domaine" class="form-control" name="domain" required>
+						<input type="textbox" placeholder="Entrer l'adresse IP" class="form-control" name="ip" required>
+						<center><input type="submit" value="Ajouter" class="panel panel-green" name="ajouter"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
@@ -178,8 +179,8 @@
 				</div>
 				<div class="modal-body">
 					<form>
-						<input type="textbox" placeholder="Entrer l'adresse IP" class="form-control">
-						<center><input type="submit" value="Supprimer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+						<input type="textbox" placeholder="Entrer le nom de domaine" class="form-control" name="domain" required>
+						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->

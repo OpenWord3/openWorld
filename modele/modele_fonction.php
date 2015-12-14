@@ -189,4 +189,50 @@
 		
 		$req->closeCursor();
 	}
+
+	//Fonction qui retourne un nom de domain
+	function domain($domain){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT nom_domain FROM relais_mail WHERE nom_domain = :domain");
+		$req->execute(array("domain"=>$domain));
+
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
+	}
+
+	//Fonction qui retourne l'ip
+	function ip($ip){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT ip FROM relais_mail WHERE ip = :ip");
+		$req->execute(array("ip"=>$ip));
+
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
+	}
+
+	//Fonction qui ajoute un nom de domaine et un adresse ip
+	function add_relais($domain,$ip){
+		global $bdd;
+
+		$req = $bdd->prepare("INSERT INTO `relais_mail` (`nom_domain`,`ip`) values (:domain,:ip);");
+		$req->execute(array(
+							'domain'=>$domain,
+							'ip'=>$ip));
+		$req->closeCursor();
+	}
+
+	//Fonction qui supprime un nom de domaine
+	function del_relais($domain){
+		global $bdd;
+
+		$req = $bdd->prepare("DELETE FROM `relais_mail` WHERE `nom_domain` = :domain");
+		$req->execute(array('domain'=>$domain));
+		$req->closeCursor();
+	}
 ?>
