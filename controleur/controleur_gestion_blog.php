@@ -31,7 +31,10 @@
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
-					shell_exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
+					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp, $out, $status); /*exit;*/
+					if($status != 0){
+						echo "Commande failed with status : $status";
+					}
 					//echo $blog;
 					//add_blog($id,$blog,$status);
 					$alerte = "Votre blog vient d'être activé.";
