@@ -32,16 +32,22 @@
 				break;
 			case "desactiver_mail":
 				$id = $_SESSION["id"];
-				$verif_status_mail = status_mail($id);
-				if($verif_status_mail == "1"){					
-					$pseudo = $_SESSION["pseudo"];
-					$alerte = "Votre compte mail vient d'être désactivé.";
-					exec('sudo /var/script/desactivation_mail_account.sh '.$pseudo);						
-					desactive_mail($id);
+				$verif_mail = mail_open($id);
+				if($verif_mail == ""){					
+					$alerte = "Vous n'avez pas de compte mail actuellement";
 					include("./vue/vue_gestion_mail.php");
 				} else {
-					$alerte = "Votre compte mail est déjà désactivé.";
-					include("./vue/vue_gestion_mail.php");
+					$verif_status_mail = status_mail($id);
+					if($verif_status_mail == "1"){					
+						$pseudo = $_SESSION["pseudo"];
+						$alerte = "Votre compte mail vient d'être désactivé.";
+						exec('sudo /var/script/desactivation_mail_account.sh '.$pseudo);						
+						desactive_mail($id);
+						include("./vue/vue_gestion_mail.php");
+					} else {
+						$alerte = "Votre compte mail est déjà désactivé.";
+						include("./vue/vue_gestion_mail.php");
+					}
 				}
 				break;
 			case "supprimer_mail":

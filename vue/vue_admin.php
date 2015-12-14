@@ -257,9 +257,9 @@
 				<h4 class="modal-title" id="myModalLabel">Activation de blog</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
-						<center><input type="submit" value="Activer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					<form action="<?php echo INDEX ?>index=vue_admin" method="post">
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+						<center><input type="submit" value="Activer" class="panel panel-green" name="activer_blog"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
@@ -274,9 +274,9 @@
 				<h4 class="modal-title" id="myModalLabel">Désactivation de blog</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
-						<center><input type="submit" value="Désactiver" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					<form action="<?php echo INDEX ?>index=vue_admin" method="post">
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+						<center><input type="submit" value="Désactiver" class="panel panel-green" name="desactiver_blog"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
@@ -291,9 +291,9 @@
 				<h4 class="modal-title" id="myModalLabel">Suppression de blog</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
-						<center><input type="submit" value="Supprimer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					<form action="<?php echo INDEX ?>index=vue_admin" method="post">
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
@@ -324,9 +324,9 @@
 				<h4 class="modal-title" id="myModalLabel">Activation de Mail</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
-						<center><input type="submit" value="Activer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					<form action="<?php echo INDEX ?>index=vue_admin" method="post">
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+						<center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
@@ -341,9 +341,9 @@
 				<h4 class="modal-title" id="myModalLabel">Désactivation de Mail</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
-						<center><input type="submit" value="Désactiver" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					<form action="<?php echo INDEX ?>index=vue_admin" method="post">
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+						<center><input type="submit" value="Désactiver" class="panel panel-green" name="desactiver_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
@@ -358,9 +358,9 @@
 				<h4 class="modal-title" id="myModalLabel">Suppression de Mail</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" required>
-						<center><input type="submit" value="Supprimer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+					<form action="<?php echo INDEX ?>index=vue_admin" method="post">
+						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
