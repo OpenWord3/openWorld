@@ -33,10 +33,10 @@
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
-					echo $pseudo, $mdp, $output, $error;
+					echo $pseudo, $mdp;
 
 
-					//$check = exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp, $output, $error); /*exit;*/
+					$check = exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
 					var_dump($check);
 					var_dump($output);
 					var_dump($error);
