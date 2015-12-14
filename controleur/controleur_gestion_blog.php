@@ -37,6 +37,7 @@
 					//var_dump($check);
 					//echo $blog;
 					//add_blog($id,$blog,$status);
+					sleep(30);
 					$alerte = "Votre blog vient d'être activé.";
 					include("./vue/vue_gestion_blog.php");
 				} else {
