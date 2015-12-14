@@ -29,8 +29,8 @@
 				if($verif_blog == ""){
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";					
-					//exec('sudo -u www-data -s /bin/bash'); exit;
-					exec('sudo -u www-data /var/script/add_vhost.sh '.$pseudo.' '.$mdp); exit;
+					//exec('sudo -u www-data -s /bin/bash '); exit;
+					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); exit;
 					add_blog($id,$blog,$status);
 					$alerte = "Votre blog vient d'être activé.";
 					include("./vue/vue_gestion_blog.php");
