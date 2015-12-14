@@ -12,7 +12,7 @@
 					$mdp = $_SESSION["mdp"];
 					$adresse_mail = $pseudo."@openworld.itinet.fr";
 					//exec('sudo -u www-data -s /bin/bash'); exit;				
-					exec('sudo /var/script/add_mail_acount.sh '.$pseudo.' '.$mdp); /*exit;*/
+					exec('sudo /var/script/add_mail_account.sh '.$pseudo.' '.$mdp); /*exit;*/
 					add_mail($id,$adresse_mail);
 					active_mail($id);
 					$alerte = "Votre compte mail qui est ".$pseudo."@openworld.itinet.fr vient d'être activé. Vous pouvez vous connecté avec le même mot de passe";
