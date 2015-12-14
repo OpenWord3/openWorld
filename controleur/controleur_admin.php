@@ -73,7 +73,7 @@
 				$alerte = "Le blog de cet utilisateur vient d'être définitivement fermé.";
 				exec('sudo /var/script/remove_vhost.sh '.$pseudo);
 				del_blog($id,$status);
-				include("./vue/vue_gestion_blog.php");
+				include("./vue/vue_admin.php");
 			}
 		} else {
 			$alerte = "Cet utilisateur n'existe pas dans notre base de donné.";
@@ -149,10 +149,10 @@
 				exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 				del_mail($id);
 				desactive_mail($id);
-				include("./vue/vue_gestion_mail.php");
+				include("./vue/vue_admin.php");
 			} else {
 				$alerte = "Cet utilisateur n'utilise pas notre service mail actuellement.";
-				include("./vue/vue_gestion_mail.php");
+				include("./vue/vue_admin.php");
 			}
 		} else {
 			$alerte = "Cet utilisateur n'existe pas dans notre base de donné.";
