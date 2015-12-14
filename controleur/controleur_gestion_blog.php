@@ -30,6 +30,7 @@
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
+					echo $blog;
 					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
 					echo $blog;
 					add_blog($id,$blog,$status);
