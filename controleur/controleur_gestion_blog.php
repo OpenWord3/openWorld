@@ -33,6 +33,9 @@
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
+					
+					$pseudo = "zaza10";
+					$mdp = "zazi";
 					echo $pseudo, $mdp;
 					$check = system('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
 					var_dump($check);
