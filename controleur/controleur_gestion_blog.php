@@ -33,7 +33,7 @@
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
-					$check = system('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
+					$check = exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
 					var_dump($check);
 					//echo $blog;
 					//add_blog($id,$blog,$status);
