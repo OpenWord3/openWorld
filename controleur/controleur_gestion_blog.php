@@ -29,7 +29,8 @@
 				if($verif_blog == ""){
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";					
-					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); 
+					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp);
+					add_blog($id,$blog,$status); 
 					$alerte = "Votre blog vient d'être activé.";
 					include("./vue/vue_gestion_blog.php");
 				} else {
@@ -41,7 +42,6 @@
 						$alerte = "Votre blog vient d'être activé.";
 						$status = "1";
 						active_blog($id,$status);
-						//exec('sudo -u www-data -s /bin/bash'); exit;
 						exec('sudo /var/script/activation_vhost.sh '.$pseudo);
 						include("./vue/vue_gestion_blog.php");
 					}
@@ -61,8 +61,7 @@
 						$alerte = "Votre blog vient d'être désactivé.";
 						$status = "0";
 						active_blog($id,$status);
-						//exec('sudo -u www-data -s /bin/bash'); exit;
-						exec('sudo /var/script/unactivation_vhost.sh '.$pseudo); exit;
+						exec('sudo /var/script/unactivation_vhost.sh '.$pseudo);
 						include("./vue/vue_gestion_blog.php");
 					}
 				}
@@ -75,8 +74,7 @@
 				} else {
 					$status = "0";
 					$alerte = "Votre blog vient d'être définitivement fermé.";
-					//exec('sudo -u www-data -s /bin/bash'); exit;
-					exec('sudo /var/script/remove_vhost.sh '.$pseudo); exit;
+					exec('sudo /var/script/remove_vhost.sh '.$pseudo);
 					del_blog($id,$status);
 					include("./vue/vue_gestion_blog.php");
 				}
