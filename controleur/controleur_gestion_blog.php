@@ -27,6 +27,7 @@
 			case "activer_blog":
 				$verif_blog = blog($id);
 				echo "TEST";
+				echo $verif_blog;
 				/*if($verif_blog == ""){
 					//echo "COUCOU";
 					$blog = $pseudo.".openworld.itinet.fr";
