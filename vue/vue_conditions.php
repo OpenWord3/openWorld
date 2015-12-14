@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CONNEXION</title>
-    <meta name="description" content="Page de connexion" />
+    <title>TERMES ET CONDITIONS</title>
+    <meta name="description" content="Conditions générales" />
     <link rel="icon" type="image/png" href="<?PHP echo IMAGE."logo.png"; ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
@@ -19,12 +19,13 @@
                     <div>
                         <div class="panel panel-default">
                         <center>
+                        <font face="times new roman">
                         <h1>TERMES ET CONDITIONS</h1>
                         <H2>AVIS JURIDIQUE IMPORTANT</H2>
                         </center>
-                        <h3>ATTENTION: Cet avis juridique applique à tout le contenu du site Web sous le nom de domaine www.openworld.itinet.fr (Site Web) et à toute correspondance par e-mail entre vous et nous. S'il vous plaît lire attentivement ces conditions avant d'utiliser le Site. Utilisation du site Web indique que vous acceptez ces conditions indépendamment de savoir si oui ou non vous choisissez de vous inscrire avec nous. Si vous ne les acceptez pas, ne pas utiliser le Site.</h3>
+                        <B><U>ATTENTION</U></B> Cet avis juridique applique à tout le contenu du site Web sous le nom de domaine www.openworld.itinet.fr et à toute correspondance par e-mail entre vous et nous. S'il vous plaît lire attentivement ces conditions avant d'utiliser le Site. Utilisation du site Web indique que vous acceptez ces conditions indépendamment de savoir si oui ou non vous choisissez de vous inscrire avec nous. Si vous ne les acceptez pas, ne pas utiliser le Site.
 
-                        <br>1. Introduction
+                        <BR><br>1. Introduction
                         <br>1.1 Vous pouvez accéder à la plupart des zones du site Web sans vous inscrire vos coordonnées avec nous. Certaines zones du site Web ne sont ouverts à vous si vous vous inscrivez.
                         <br>
                         <br>1.2 En accédant à toute partie du Site, vous êtes réputé avoir accepté le présent avis légal complet. Si vous ne l'acceptez cet avis légal complet, vous devez quitter immédiatement le Site.
@@ -106,9 +107,11 @@
                         <br>8.3 Si votre utilisation du matériel sur les résultats du site web dans le besoin d'entretien, de réparation ou de correction d'équipements, de logiciels ou de données, vous assumez tous les coûts de ceux-ci.
 <br>
                         <br>9. LOI APPLICABLE ET COMPÉTENCE
-                        <br>Cet avis juridique sera régi et interprété conformément au droit anglais. Les différends nés dans le cadre de la présente notice légale sont soumis à la compétence exclusive des tribunaux anglais.
-                        <br><a href="<?php echo INDEX ?>?index=vue_inscription"><input class="btn btn-lg btn-success btn-block" type="cancel" id="cancel" value="« ANNULER"></a>
+                        <br>Cet avis juridique sera régi et interprété conformément au droit francais. Les différends nés dans le cadre de la présente notice légale sont soumis à la compétence exclusive des tribunaux francais.
+                        
                         </div>
+                        </FONT>
+                        <br><a href="<?php echo INDEX ?>?index=vue_inscription"><input class="btn btn-lg btn-success btn-block" type="cancel" id="cancel" value="« RETOUR"></a>
                     </div>
                 </div>
             </div>
