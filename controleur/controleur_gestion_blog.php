@@ -26,14 +26,17 @@
 				break;
 			case "activer_blog":
 				$verif_blog = blog($id);
+				echo "TEST";
 				if($verif_blog == ""){
+					echo "COUCOU";
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
 					echo $pseudo, $mdp, $output, $error;
 
-					$check = exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp, $output, $error); /*exit;*/
+
+					//$check = exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp, $output, $error); /*exit;*/
 					var_dump($check);
 					var_dump($output);
 					var_dump($error);
