@@ -34,12 +34,8 @@
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
 					echo $pseudo, $mdp;
-
-
-					$check = exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
+					$check = system('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
 					var_dump($check);
-					var_dump($output);
-					var_dump($error);
 					//echo $blog;
 					//add_blog($id,$blog,$status);
 					$alerte = "Votre blog vient d'être activé.";
