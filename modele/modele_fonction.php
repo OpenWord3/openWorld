@@ -236,4 +236,7 @@
 		$req->execute(array('domain'=>$domain));
 		$req->closeCursor();
 	}
+
+	//Fonction qui deconnecte l'utilisateur
+	//function logout()
 ?>
