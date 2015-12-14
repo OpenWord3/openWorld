@@ -31,11 +31,10 @@
 				if($verif_blog == ""){
 					//echo "COUCOU";
 					$blog = $pseudo.".openworld.itinet.fr";
-					echo $blog;
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
-					//exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); 
+					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); 
 					//var_dump($check);
 					//echo $blog;
 					//add_blog($id,$blog,$status);
