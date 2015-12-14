@@ -27,13 +27,13 @@
 			case "activer_blog":
 				$verif_blog = blog($id);
 				echo "TEST";
-				if($verif_blog == ""){
+				/*if($verif_blog == ""){
 					//echo "COUCOU";
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
-					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
+					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); 
 					//var_dump($check);
 					//echo $blog;
 					//add_blog($id,$blog,$status);
@@ -53,7 +53,7 @@
 						exec('sudo /var/script/activation_vhost.sh '.$pseudo); exit;
 						include("./vue/vue_gestion_blog.php");
 					}
-				}
+				}*/
 				break;
 			case "desactiver_blog":
 				$verif_blog = blog($id);
