@@ -30,7 +30,7 @@
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";
 					add_blog($id,$blog,$status);
-					//exec('sudo -u www-data -s /bin/bash'); exit;
+					exec('sudo -u www-data -s /bin/bash'); exit;
 					exec('sudo /var/script/add_vhost.sh'.$pseudo.' '.$mdp); exit;
 					$alerte = "Votre blog vient d'être activé.";
 					include("./vue/vue_gestion_blog.php");
