@@ -195,7 +195,7 @@
 		global $bdd;
 
 		$req = $bdd->prepare("SELECT nom_domain FROM relais_mail WHERE nom_domain = :domain");
-		$req->execute(array("domain"=>$domain));
+		$req->execute(array("domain"=>'$domain'));
 
 		$exist = $req->rowCount();
 		$req->closeCursor();
@@ -208,7 +208,7 @@
 		global $bdd;
 
 		$req = $bdd->prepare("SELECT ip FROM relais_mail WHERE ip = :ip");
-		$req->execute(array("ip"=>$ip));
+		$req->execute(array("ip"=>'$ip'));
 
 		$exist = $req->rowCount();
 		$req->closeCursor();
@@ -222,8 +222,8 @@
 
 		$req = $bdd->prepare("INSERT INTO `relais_mail` (`nom_domain`,`ip`,`utilisateur_id_utilisateur`) values (:domain,:ip,:id);");
 		$req->execute(array(
-							'domain'=>$domain,
-							'ip'=>$ip,
+							'domain'=>'$domain',
+							'ip'=>'$ip',
 							'id'=>$id));
 		$req->closeCursor();
 	}
@@ -233,7 +233,7 @@
 		global $bdd;
 
 		$req = $bdd->prepare("DELETE FROM `relais_mail` WHERE `nom_domain` = :domain");
-		$req->execute(array('domain'=>$domain));
+		$req->execute(array('domain'=>'$domain'));
 		$req->closeCursor();
 	}
 ?>
