@@ -10,8 +10,9 @@
 				if($verif_mail == ""){
 					$pseudo = $_SESSION["pseudo"];
 					$mdp = $_SESSION["mdp"];
-					$adresse_mail = $pseudo."@openworld.itinet.fr";					
-					exec('sudo -u www-data /var/script/add_compte_mail.sh '.$pseudo.' '.$mdp); exit;
+					$adresse_mail = $pseudo."@openworld.itinet.fr";
+					exec('sudo -u www-data -s /bin/bash ');					
+					exec('sudo /var/script/add_compte_mail.sh '.$pseudo.' '.$mdp); exit;
 					add_mail($id,$adresse_mail);
 					active_mail($id);
 					$alerte = "Votre compte mail qui est ".$pseudo."@openworld.itinet.fr vient d'être activé. Vous pouvez vous connecté avec le même mot de passe";
@@ -23,7 +24,8 @@
 						include("./vue/vue_gestion_mail.php");
 					} else {
 						$alerte = "Votre compte mail vient d'être activé.";
-						exec('sudo -u www-data /var/script/activation_mail_account.sh '.$pseudo); exit;						
+						exec('sudo -u www-data -s /bin/bash ');
+						exec('sudo /var/script/activation_mail_account.sh '.$pseudo); exit;						
 						active_mail($id);
 						include("./vue/vue_gestion_mail.php");
 					}
@@ -35,7 +37,8 @@
 				if($verif_status_mail == "1"){					
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Votre compte mail vient d'être désactivé.";
-					exec('sudo -u www-data /var/script/desactivation_mail_account.sh '.$pseudo); exit;						
+					exec('sudo -u www-data -s /bin/bash ');
+					exec('sudo /var/script/desactivation_mail_account.sh '.$pseudo); exit;						
 					desactive_mail($id);
 					include("./vue/vue_gestion_mail.php");
 				} else {
@@ -49,7 +52,8 @@
 				if($verif_mail != ""){
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Votre compte mail vient d'être définitivement fermé.";
-					exec('sudo -u www-data /var/script/del_mail_account.sh '.$pseudo); exit;
+					exec('sudo -u www-data -s /bin/bash ');
+					exec('sudo /var/script/del_mail_account.sh '.$pseudo); exit;
 					del_mail($id);
 					desactive_mail($id);
 					include("./vue/vue_gestion_mail.php");
