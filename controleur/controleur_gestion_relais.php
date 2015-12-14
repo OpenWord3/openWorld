@@ -27,7 +27,7 @@
 	} else if(isset($_POST["supprimer"])) {
 		$domain = $_POST["domain"];
 		$verif_domain = domain($domain);
-		if($verif_domain == 0){
+		if($verif_domain != 0){
 			del_relais($domain);
 			exec('sudo /var/script/del-relais.sh '.$domain);
 			$alerte = "Le nom de domaine vient d’être supprimé de notre service.";
