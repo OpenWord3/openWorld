@@ -180,7 +180,7 @@
 				<h4 class="modal-title" id="myModalLabel">Suppression de domaine</h4>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
 						<input type="textbox" placeholder="Entrer le nom de domaine" class="form-control" name="domain" required>
 						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
