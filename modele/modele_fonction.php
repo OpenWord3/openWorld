@@ -217,13 +217,14 @@
 	}
 
 	//Fonction qui ajoute un nom de domaine et un adresse ip
-	function add_relais($domain,$ip){
+	function add_relais($domain,$ip,$id){
 		global $bdd;
 
-		$req = $bdd->prepare("INSERT INTO `relais_mail` (`nom_domain`,`ip`) values (:domain,:ip);");
+		$req = $bdd->prepare("INSERT INTO `relais_mail` (`nom_domain`,`ip`,`utilisateur_id_utilisateur`) values (:domain,:ip,:id);");
 		$req->execute(array(
 							'domain'=>$domain,
-							'ip'=>$ip));
+							'ip'=>$ip,
+							'id'=>$id));
 		$req->closeCursor();
 	}
 
