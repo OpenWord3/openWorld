@@ -23,7 +23,6 @@
 						include("./vue/vue_gestion_mail.php");
 					} else {
 						$pseudo = $_SESSION["pseudo"];
-						echo $pseudo;
 						$alerte = "Votre compte mail vient d'être activé.";
 						exec('sudo /var/script/activation_mail_account.sh '.$pseudo);					
 						active_mail($id);
