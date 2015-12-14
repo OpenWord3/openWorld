@@ -28,13 +28,13 @@
 				$verif_blog = blog($id);
 				echo "TEST";
 				if($verif_blog == ""){
-					echo "COUCOU";
+					//echo "COUCOU";
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";					
 					//exec('sudo -u www-data -s /bin/bash '); exit;
 					//echo $blog;
-					$check = exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
-					var_dump($check);
+					exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp); /*exit;*/
+					//var_dump($check);
 					//echo $blog;
 					//add_blog($id,$blog,$status);
 					$alerte = "Votre blog vient d'être activé.";
