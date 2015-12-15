@@ -245,6 +245,20 @@
 		$req->closeCursor();
 	}
 
+	//Fonction qui recupere le domaine d'un utilisateur
+	function domain_user($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT `nom_domain` FROM `relais_mail` WHERE `utilisateur_id_utilisateur` = :id");
+		$req->execute(array('id'=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["nom_domain"];
+		}
+
+		return $result;
+	}
+
 	//Fonction qui deconnecte l'utilisateur
 	function logout($pseudo){
 		global $bdd;
