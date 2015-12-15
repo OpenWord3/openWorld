@@ -237,6 +237,20 @@
 		$req->closeCursor();
 	}
 
+	function del_relais2($id){
+		global $bdd;
+
+		$req = $bdd->prepare("DELETE FROM `relais_mail` WHERE `utilisateur_id_utilisateur` = :id");
+		$req->execute(array('id'=>$id));
+		$req->closeCursor();
+	}
+
 	//Fonction qui deconnecte l'utilisateur
-	//function logout()
+	function logout($pseudo){
+		global $bdd;
+
+		$req = $bdd->prepare("DELETE FROM `utilisateur` WHERE `pseudo` = :pseudo");
+		$req->execute(array('pseudo'=>$pseudo));
+		$req->closeCursor();
+	}
 ?>
