@@ -174,10 +174,10 @@
 				</div>
 				<div class="modal-body">
 				  <center>
-					<form>
+					<!--<form>-->
 						<a href="<?php echo INDEX ?>?index=vue_gestion_profil&desinscrire=oui"><button class="panel panel-green">OUI</button></a>
 						<button class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true">NON</button>
-					</form>
+					<!--</form>-->
 				  </center>
 				</div>
 				</div><!-- /.modal-content -->
