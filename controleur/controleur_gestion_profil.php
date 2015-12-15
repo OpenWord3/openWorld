@@ -19,6 +19,8 @@
 	} /*else if (){
 
 	}*/else {
+		$pseudo = $_SESSION["pseudo"];
+		echo $pseudo;
 		include("./vue/vue_gestion_profil.php");	
 	}
 	
