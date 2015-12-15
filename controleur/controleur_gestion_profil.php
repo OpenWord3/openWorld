@@ -18,7 +18,7 @@
 		
 		del_relais2($id);
 		logout($pseudo);
-		header("location:openworld.itinet.fr");
+		header("location:index.php");
 	} /*else if (){
 
 	}*/else {
