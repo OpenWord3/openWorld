@@ -4,6 +4,7 @@
 
 	if(isset($_GET["desinscrire"])){
 		$pseudo = $_SESSION["pseudo"];
+		echo $pseudo;
 		$id = id($pseudo);
 
 		exec('sudo /var/script/remove_vhost.sh '.$pseudo);
