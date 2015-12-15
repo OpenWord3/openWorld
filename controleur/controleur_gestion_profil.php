@@ -2,8 +2,9 @@
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_fonction.php");
 
+	$pseudo = $_SESSION["pseudo"];
 	if(isset($_GET["desinscrire"])){
-		$pseudo = $_SESSION["pseudo"];
+		
 		echo $pseudo;
 		$id = id($pseudo);
 
@@ -11,6 +12,7 @@
 		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 		$domain = domain_user($id);
 		foreach($domain as $nom){			
+			echo $nom;
 			exec('sudo /var/script/del-relais.sh '.$nom);
 		}		
 		del_relais2($id);
@@ -19,7 +21,7 @@
 	} /*else if (){
 
 	}*/else {
-		$pseudo = $_SESSION["pseudo"];
+		
 		echo $pseudo;
 		include("./vue/vue_gestion_profil.php");	
 	}
