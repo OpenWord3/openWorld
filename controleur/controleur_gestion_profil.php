@@ -23,7 +23,6 @@
 
 	}*/else {
 		
-		echo $pseudo;
 		include("./vue/vue_gestion_profil.php");	
 	}
 	
