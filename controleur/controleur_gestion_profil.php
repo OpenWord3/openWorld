@@ -6,8 +6,11 @@
 	if(isset($_GET["desinscrire"])){
 		
 		echo $pseudo;
-		$pseudo = $_GET["desinscrire"];
+
+
 		$id = id($pseudo);
+		del_relais2($id);
+		logout($pseudo);
 
 		exec('sudo /var/script/remove_vhost.sh '.$pseudo);
 		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
@@ -16,8 +19,7 @@
 			echo $nom;
 			exec('sudo /var/script/del-relais.sh '.$nom);
 		}*/		
-		del_relais2($id);
-		logout($pseudo);
+		
 		header("location:openworld.itinet.fr");
 	} /*else if (){
 
