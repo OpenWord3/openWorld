@@ -22,7 +22,6 @@
 	} /*else if (){
 
 	}*/else {
-		
 		include("./vue/vue_gestion_profil.php");	
 	}
 	
