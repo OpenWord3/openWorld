@@ -140,6 +140,7 @@
             </div>
 
             <ol>
+                <?php if(isset($_POST["modifier"])){echo $alerte;} ?>
                 La désincription est définitive. Vous perdrez toutes vos données et tous vos services.
             </ol>
 
@@ -152,6 +153,7 @@
 				<h4 class="modal-title" id="myModalLabel">Modification de profil</h4>
 				</div>
 				<div class="modal-body">
+                    
 					<form action="<?php echo INDEX ?>?index=vue_gestion_profil" method="post">
 						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" required>
                         <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" required>
