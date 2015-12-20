@@ -12,6 +12,19 @@
 		return $exist;
 	}
 
+	//Fonction qui verifie si un compte mail existe
+	function check_mail($email){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT mail FROM utilisateur WHERE mail = :email");
+		$req->execute(array("email"=>$email));
+
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
+	}
+
 	//Fonction qui retourne le mot de passe
 	function mdp($pseudo){
 		global $bdd;
@@ -265,6 +278,18 @@
 
 		$req = $bdd->prepare("DELETE FROM `utilisateur` WHERE `pseudo` = :pseudo");
 		$req->execute(array('pseudo'=>$pseudo));
+		$req->closeCursor();
+	}
+
+	//Fonction qui modifie les informations de l'utilisateur
+	function edit_profil($id,$nom,$prenom,$email,$mdp){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `nom` = '$nom' WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `prenom` = '$prenom' WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `email` = '$email' WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `mdp` = '$mdp' WHERE `id_utilisateur` = $id");
+		
 		$req->closeCursor();
 	}
 ?>
