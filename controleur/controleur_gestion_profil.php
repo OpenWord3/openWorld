@@ -30,10 +30,20 @@
 			include("./vue/vue_gestion_profil.php");
 		} else{
 
-			exec('sudo /var/script/change_passwd.sh '.$pseudo.' '.$mdp);
-			edit_profil($id,$nom,$prenom,$email,$mdp);
-			$alerte = "Vos modifications ont bien été prises en compte.";
-			include("./vue/vue_gestion_profil.php");
+			$_SESSION["mdp"] = $mdp
+
+			$verif_mail = mail_open($id);
+			if($verif_mail !== ""){
+				exec('sudo /var/script/change_passwd.sh '.$pseudo.' '.$mdp);
+				edit_profil($id,$nom,$prenom,$email,$mdp);
+				$alerte = "Vos modifications ont bien été prises en compte.";
+				include("./vue/vue_gestion_profil.php");
+				
+			} else {
+				edit_profil($id,$nom,$prenom,$email,$mdp);
+				$alerte = "Vos modifications ont bien été prises en compte.";
+				include("./vue/vue_gestion_profil.php");
+			}
 		} 
 	}else {
 		include("./vue/vue_gestion_profil.php");	
