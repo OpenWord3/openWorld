@@ -287,7 +287,7 @@
 
 		$req = $bdd->query("UPDATE `utilisateur` SET `nom` = '$nom' WHERE `id_utilisateur` = $id");
 		$req = $bdd->query("UPDATE `utilisateur` SET `prenom` = '$prenom' WHERE `id_utilisateur` = $id");
-		$req = $bdd->query("UPDATE `utilisateur` SET `email` = '$email' WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `mail` = '$email' WHERE `id_utilisateur` = $id");
 		$req = $bdd->query("UPDATE `utilisateur` SET `mdp` = '$mdp' WHERE `id_utilisateur` = $id");
 		
 		$req->closeCursor();
