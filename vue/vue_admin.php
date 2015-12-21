@@ -392,7 +392,7 @@
 
                 <div>
                     <?php 
-                        var_dump($results);
+                        
                         foreach($results as $result){
                             echo $result['id_utilisateur'];
                             echo $result['pseudo'];
