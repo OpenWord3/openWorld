@@ -409,7 +409,7 @@
                         <th>SERVICE MAIL</th>
                         <th>SERVICE BLOG</th>
                         <th>FERMER MAIL</th>
-                        <th>FREMER BLOG</th>
+                        <th>FERMER BLOG</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -461,6 +461,31 @@
                                 if($verif_blog == ""){
                                     echo "disabled='disabled'";
                             } ?>>
+                        </form> 
+                    </td>
+                    <td>
+                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" required>
+                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"
+                               <?php 
+                                    $verif_mail = mail_open($result['id_utilisateur']);
+                                    if($verif_mail == ""){
+                                        echo "disabled='disabled'";
+                                    } 
+                                ?> 
+                            >
+                        </form> 
+                    </td>
+                    <td>
+                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" required>
+                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"
+                                <?php 
+                                $verif_blog = blog($result['id_utilisateur']);
+                                if($verif_blog == ""){
+                                    echo "disabled='disabled'";
+                                } ?>
+                            >
                         </form> 
                     </td>
                   </tr>
