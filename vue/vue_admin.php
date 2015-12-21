@@ -419,7 +419,7 @@
                     <td><?php echo $result['pseudo']; ?></td>
                     <td>
                         <?php
-                            $status_mail = mail_open($result['id_utilisateur']);
+                            $status_mail = status_mail($result['id_utilisateur']);
                             echo $status_mail;
                          ?>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
