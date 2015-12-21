@@ -420,7 +420,7 @@
                     <td>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Activer" class="panel panel-green" name="activer_mail <?php if(isset($_POST['activer_mail'])){echo 'desactiver_mail';}else if(isset($_POST['desactiver_mail'])){echo 'activer_mail';}else{echo 'desactiver_mail';} ?>">
+                            <input type="submit" value="Activer <?php if(isset($_POST['activer_mail'])){echo 'Désactiver';}else if(isset($_POST['desactiver_mail'])){echo 'Activer';}else{echo 'Désactiver';} ?>" class="panel panel-green" name="activer_mail <?php if(isset($_POST['activer_mail'])){echo 'desactiver_mail';}else if(isset($_POST['desactiver_mail'])){echo 'activer_mail';}else{echo 'desactiver_mail';} ?>">
                         </form>  
                     </td>
                     <td>Column content</td>
