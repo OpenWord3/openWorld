@@ -418,6 +418,9 @@
                     <td>1</td>
                     <td><?php echo $result['pseudo']; ?></td>
                     <td>
+                        <?php
+                            $status_mail = mail_open($result['id_utilisateur']);
+                         ?>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="
@@ -425,11 +428,20 @@
                                 echo 'Désactiver';
                             }else if(isset($_POST['desactiver_mail'])){
                                 echo 'Activer';
-                            }else{echo 'Désactiver';} ?>" class="panel panel-green" name="activer_mail 
+                            }else if($status_mail != '2'){
+                                echo 'Désactiver';
+                            }else if($status_mail == '2'){
+                                 echo 'Activer';
+                            }else{echo 'Désactiver';} ?>" class="panel panel-green" 
+                            name=" 
                             <?php if(isset($_POST['activer_mail'])){
                                 echo 'desactiver_mail';
                             }else if(isset($_POST['desactiver_mail'])){
                                 echo 'activer_mail';
+                            }else if($status_mail != '2'){
+                                echo 'desactiver_mail';
+                            }else if($status_mail == '2'){
+                                 echo 'activer_mail';
                             }else{
                                 echo 'desactiver_mail';
                             } ?>" 
@@ -444,23 +456,25 @@
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="
-                            <?php if(isset($_POST['activer_blog'])){
-                                echo 'Désactiver';
-                            }else if(isset($_POST['desactiver_blog'])){
-                                echo 'Activer';
-                            }else{echo 'Désactiver';} ?>" class="panel panel-green" name="activer_mail 
-                            <?php if(isset($_POST['activer_blog'])){
-                                echo 'desactiver_blog';
-                            }else if(isset($_POST['desactiver_blog'])){
-                                echo 'activer_blog';
-                            }else{
-                                echo 'desactiver_blog';
-                            } ?>" 
-                            <?php 
-                                $verif_blog = blog($result['id_utilisateur']);
-                                if($verif_blog == ""){
-                                    echo "disabled='disabled'";
-                            } ?>>
+                                <?php if(isset($_POST['activer_blog'])){
+                                    echo 'Désactiver';
+                                }else if(isset($_POST['desactiver_blog'])){
+                                    echo 'Activer';
+                                }else{echo 'Désactiver';} ?>" class="panel panel-green" 
+                                name=" 
+                                <?php if(isset($_POST['activer_blog'])){
+                                    echo 'desactiver_blog';
+                                }else if(isset($_POST['desactiver_blog'])){
+                                    echo 'activer_blog';
+                                }else{
+                                    echo 'desactiver_blog';
+                                } ?>" 
+                                <?php 
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                } ?>
+                            >
                         </form> 
                     </td>
                     <td>
@@ -481,10 +495,11 @@
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" required>
                             <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"
                                 <?php 
-                                $verif_blog = blog($result['id_utilisateur']);
-                                if($verif_blog == ""){
-                                    echo "disabled='disabled'";
-                                } ?>
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                    } 
+                                ?>
                             >
                         </form> 
                     </td>
