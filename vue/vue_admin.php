@@ -420,7 +420,7 @@
                     <td>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"></center>
+                            <input type="submit" value="Activer" class="panel panel-green" name="activer_mail">
                         </form>  
                     </td>
                     <td>Column content</td>
