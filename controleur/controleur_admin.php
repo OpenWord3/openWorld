@@ -160,7 +160,7 @@
 		}
 
 	} else {
-		// On recupere la liste des produits	
+		// On recupere la liste des utilisateurs	
 		$results = liste_utilisateur();
 
 		foreach($results as $cle => $result){
