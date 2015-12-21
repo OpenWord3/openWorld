@@ -390,6 +390,50 @@
 				</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 
+                <div>
+                    <?php 
+                        
+                        foreach($results as $result){
+                            echo $result['id_utilisateur'];
+                            echo $result['pseudo'];
+                        }
+                    ?>
+                </div>
+
+                <!-- ================================================================================================================================================================ -->
+                <table class="table table-striped table-hover ">
+                  <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>PSEUDO</th>
+                        <th>SERVICE MAIL</th>
+                        <th>SERVICE BLOG</th>
+                        <th>FERMER MAIL</th>
+                        <th>FREMER BLOG</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($results as $result){ ?>
+                  <tr>
+                    <td>1</td>
+                    <td><?php echo $result['pseudo']; ?></td>
+                    <td>
+                       <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"></center>
+                        </form>  
+                    </td>
+                    <td>Column content</td>
+                  </tr>
+                  <?php } ?>
+                  </tbody>
+                </table>
+
+
+                <!-- ================================================================================================================================================================ -->
+
+
+
 				<div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 				<div class="modal-content">

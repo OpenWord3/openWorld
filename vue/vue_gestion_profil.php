@@ -140,6 +140,7 @@
             </div>
 
             <ol>
+                <?php if(isset($_POST["modifier"])){echo $alerte;} ?>
                 La désincription est définitive. Vous perdrez toutes vos données et tous vos services.
             </ol>
 
@@ -152,13 +153,15 @@
 				<h4 class="modal-title" id="myModalLabel">Modification de profil</h4>
 				</div>
 				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Votre Nom" id="name" type="name" required>
-                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" required>
-                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" required>
-                        <input class="form-control" placeholder="Votre pseudo" id="username" type="text" required>
-                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" required>
-						<center><input type="submit" value="Modifier" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+                    
+					<form action="<?php echo INDEX ?>?index=vue_gestion_profil" method="post">
+						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" required>
+                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" required>
+                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="email" required>
+                        <!--<input class="form-control" placeholder="Votre pseudo" id="username" type="text" required>-->
+                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp" required>
+                        <!--<input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp2" required>-->
+						<center><input type="submit" value="Modifier" class="panel panel-green" name="modifier"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
