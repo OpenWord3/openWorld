@@ -522,3 +522,7 @@ img::-moz-selection {
     color: #fff;
     background: 0 0;
 }
+table {
+        border-collapse: separate;
+        border-spacing: 50px 10px; /* Nombre de pixels d'espace horizontal (5px), vertical (8px) */
+}

@@ -11,6 +11,7 @@
 			$verif_blog = blog($id);
 			if($verif_blog == ""){
 				$alerte = "Cet utilisateur n'a pas de blog actuellement.";
+
 				include("./vue/vue_admin.php");
 			} else {
 				$verif_status_blog = status_blog($id);
@@ -89,17 +90,23 @@
 			$verif_mail = mail_open($id);
 			if($verif_mail == ""){
 				$alerte = "Cet utilisateur n'utilise pas notre service mail actuellement.";
+				$mail_name = "desactiver_mail";
+				$mail_value = "Désactiver";
 				include("./vue/vue_admin.php");
 			} else {
 				$verif_status_mail = status_mail($id);
 				if($verif_status_mail == "1"){
 					$alerte = "Le compte mail de cet utilisateur est déjà activé.";
+					$mail_name = "activer_mail";
+					$mail_value = "Activer";
 					include("./vue/vue_admin.php");
 				} else {
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
 					exec('sudo /var/script/activation_mail_account.sh '.$pseudo);					
 					active_mail($id);
+					$mail_name = "desactiver_mail";
+					$mail_value = "Désactiver";
 					include("./vue/vue_admin.php");
 				}
 			}
@@ -160,6 +167,12 @@
 		}
 
 	} else {
+		// On recupere la liste des utilisateurs	
+		$results = liste_utilisateur();
+		foreach($results as $cle => $result){
+			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}		
 		include("./vue/vue_admin.php");
 	}
 	

@@ -19,6 +19,17 @@
 					include("./vue/vue_gestion_blog.php");
 				} else {
 					$_SESSION["pseudo"] = $pseudo;
+					$results = liste_utilisateur();
+
+					foreach($results as $cle => $result){
+						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+					}
+
+					
+					/*$verif_blog = blog($result['id_utilisateur']);
+					$verif_mail = mail_open($result['id_utilisateur']);*/
+					
 					include("./vue/vue_admin.php");
 				}
 			} else {
