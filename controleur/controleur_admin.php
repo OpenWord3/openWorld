@@ -167,8 +167,8 @@
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
-		//var_dump($results);
-		include("./vue/vue_admin.php");
+		var_dump($results);
+		//include("./vue/vue_admin.php");
 	}
 	
 ?>
