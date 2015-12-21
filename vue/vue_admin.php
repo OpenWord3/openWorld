@@ -419,7 +419,7 @@
                     <td><?php echo $result['pseudo']; ?></td>
                     <td>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+                            <input class="form-control" id="name" type="hidden" name="pseudo" required>
                             <center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
                         </form>  
                     </td>
