@@ -26,7 +26,7 @@
 
 		$verif_mail = check_mail($email);
 		if($verif_mail != 0){
-			$alerte = "Ce compte mail existe déjà.";
+			$alerte = "Ce compte mail existe déjà. Donc vos modifications n'ont pas été prises en compte.";
 			include("./vue/vue_gestion_profil.php");
 		} else{
 

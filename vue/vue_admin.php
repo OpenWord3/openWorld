@@ -390,6 +390,15 @@
 				</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 
+                <div>
+                    <?php 
+                        foreach($results as $result){
+                            echo $result['id_utilisateur'];
+                            echo $result['pseudo'];
+                        }
+                    ?>
+                </div>
+
 				<div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 				<div class="modal-content">

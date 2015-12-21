@@ -292,4 +292,15 @@
 		
 		$req->closeCursor();
 	}
+
+	//Fonction qui liste les utilisateurs
+	function liste_utilisateur(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `id_utilisateur`,`pseudo` FROM `utilisateur`");
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
+	}
 ?>
