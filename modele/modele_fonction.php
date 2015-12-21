@@ -297,7 +297,7 @@
 	function liste_utilisateur(){
 		global $bdd;
 
-		$req = $bdd->query("SELECT id_utilisateur, pseudo FROM `utilisateur`");
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_utilisateur = 0");
 		$result = $req->fetchAll();
 		
 		$req->closeCursor();
