@@ -298,11 +298,11 @@
 		global $bdd;
 
 		$req = $bdd->query("SELECT `id_utilisateur`,`pseudo` FROM `utilisateur`");
-		$req = execute();
+		//$req = execute();
 		$result = $req->fetchAll();
 		
-		return $result;
-		$req->closeCursor();
 		//return $result;
+		$req->closeCursor();
+		return $result;
 	}
 ?>
