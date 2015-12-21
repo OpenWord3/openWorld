@@ -457,7 +457,7 @@
                                 echo 'desactiver_blog';
                             } ?>" 
                             <?php 
-                                $verif_mail = blog($result['id_utilisateur']);
+                                $verif_blog = blog($result['id_utilisateur']);
                                 if($verif_blog == ""){
                                     echo "disabled='disabled'";
                             } ?>>
