@@ -427,13 +427,13 @@
                             <input type="submit" value="
                             <?php if($status_mail != '2'){
                                 echo 'Désactiver';
-                            }else if($status_mail == '2'){
+                            }else{
                                  echo 'Activer';
                             } ?>" class="panel panel-green" 
                             name=" 
                             <?php if($status_mail != '2'){
                                 echo 'desactiver_mail';
-                            }else if($status_mail == '2'){
+                            }else{
                                  echo 'activer_mail';
                             } ?>" 
                             <?php 

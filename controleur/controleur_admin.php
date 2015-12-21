@@ -83,10 +83,11 @@
 
 	} else if(isset($_POST["activer_mail"])){
 		$pseudo = $_POST["pseudo"];
+		$id = id($pseudo);
 
-		$verif_pseudo = compte($pseudo);
+		//$verif_pseudo = compte($pseudo);
 		//if($verif_pseudo != 0){
-			$id = id($pseudo);
+			
 			/*$verif_mail = mail_open($id);
 			if($verif_mail == ""){
 				$alerte = "Cet utilisateur n'utilise pas notre service mail actuellement.";
@@ -115,12 +116,12 @@
 					$mail_name = "desactiver_mail";
 					$mail_value = "Désactiver";
 					// On recupere la liste des utilisateurs	
-					$results = liste_utilisateur();
+					/*$results = liste_utilisateur();
 					foreach($results as $cle => $result){
 						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 					}
-					include("./vue/vue_admin.php");
+					include("./vue/vue_admin.php");*/
 				//}
 			//}
 		/*} /*else {
