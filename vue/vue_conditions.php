@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="<?PHP echo CONNEXION ?>" />
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
     <script src="<?PHP echo TWEENLITE ?>"></script>
-    <script src="<?PHP echo JQUERYSCRIPT ?>"></script>
     <script src="<?PHP echo CONNECTION ?>"></script>
   </head>
   <body>

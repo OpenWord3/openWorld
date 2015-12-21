@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="http://mail.openworld.itinet.fr">
+                        <a href="http://mail.openworld.itinet.fr"  onclick="window.open(this.href); return false;">
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à la messagerie OpenWorld</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
