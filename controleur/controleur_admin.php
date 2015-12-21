@@ -161,7 +161,7 @@
 
 	} else {
 		// On recupere la liste des utilisateurs	
-		$results = uliste_utilisateur();
+		$results = liste_utilisateur();
 		//echo $results;
 		foreach($results as $cle => $result){
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
