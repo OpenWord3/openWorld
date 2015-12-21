@@ -400,6 +400,40 @@
                     ?>
                 </div>
 
+                <!-- ================================================================================================================================================================ -->
+                <table class="table table-striped table-hover ">
+                  <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>PSEUDO</th>
+                        <th>SERVICE MAIL</th>
+                        <th>SERVICE BLOG</th>
+                        <th>FERMER MAIL</th>
+                        <th>FREMER BLOG</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($results as $result){ ?>
+                  <tr>
+                    <td>1</td>
+                    <td><?php echo $result['pseudo']; ?></td>
+                    <td>
+                       <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
+                            <center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+                        </form>  
+                    </td>
+                    <td>Column content</td>
+                  </tr>
+                  <?php } ?>
+                  </tbody>
+                </table>
+
+
+                <!-- ================================================================================================================================================================ -->
+
+
+
 				<div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 				<div class="modal-content">
