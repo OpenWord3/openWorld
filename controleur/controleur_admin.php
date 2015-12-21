@@ -109,6 +109,7 @@
 				} else {*/
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
+					echo $alerte;
 					/****************exec('sudo /var/script/activation_mail_account.sh '.$pseudo);*/					
 					active_mail($id);
 					$mail_name = "desactiver_mail";
@@ -142,6 +143,7 @@
 				//if($verif_status_mail == "1"){					
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Le compte mail de cet utilisateur vient d'être désactivé.";
+					echo $alerte;
 					$mail_name = "activer_mail";
 					$mail_value = "Activer";
 					//*************exec('sudo /var/script/desactivation_mail_account.sh '.$pseudo);						
