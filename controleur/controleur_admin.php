@@ -162,12 +162,12 @@
 	} else {
 		// On recupere la liste des utilisateurs	
 		$results = liste_utilisateur();
-		echo $results;
-		/*foreach($results as $cle => $result){
+		//echo $results;
+		foreach($results as $cle => $result){
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
-		}*/
-		var_dump($results);
+		}
+		//var_dump($results);
 		include("./vue/vue_admin.php");
 	}
 	
