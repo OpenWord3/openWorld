@@ -425,26 +425,16 @@
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="
-                            <?php if(isset($_POST['activer_mail'])){
-                                echo 'Désactiver';
-                            }else if(isset($_POST['desactiver_mail'])){
-                                echo 'Activer';
-                            }else if($status_mail != '2'){
+                            <?php if($status_mail != '2'){
                                 echo 'Désactiver';
                             }else if($status_mail == '2'){
                                  echo 'Activer';
-                            }else{echo 'Désactiver';} ?>" class="panel panel-green" 
+                            } ?>" class="panel panel-green" 
                             name=" 
-                            <?php if(isset($_POST['activer_mail'])){
-                                echo 'desactiver_mail';
-                            }else if(isset($_POST['desactiver_mail'])){
-                                echo 'activer_mail';
-                            }else if($status_mail != '2'){
+                            <?php if($status_mail != '2'){
                                 echo 'desactiver_mail';
                             }else if($status_mail == '2'){
                                  echo 'activer_mail';
-                            }else{
-                                echo 'desactiver_mail';
                             } ?>" 
                             <?php 
                                 $verif_mail = mail_open($result['id_utilisateur']);

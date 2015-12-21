@@ -109,8 +109,8 @@
 				} else {*/
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
-					/****************exec('sudo /var/script/activation_mail_account.sh '.$pseudo);					
-					active_mail($id);****************************/
+					/****************exec('sudo /var/script/activation_mail_account.sh '.$pseudo);*/					
+					active_mail($id);
 					$mail_name = "desactiver_mail";
 					$mail_value = "Désactiver";
 					// On recupere la liste des utilisateurs	
@@ -142,8 +142,10 @@
 				//if($verif_status_mail == "1"){					
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Le compte mail de cet utilisateur vient d'être désactivé.";
+					$mail_name = "activer_mail";
+					$mail_value = "Activer";
 					//*************exec('sudo /var/script/desactivation_mail_account.sh '.$pseudo);						
-					//**************desactive_mail($id);
+					desactive_mail_admin($id);
 					// On recupere la liste des utilisateurs	
 					$results = liste_utilisateur();
 					foreach($results as $cle => $result){
@@ -189,7 +191,7 @@
 					$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 				}
 				include("./vue/vue_admin.php");
-				
+
 			/*} /*else {
 				$alerte = "Cet utilisateur n'utilise pas notre service mail actuellement.";
 				include("./vue/vue_admin.php");
