@@ -26,10 +26,10 @@
 						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 					}
 
-					foreach($results as $id){
-						$verif_blog = blog($id['id_utilisateur']);
-						$verif_mail = mail_open($id['id_utilisateur']);
-					}
+					
+					/*$verif_blog = blog($result['id_utilisateur']);
+					$verif_mail = mail_open($result['id_utilisateur']);*/
+					
 					include("./vue/vue_admin.php");
 				}
 			} else {
