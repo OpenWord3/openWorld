@@ -17,6 +17,8 @@
     <script src="<?PHP echo WOW ?>"></script>
     <script src="<?PHP echo JQUERY ?>"></script>
     <script src="<?PHP echo JQUERYEASING ?>"></script>
+    <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
   </head>
   <body>
     
@@ -33,8 +35,15 @@
             </div>
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav navbar-right">
+                	<li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+	                        <form>
+	                            <i class="fa fa-search"> Recherche</i><input type="text" name="recherche" class="form-control" placeholder="...">
+	                        </form>
+                        </div>
+                    </li>
                     <li>
-                        <a class="page-scroll" data-toggle="modal" title="L'équipe OPENWORLD" href="#footer">A Propos</a>
+                        <a class="page-scroll" title="L'équipe OPENWORLD" href="#footer">A Propos</a>
                     </li>
                 </ul>
             </div>
@@ -56,25 +65,169 @@
     </header>
     <section id="two" class="no-padding">
         <div class="container-fluid">
+            <center>
+	            <table class="row no-gutter">
+	            	<tr>
+	            		<td><center><a href="#"><i class="fa fa-child fa-5x"></i></a><br><h3>OPEN BLOG</h3><p>Des blogs à la hauteur de votre personnalité<br>pour partagez vos émotions</p></center></td>
+	            		<td><center><a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-5x"></i></a><br><h3>OPEN MAIL</h3><p>Une messagerie haute en couleurs<br>pour communiquer avec le monde</p></center></td>
+	            		<td><center><a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-5x"></i></a><br><h3>OPEN PHPMyADMIN</h3><p>Gérez votre Base de données<br>comme un pro</p></center></td>
+	            	</tr>
+	            	<tr>
+	            		<td><center><a href="http://www.commentcamarche.net/download/start/telecharger-129-filezilla" onclick="window.open(this.href); return false;"><i class="fa fa-navicon fa-5x"></i></a><br><h3>OPEN SFTP</h3><p>Gérez votre blog avec la technologie SFTP<br>en utilisant filezilla</p></center></td>
+	            		<td><center><a href="#"><i class="fa fa-history fa-5x"></i></a><br><h3>OPEN RELAIS</h3><p>Relayez vos domaines pour le traitement<br>antispam par OPEN SECURITY</p></center></td>
+	            		<td><center><a href="#"><i class="fa fa-globe fa-5x"></i></a><br><h3>OPEN FQDN</h3><p>Une adresse unique pour vos différents services</p></center></td>
+	            	</tr>
+	            </table>
+            </center>
+        </div>
+    </section>
+    <section id="three" class="no-padding">
+        <div class="container-fluid">
             <div class="row no-gutter">
-            <?PHP
-                $i = 10;
-                echo'<center><H2>Déjà '.$i.' abonné(e)s</H2></center>';
-                for ($j=0; $j<$i; $j++) {
-                echo '<div class="col-lg-4 col-sm-6">
-                    <a href="#galleryModal" class="gallery-box">
-                        <img src="./bootstrap/images/blog.jpg" class="img-responsive" alt="Image 1">
-                        <div class="gallery-box-caption">
-                            <div class="gallery-box-content">
-                                <div>
-                                    <i><img src="./bootstrap/images/loupe.png"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>';
-                }
-            ?>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/3.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/4.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/5.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/6.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/7.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/8.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/9.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/10.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/11.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-4 col-sm-6">
+	                <a href="#" class="gallery-box">
+	                    <img src="./bootstrap/images/12.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                            <div>
+	                                <i><img src="./bootstrap/images/loupe.png"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
             </div>
         </div>
     </section>
@@ -87,26 +240,26 @@
                     <p>Tu peux nous écrire ! Nous serons heureux de te repondre ... après notre partie de babyfoot</p>
                 </div>
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <form class="contact-form row">
+                    <form method="POST" class="contact-form row" action="<?php echo INDEX ?>?index=vue_accueil">
                         <div class="col-md-4">
                             <label></label>
-                            <input type="text" class="form-control" placeholder="Nom">
+                            <input type="text" class="form-control" name="nom" placeholder="Nom">
                         </div>
                         <div class="col-md-4">
                             <label></label>
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" name="email" placeholder="Email">
                         </div>
                         <div class="col-md-4">
                             <label></label>
-                            <input type="text" class="form-control" placeholder="Telephone">
+                            <input type="text" class="form-control" name="telephone" placeholder="Telephone">
                         </div>
                         <div class="col-md-12">
                             <label></label>
-                            <textarea class="form-control" rows="9" placeholder="Ton message"></textarea>
+                            <textarea class="form-control" rows="9" name="message" placeholder="Ton message"></textarea>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
                             <label></label>
-                            <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Envoyer</button>
+                            <button type="submit" name="valider" class="btn btn-primary btn-block btn-lg">Envoyer</button>
                         </div>
                     </form>
                 </div>
@@ -119,8 +272,8 @@
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Informations</h4>
                     <ul class="list-unstyled">
-                        <li><a href="">L'équipe OPENWORLD</a></li>
-                        <li><a href="http://www.intechinfo.fr">L'école IN'TECH</a></li>
+                        <li><a href="http://www.boyaka.org/lequipe-projet-pfh-boyaka-etudiants-intech-info-en-france/" title="Sur BOYAKA" onclick="window.open(this.href); return false;"><a href="">L'équipe OPENWORLD</a></li>
+                        <li><a href="http://www.intechinfo.fr" title="INTECHINFO" onclick="window.open(this.href); return false;">L'école IN'TECH</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-6 col-sm-3 column">
@@ -130,9 +283,9 @@
                 <div class="col-xs-12 col-sm-3 text-right">
                     <h4>Nos facebook pour mieux nous connaitre</h4>
                     <ul class="list-inline">
-                      <li><a rel="nofollow" href="https://www.facebook.com/a.mougnin" title="Louis-Adolphe"><i><img src="<?PHP echo IMAGE."1.png"; ?>" weight=200 height=100></i></a>&nbsp;</li>
-                      <li><a rel="nofollow" href="https://www.facebook.com/shassaneibrahim" title="Louis-Adolphe"><i><img src="<?PHP echo IMAGE."2.png"; ?>" weight=200 height=100></i></a>&nbsp;</li>
-                      <li><a rel="nofollow" href="https://www.facebook.com/steephen.ilangovane" title="Louis-Adolphe"><i><img src="<?PHP echo IMAGE."3.png"; ?>" weight=200 height=100></i></a>&nbsp;</li>
+                      <li><a href="https://www.facebook.com/a.mougnin" title="Louis-Adolphe" onclick="window.open(this.href); return false;"><i><img src="<?PHP echo IMAGE."1.png"; ?>" weight=200 height=100></i></a>&nbsp;</li>
+                      <li><a href="https://www.facebook.com/shassaneibrahim" title="Hassane Ibrahim" onclick="window.open(this.href); return false;"><i><img src="<?PHP echo IMAGE."2.png"; ?>" weight=200 height=100></i></a>&nbsp;</li>
+                      <li><a href="https://www.facebook.com/steephen.ilangovane" title="Steephenraaj" onclick="window.open(this.href); return false;"><i><img src="<?PHP echo IMAGE."3.png"; ?>" weight=200 height=100></i></a>&nbsp;</li>
                     </ul>
                 </div>
             </div>
