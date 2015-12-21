@@ -297,11 +297,9 @@
 	function liste_utilisateur(){
 		global $bdd;
 
-		$req = $bdd->query("SELECT `id_utilisateur`,`pseudo` FROM `utilisateur`");
-		//$req = execute();
+		$req = $bdd->query("SELECT id_utilisateur, pseudo FROM `utilisateur`");
 		$result = $req->fetchAll();
 		
-		//return $result;
 		$req->closeCursor();
 		return $result;
 	}
