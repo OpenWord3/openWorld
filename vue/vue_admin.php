@@ -419,8 +419,8 @@
                     <td><?php echo $result['pseudo']; ?></td>
                     <td>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" id="name" type="hidden" name="pseudo" required>
-                            <center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"></center>
                         </form>  
                     </td>
                     <td>Column content</td>
