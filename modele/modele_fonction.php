@@ -301,7 +301,8 @@
 		$req = execute();
 		$result = $req->fetchAll();
 		
-		$req->closeCursor();
 		return $result;
+		$req->closeCursor();
+		//return $result;
 	}
 ?>
