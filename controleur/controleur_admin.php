@@ -9,6 +9,12 @@
 		$status = "1";
 		active_blog($id,$status);
 		//exec('sudo /var/script/activation_vhost.sh '.$pseudo);
+		// On recupere la liste des utilisateurs	
+		$results = liste_utilisateur();
+		foreach($results as $cle => $result){
+			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["desactiver_blog"])) {
@@ -19,6 +25,12 @@
 		$status = "2";
 		active_blog($id,$status);
 		//exec('sudo /var/script/unactivation_vhost.sh '.$pseudo);
+		// On recupere la liste des utilisateurs	
+		$results = liste_utilisateur();
+		foreach($results as $cle => $result){
+			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
 		include("./vue/vue_admin.php");
 				
 		
@@ -30,6 +42,12 @@
 		$alerte = "Le blog de cet utilisateur vient d'être définitivement fermé.";
 		//exec('sudo /var/script/remove_vhost.sh '.$pseudo);
 		//del_blog($id,$status);
+		// On recupere la liste des utilisateurs	
+		$results = liste_utilisateur();
+		foreach($results as $cle => $result){
+			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["activer_mail"])){
