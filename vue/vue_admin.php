@@ -430,12 +430,7 @@
                             }else{
                                  echo 'Activer';
                             } ?>" class="panel panel-green" 
-                            name=" 
-                            <?php if($status_mail != '2'){
-                                echo 'desactiver_mail';
-                            }else{
-                                 echo 'activer_mail';
-                            } ?>" 
+                            name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
                             <?php 
                                 $verif_mail = mail_open($result['id_utilisateur']);
                                 if($verif_mail == ""){
@@ -470,7 +465,7 @@
                     </td>
                     <td>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" required>
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"
                                <?php 
                                     $verif_mail = mail_open($result['id_utilisateur']);
@@ -483,7 +478,7 @@
                     </td>
                     <td>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" required>
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);

@@ -116,12 +116,12 @@
 					$mail_name = "desactiver_mail";
 					$mail_value = "Désactiver";
 					// On recupere la liste des utilisateurs	
-					/*$results = liste_utilisateur();
+					$results = liste_utilisateur();
 					foreach($results as $cle => $result){
 						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 					}
-					include("./vue/vue_admin.php");*/
+					include("./vue/vue_admin.php");
 				//}
 			//}
 		/*} /*else {
