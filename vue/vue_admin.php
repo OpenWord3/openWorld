@@ -420,16 +420,12 @@
                     <td>
                         <?php
                             $status_mail = status_mail($result['id_utilisateur']);
+                            $status_blog = status_blog($result['id_utilisateur']);
                             echo $status_mail;
                          ?>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="
-                            <?php if($status_mail != '2'){
-                                echo 'Désactiver';
-                            }else{
-                                 echo 'Activer';
-                            } ?>" class="panel panel-green" 
+                            <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
                             name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
                             <?php 
                                 $verif_mail = mail_open($result['id_utilisateur']);
@@ -441,20 +437,8 @@
                     <td>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="
-                                <?php if(isset($_POST['activer_blog'])){
-                                    echo 'Désactiver';
-                                }else if(isset($_POST['desactiver_blog'])){
-                                    echo 'Activer';
-                                }else{echo 'Désactiver';} ?>" class="panel panel-green" 
-                                name=" 
-                                <?php if(isset($_POST['activer_blog'])){
-                                    echo 'desactiver_blog';
-                                }else if(isset($_POST['desactiver_blog'])){
-                                    echo 'activer_blog';
-                                }else{
-                                    echo 'desactiver_blog';
-                                } ?>" 
+                            <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                                name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
                                     if($verif_blog == ""){
