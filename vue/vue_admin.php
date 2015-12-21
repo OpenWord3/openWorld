@@ -420,6 +420,7 @@
                     <td>
                         <?php
                             $status_mail = mail_open($result['id_utilisateur']);
+                            echo $status_mail;
                          ?>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
