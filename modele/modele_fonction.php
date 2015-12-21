@@ -150,11 +150,11 @@
 	function blog($id){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT blog FROM utilisateur WHERE id_utilisateur = :id");
+		$req = $bdd->prepare("SELECT fqdn_blog FROM utilisateur WHERE id_utilisateur = :id");
 		$req->execute(array("id"=>$id));
 
 		while($results = $req->fetch()){
-			$result = $results["blog"];
+			$result = $results["fqdn_blog"];
 		}
 
 		return $result;
@@ -164,7 +164,7 @@
 	function add_blog($id,$blog,$status){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `utilisateur` SET `blog` = '$blog' WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `fqdn_blog` = '$blog' WHERE `id_utilisateur` = $id");
 		$req = $bdd->query("UPDATE `utilisateur` SET `status_blog` = '$status' WHERE `id_utilisateur` = $id");
 		
 		$req->closeCursor();
@@ -197,7 +197,7 @@
 	function del_blog($id,$status){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `utilisateur` SET `blog` = NULL WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `fqdn_blog` = NULL WHERE `id_utilisateur` = $id");
 		$req = $bdd->query("UPDATE `utilisateur` SET `status_blog` = '$status' WHERE `id_utilisateur` = $id");
 		
 		$req->closeCursor();
