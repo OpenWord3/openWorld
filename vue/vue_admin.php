@@ -436,11 +436,33 @@
                             <?php 
                                 $verif_mail = mail_open($result['id_utilisateur']);
                                 if($verif_mail == ""){
-                                echo "disabled='disabled'";
+                                    echo "disabled='disabled'";
                                 } ?>>
                         </form>  
                     </td>
-                    <td>Column content</td>
+                    <td>
+                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <input type="submit" value="
+                            <?php if(isset($_POST['activer_blog'])){
+                                echo 'Désactiver';
+                            }else if(isset($_POST['desactiver_blog'])){
+                                echo 'Activer';
+                            }else{echo 'Désactiver';} ?>" class="panel panel-green" name="activer_mail 
+                            <?php if(isset($_POST['activer_blog'])){
+                                echo 'desactiver_blog';
+                            }else if(isset($_POST['desactiver_blog'])){
+                                echo 'activer_blog';
+                            }else{
+                                echo 'desactiver_blog';
+                            } ?>" 
+                            <?php 
+                                $verif_mail = blog($result['id_utilisateur']);
+                                if($verif_blog == ""){
+                                    echo "disabled='disabled'";
+                            } ?>>
+                        </form> 
+                    </td>
                   </tr>
                   <?php } ?>
                   </tbody>
