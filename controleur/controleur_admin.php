@@ -85,86 +85,119 @@
 		$pseudo = $_POST["pseudo"];
 
 		$verif_pseudo = compte($pseudo);
-		if($verif_pseudo != 0){
+		//if($verif_pseudo != 0){
 			$id = id($pseudo);
-			$verif_mail = mail_open($id);
+			/*$verif_mail = mail_open($id);
 			if($verif_mail == ""){
 				$alerte = "Cet utilisateur n'utilise pas notre service mail actuellement.";
 				$mail_name = "desactiver_mail";
 				$mail_value = "Désactiver";
 				include("./vue/vue_admin.php");
-			} else {
-				$verif_status_mail = status_mail($id);
+			} else {*/
+				/*$verif_status_mail = status_mail($id);
 				if($verif_status_mail == "1"){
 					$alerte = "Le compte mail de cet utilisateur est déjà activé.";
 					$mail_name = "activer_mail";
 					$mail_value = "Activer";
+					// On recupere la liste des utilisateurs	
+					$results = liste_utilisateur();
+					foreach($results as $cle => $result){
+						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+					}
 					include("./vue/vue_admin.php");
-				} else {
+				} else {*/
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
-					exec('sudo /var/script/activation_mail_account.sh '.$pseudo);					
-					active_mail($id);
+					/****************exec('sudo /var/script/activation_mail_account.sh '.$pseudo);					
+					active_mail($id);****************************/
 					$mail_name = "desactiver_mail";
 					$mail_value = "Désactiver";
+					// On recupere la liste des utilisateurs	
+					$results = liste_utilisateur();
+					foreach($results as $cle => $result){
+						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+					}
 					include("./vue/vue_admin.php");
-				}
-			}
-		} else {
+				//}
+			//}
+		/*} /*else {
 			$alerte = "Cet utilisateur n'existe pas dans notre base de donné.";
 			include("./vue/vue_admin.php");
-		} 
+		}*/
 
 	} else if(isset($_POST["desactiver_mail"])){
 		$pseudo = $_POST["pseudo"];
 
-		$verif_pseudo = compte($pseudo);
+		/*$verif_pseudo = compte($pseudo);
 		if($verif_pseudo != 0){
 			$id = id($pseudo);
-			$verif_mail = mail_open($id);
-			if($verif_mail == ""){					
+			$verif_mail = mail_open($id);*/
+			/*if($verif_mail == ""){					
 				$alerte = "Cet utilisateur n'utilise pas notre service mail actuellement.";
 				include("./vue/vue_admin.php");
-			} else {
-				$verif_status_mail = status_mail($id);
-				if($verif_status_mail == "1"){					
+			} else {*/
+				//$verif_status_mail = status_mail($id);
+				//if($verif_status_mail == "1"){					
 					$pseudo = $_SESSION["pseudo"];
 					$alerte = "Le compte mail de cet utilisateur vient d'être désactivé.";
-					exec('sudo /var/script/desactivation_mail_account.sh '.$pseudo);						
-					desactive_mail($id);
+					//*************exec('sudo /var/script/desactivation_mail_account.sh '.$pseudo);						
+					//**************desactive_mail($id);
+					// On recupere la liste des utilisateurs	
+					$results = liste_utilisateur();
+					foreach($results as $cle => $result){
+						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+					}
 					include("./vue/vue_admin.php");
-				} else {
-					$alerte = "Le compte mail de cet utilisateur est déjà désactivé.";
-					include("./vue/vue_admin.php");
-				}
-			}
-		} else {
+				//} //else {
+					/*$alerte = "Le compte mail de cet utilisateur est déjà désactivé.";
+					// On recupere la liste des utilisateurs	
+					$results = liste_utilisateur();
+					foreach($results as $cle => $result){
+						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+					}
+					include("./vue/vue_admin.php");*/
+				//}
+			//}
+		/*} else {
 			$alerte = "Cet utilisateur n'existe pas dans notre base de donné.";
 			include("./vue/vue_admin.php");
-		}
+		}*/
 
 	} else if(isset($_POST["supprimer_mail"])){
 		$pseudo = $_POST["pseudo"];
 
 		$verif_pseudo = compte($pseudo);
-		if($verif_pseudo != 0){
+		/*if($verif_pseudo != 0){
 			$id = id($pseudo);
 			$verif_mail = mail_open($id);
-			if($verif_mail != ""){
+			if($verif_mail != ""){*/
+
 				$pseudo = $_SESSION["pseudo"];
 				$alerte = "Le compte mail de cet utilisateur vient d'être définitivement fermé.";
-				exec('sudo /var/script/del_mail_account.sh '.$pseudo);
+				/**********exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 				del_mail($id);
-				desactive_mail($id);
+				desactive_mail($id);**********************/
+
+				// On recupere la liste des utilisateurs	
+				$results = liste_utilisateur();
+				foreach($results as $cle => $result){
+					$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+					$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+				}
 				include("./vue/vue_admin.php");
-			} else {
+				
+			/*} /*else {
 				$alerte = "Cet utilisateur n'utilise pas notre service mail actuellement.";
 				include("./vue/vue_admin.php");
-			}
-		} else {
+			}*/
+		/*} else {
 			$alerte = "Cet utilisateur n'existe pas dans notre base de donné.";
 			include("./vue/vue_admin.php");
-		}
+		}*/
 
 	} else {
 		// On recupere la liste des utilisateurs	
