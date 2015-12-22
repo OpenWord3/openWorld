@@ -123,16 +123,34 @@
 	function active_mail($id){
 		global $bdd;
 
-		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = TRUE WHERE id_utilisateur = :id");
+		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = '1' WHERE id_utilisateur = :id");
 		$req->execute(array('id'=>$id));
 		$req->closeCursor();
 	}
+
+	/*//Fonction qui active un compte mail admin
+	function active_mail_admin($id){
+		global $bdd;
+
+		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = '1' WHERE id_utilisateur = :id");
+		$req->execute(array('id'=>$id));
+		$req->closeCursor();
+	}*/
 
 	//Fonction qui desactive un compte mail
 	function desactive_mail($id){
 		global $bdd;
 
-		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = FALSE WHERE id_utilisateur = :id");
+		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = '0' WHERE id_utilisateur = :id");
+		$req->execute(array('id'=>$id));
+		$req->closeCursor();
+	}
+
+	//Fonction qui desactive un compte mail par admin
+	function desactive_mail_admin($id){
+		global $bdd;
+
+		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = '2' WHERE id_utilisateur = :id");
 		$req->execute(array('id'=>$id));
 		$req->closeCursor();
 	}

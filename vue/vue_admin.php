@@ -418,21 +418,15 @@
                     <td>1</td>
                     <td><?php echo $result['pseudo']; ?></td>
                     <td>
+                        <?php
+                            $status_mail = status_mail($result['id_utilisateur']);
+                            $status_blog = status_blog($result['id_utilisateur']);
+                            echo $status_mail;
+                         ?>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="
-                            <?php if(isset($_POST['activer_mail'])){
-                                echo 'Désactiver';
-                            }else if(isset($_POST['desactiver_mail'])){
-                                echo 'Activer';
-                            }else{echo 'Désactiver';} ?>" class="panel panel-green" name="activer_mail 
-                            <?php if(isset($_POST['activer_mail'])){
-                                echo 'desactiver_mail';
-                            }else if(isset($_POST['desactiver_mail'])){
-                                echo 'activer_mail';
-                            }else{
-                                echo 'desactiver_mail';
-                            } ?>" 
+                            <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                            name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
                             <?php 
                                 $verif_mail = mail_open($result['id_utilisateur']);
                                 if($verif_mail == ""){
@@ -441,31 +435,23 @@
                         </form>  
                     </td>
                     <td>
+                        <?php echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="
-                            <?php if(isset($_POST['activer_blog'])){
-                                echo 'Désactiver';
-                            }else if(isset($_POST['desactiver_blog'])){
-                                echo 'Activer';
-                            }else{echo 'Désactiver';} ?>" class="panel panel-green" name="activer_mail 
-                            <?php if(isset($_POST['activer_blog'])){
-                                echo 'desactiver_blog';
-                            }else if(isset($_POST['desactiver_blog'])){
-                                echo 'activer_blog';
-                            }else{
-                                echo 'desactiver_blog';
-                            } ?>" 
-                            <?php 
-                                $verif_blog = blog($result['id_utilisateur']);
-                                if($verif_blog == ""){
-                                    echo "disabled='disabled'";
-                            } ?>>
+                            <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                                name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
+                                <?php 
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                } ?>
+                            >
                         </form> 
                     </td>
                     <td>
+                    <?php echo $status_mail; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" required>
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"
                                <?php 
                                     $verif_mail = mail_open($result['id_utilisateur']);
@@ -477,14 +463,16 @@
                         </form> 
                     </td>
                     <td>
+                    <?php echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" required>
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"
                                 <?php 
-                                $verif_blog = blog($result['id_utilisateur']);
-                                if($verif_blog == ""){
-                                    echo "disabled='disabled'";
-                                } ?>
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                    } 
+                                ?>
                             >
                         </form> 
                     </td>
