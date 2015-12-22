@@ -120,7 +120,7 @@
                             $verif_blog = blog($id); 
                         ?>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
-                        <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>" target="_blank">
+                        <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>" <?php if($verif_blog == ''){ echo '';}else{echo 'target="_blank"';}?>>
 
 
                             <div class="panel-footer">
