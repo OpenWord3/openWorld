@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="<?PHP echo CONNEXION ?>" />
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
     <script src="<?PHP echo TWEENLITE ?>"></script>
-    <script src="<?PHP echo JQUERYSCRIPT ?>"></script>
     <script src="<?PHP echo CONNECTION ?>"></script>
+    <!-- jQuery -->
+    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
   </head>
   <body>
             <div class="container">
@@ -33,6 +37,8 @@
                                         <input class="form-control" placeholder="Votre pseudo" id="username" type="text" name="pseudo">
                                         <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp">
                                         <br></br>
+                                        <a href="#myModalMDP" data-toggle="modal" data-target="#myModalMDP"> >> mot de passe oublié ?</a>
+                                        <br>
                                         <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="SE CONNECTER »" name="valider">
                                         <br>
                                         <a href="<?PHP echo INDEX ?>"><input class="btn btn-lg btn-success btn-block" type="cancel" id="cancel" value="« ANNULER"></a>
@@ -44,4 +50,28 @@
                 </div>
             </div>
   </body>
+
+  <!-- Modal -->
+    <div class="modal fade" id="myModalMDP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Mot de passe oublié</h4>
+    </div>
+    <div class="modal-body">
+        
+        <form action="<?php echo INDEX ?>?index=vue_connexion" method="post">
+            <center><h3>CAPTCHA</h3><br>
+            <img src="./bootstrap/images/captcha.jpg"></center>
+            <input class="form-control" placeholder="CODE CAPTCHA" id="code" type="text" name="code" required><BR>
+            <input class="form-control" placeholder="Adresse mail de secours" id="email" type="email" name="email" required><BR>
+            <input type="checkbox" required> Je ne suis pas un ordinateur
+            <center><input type="submit" value="Envoyer" class="panel panel-green" name="envoyer"></center>
+        </form>
+    </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+<!-- /.modal -->
 </html>
