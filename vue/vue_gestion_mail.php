@@ -113,11 +113,15 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <?php
                             $id = id($_SESSION['pseudo']);
                             $mail_open = mail_open($id);
                         ?>
                         <a href="<?php if($mail_open != ''){echo 'http://mail.openworld.itinet.fr';}else{echo '#';} ?>">
+=======
+                        <a href="http://mail.openworld.itinet.fr"  onclick="window.open(this.href); return false;">
+>>>>>>> adolphe
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à la messagerie OpenWorld</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

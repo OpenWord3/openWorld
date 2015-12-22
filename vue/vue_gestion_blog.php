@@ -113,6 +113,7 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <!--<a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">-->
                         <?php 
                             $id = id($_SESSION["pseudo"]);
@@ -121,6 +122,10 @@
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
                         <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>">
 
+=======
+                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
+                        <a href="<?php echo INDEX ?>?index=vue_gestion_blog&action=acceder_blog"  onclick="window.open(this.href); return false;">
+>>>>>>> adolphe
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
