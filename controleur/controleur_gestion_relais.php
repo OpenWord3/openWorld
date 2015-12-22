@@ -15,28 +15,44 @@
 				add_relais($domain,$ip,$id);
 				exec('sudo /var/script/add-relais.sh '.$domain.' '.$ip);
 				$alerte = "Votre nom de domaine vient d’être ajouté parcontre patientez le temps que l’adimistrateur le valide.";
+				foreach($results as $cle => $result){
+					$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+					$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+				}
 				include("./vue/vue_gestion_relais.php");
 			} else {
 				$alerte = "Cette adresse ip existe déjà dans notre service.";
+				foreach($results as $cle => $result){
+					$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+					$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+				}
 				include("./vue/vue_gestion_relais.php");
 			}
 		} else {
 			$alerte = "Ce nom de domaine existe déjà dans notre service.";
+			foreach($results as $cle => $result){
+				$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+				$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+			}
 			include("./vue/vue_gestion_relais.php");
 		}
 	} else if(isset($_POST["supprimer"])) {
-		$domain = $_POST["domain"];
-		$verif_domain = domain($domain);
-		if($verif_domain != 0){
+
+		$domain = $_POST["domain"];		
 			del_relais($domain);
 			exec('sudo /var/script/del-relais.sh '.$domain);
 			$alerte = "Le nom de domaine vient d’être supprimé de notre service.";
+			foreach($results as $cle => $result){
+				$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+				$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+			}
 			include("./vue/vue_gestion_relais.php");
-		} else {
-			$alerte = "Ce nom de domain n'existe pas dans notre service.";
-			include("./vue/vue_gestion_relais.php");
-		}
+		
 	} else {
+		foreach($results as $cle => $result){
+			$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+			$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+		}
 		include("./vue/vue_gestion_relais.php");
 	}	
 	
