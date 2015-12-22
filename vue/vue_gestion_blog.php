@@ -115,7 +115,7 @@
                         </div>
                         <!--<a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">-->
                         <?php 
-                            $id = id($pseudo);
+                            $id = id($_SESSION["pseudo"]);
                             $verif_blog = blog($id); 
                         ?>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
