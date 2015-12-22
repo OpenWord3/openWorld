@@ -117,10 +117,11 @@
                         <!--<a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">-->
                         <?php 
                             $id = id($_SESSION["pseudo"]);
-                            $verif_blog = blog($id); 
+                            $verif_blog = blog($id);
+                            $status_blog = status_blog($id); 
                         ?>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
-                        <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>" <?php if($verif_blog == ''){ echo '';}else{echo 'target="_blank"';}?>>
+                        <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>" <?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo '';}else{echo 'target="_blank"';}?>>
 
 
                             <div class="panel-footer">
