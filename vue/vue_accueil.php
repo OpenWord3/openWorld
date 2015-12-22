@@ -272,7 +272,7 @@
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Informations</h4>
                     <ul class="list-unstyled">
-                        <li><a href="http://www.boyaka.org/lequipe-projet-pfh-boyaka-etudiants-intech-info-en-france/" title="Sur BOYAKA" onclick="window.open(this.href); return false;"><a href="">L'équipe OPENWORLD</a></li>
+                        <li><a href="http://www.boyaka.org/lequipe-projet-pfh-boyaka-etudiants-intech-info-en-france/" title="Sur BOYAKA" onclick="window.open(this.href); return false;">L'équipe OPENWORLD</a></li>
                         <li><a href="http://www.intechinfo.fr" title="INTECHINFO" onclick="window.open(this.href); return false;">L'école IN'TECH</a></li>
                     </ul>
                 </div>
