@@ -5,8 +5,8 @@
 	if(isset($_POST["valider"])){
 		$pseudo = $_POST["pseudo"];
 		$mdp = $_POST["mdp"];
-		$nom = $_POST["nom"];
-		$prenom = $_POST["prenom"];
+	//	$nom = $_POST["nom"];
+	//	$prenom = $_POST["prenom"];
 		$mail = $_POST["mail"];
 
 		$verif_pseudo = compte($pseudo);
@@ -21,7 +21,7 @@
 			} else {
 				inscription($pseudo,$mdp,$nom,$prenom,$mail);
 				$_SESSION["pseudo"] = $pseudo;
-				$_SESSION["prenom"] = $prenom;
+			//	$_SESSION["prenom"] = $prenom;
 				$_SESSION["mdp"] = $mdp;
 				$id = id($pseudo);
 				$_SESSION["id"] = $id;

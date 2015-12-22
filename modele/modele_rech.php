@@ -14,13 +14,13 @@
 	function rech_complet($hello){
 		global $bdd;
 
-		$req = $bdd->query("SELECT nom,prenom,fqdn,pseudo FROM utilisateur WHERE nom like '$hello[0]%' or prenom like '$hello[1]%'");
+		$req = $bdd->query("SELECT nom,prenom,fqdn_blog,pseudo FROM utilisateur WHERE nom like '$hello[0]%' or prenom like '$hello[1]%'");
 		return $req;
 	}	
 	function rech_moitie($hello){
 		global $bdd;
 
-		$req = $bdd->query("SELECT nom,prenom,fqdn,pseudo FROM utilisateur WHERE nom like '$hello[0]%' or prenom like '$hello[0]%'");
+		$req = $bdd->query("SELECT nom,prenom,fqdn_blog,pseudo FROM utilisateur WHERE nom like '$hello[0]%' or prenom like '$hello[0]%'");
 		return $req;
 	}
 ?>

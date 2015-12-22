@@ -35,7 +35,7 @@
                         <H2>Suggestions pour : <?php echo $res_rech; ?> </H2>
                         </center>
                       <?php if(isset($recherche)){while ($donnees = $recherche->fetch()) {
-	echo "Nom : ",$donnees['nom']," / "," Prenom : ",$donnees['prenom']," / "," Pseudo : ",$donnees['pseudo']," / ";echo '   <a href="http://' . $donnees['fqdn'] . '">' . $donnees['fqdn'] . '</a>',"<br>";	
+	echo "Nom : ",$donnees['nom']," / "," Prenom : ",$donnees['prenom']," / "," Pseudo : ",$donnees['pseudo']," / ";echo '   <a href="http://' . $donnees['fqdn_blog'] . '">' . $donnees['fqdn_blog'] . '</a>',"<br>";	
 								}}}
 	?> 
                         </div>
