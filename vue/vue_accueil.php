@@ -17,6 +17,16 @@
     <script src="<?PHP echo WOW ?>"></script>
     <script src="<?PHP echo JQUERY ?>"></script>
     <script src="<?PHP echo JQUERYEASING ?>"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#langages').autocomplete({
+				serviceUrl: 'recherche_blog.php',
+				dataType: 'json'
+			});
+		});
+	</script>
     <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -37,8 +47,8 @@
                 <ul class="nav navbar-nav navbar-right">
                 	<li class="sidebar-search">
                         <div class="input-group custom-search-form">
-	                        <form>
-	                            <i class="fa fa-search"> Recherche</i><input type="text" name="recherche" class="form-control" placeholder="...">
+	                        <form action="./recherche_membre.php" method = "post">
+	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
 	                        </form>
                         </div>
                     </li>
