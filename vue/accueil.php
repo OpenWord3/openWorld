@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title>BIENVENUE SUR OPENWORLD</title>
     <meta name="description" content="Page d'accueil de OPENWORLD" />
     <link rel="icon" type="image/png" href="<?PHP echo IMAGE."logo.png"; ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Codeply">
+    <meta name="generator" content="Codeply"/>
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
     <link rel="stylesheet" href="<?PHP echo ANIMATE ?>" />
     <link rel="stylesheet" href="<?PHP echo IONICONS ?>" />
@@ -17,6 +17,7 @@
     <script src="<?PHP echo WOW ?>"></script>
     <script src="<?PHP echo JQUERY ?>"></script>
     <script src="<?PHP echo JQUERYEASING ?>"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -27,6 +28,8 @@
 		});
 	</script>
 
+	<script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -47,9 +50,11 @@
                 <ul class="nav navbar-nav navbar-right">
                 	<li class="sidebar-search">
                         <div class="input-group custom-search-form">
-	                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
-	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
+	                        <form action="javascript:void(0);" method="post">
+	                          <i class="fa fa-search"> Recherche</i><input type="text"  id="langages" name="res_rech" class="form-control" placeholder="..."/>
+
 	                        </form>
+
                         </div>
                     </li>
                     <li>
@@ -59,7 +64,25 @@
             </div>
         </div>
     </nav>
-<
+	
+     <!-- Modal recherche_blog -->
+    <div class="modal fade" id="myModal_recherche" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Résultats</h4>
+    </div>
+    <div class="modal-body">
+        
+        <form action="<?php echo INDEX ?>?index=vue_connexion" method="post">
+            
+        </form>
+    </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+<!-- /.modal -->
     <header id="first">
         <div class="header-content">
             <div class="inner">
@@ -282,7 +305,7 @@
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Informations</h4>
                     <ul class="list-unstyled">
-                        <li><a href="http://www.boyaka.org/lequipe-projet-pfh-boyaka-etudiants-intech-info-en-france/" title="Sur BOYAKA" onclick="window.open(this.href); return false;"><a href="">L'équipe OPENWORLD</a></li>
+                        <li><a href="http://www.boyaka.org/lequipe-projet-pfh-boyaka-etudiants-intech-info-en-france/" title="Sur BOYAKA" onclick="window.open(this.href); return false;">L'équipe OPENWORLD</a></li>
                         <li><a href="http://www.intechinfo.fr" title="INTECHINFO" onclick="window.open(this.href); return false;">L'école IN'TECH</a></li>
                     </ul>
                 </div>
