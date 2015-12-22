@@ -54,7 +54,7 @@
 			}
 			include("./vue/vue_gestion_relais.php");
 		
-	} else if($_POST["Activer_relais"]){
+	} else if($_POST["activer_relais"]){
 		$domain = $_POST["domain"];
 		$ip = $_POST["ip"];
 
@@ -69,7 +69,9 @@
 		}
 		include("./vue/vue_gestion_relais.php");
 
-	} else if(){
+	} else if($_POST["desactiver_relais"]){
+		$domain = $_POST["domain"];
+		$ip = $_POST["ip"];
 		//exec('sudo /var/script/del-relais.sh '.$domain);
 		$alerte = "Le nom de domaine vient d’être supprimé de notre service.";
 		$status = '0';
