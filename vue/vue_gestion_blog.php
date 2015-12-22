@@ -119,7 +119,7 @@
                             $verif_blog = blog($id); 
                         ?>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
-                        <a href="<?php if($verif_blog == ''){ echo '';}else{echo INDEX; ?>?index=vue_gestion_blog&action=acceder_blog<?php}?>">
+                        <a href="<?php if($verif_blog == ''){ echo '';}else{echo INDEX ?>?index=vue_gestion_blog&action=acceder_blog<?php}?>">
 
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à son blog</span>
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "desactiver_blog"){echo $alerte;}} ?>
-                        <a href="<?php if($verif_blog == ''){ echo '';}else{echo INDEX; ?>?index=vue_gestion_blog&action=desactiver_blog <?php } ?>">
+                        <a href="<?php if($verif_blog == ''){ echo '';}else{echo INDEX ?>?index=vue_gestion_blog&action=desactiver_blog <?php } ?>">
                             <div class="panel-footer">
                                 <span class="pull-left">Desactiver son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -186,7 +186,7 @@
                             </div>
                         </div>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "supprimer_blog"){echo $alerte;}} ?>
-                        <a href="<?php if($verif_blog == ''){ echo '';}else{echo INDEX; ?>?index=vue_gestion_blog&action=supprimer_blog <?php } ?>">
+                        <a href="<?php if($verif_blog == ''){ echo '';}else{echo INDEX ?>?index=vue_gestion_blog&action=supprimer_blog <?php } ?>">
                             <div class="panel-footer">
                                 <span class="pull-left">Supprimer son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
