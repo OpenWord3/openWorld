@@ -209,7 +209,7 @@
                     <td><?php echo $result['ip']; ?></td>
                     <td>
                         <?php
-                            $status_relais = status_mail($result['nom_domain']);
+                            $status_relais = status_relais($result['nom_domain']);
                             echo $status_relais;
                          ?>
                          <form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
