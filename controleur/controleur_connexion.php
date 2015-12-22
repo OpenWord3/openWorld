@@ -37,48 +37,49 @@
 		}
 	}else{		
 		include("./vue/vue_connexion.php");
+		if(isset($_POST["envoyer"])){
+			$code = $_POST["code"];
+			$email = $_POST["mail"];
+
+			if ($code === $nomimages[$nombre]) {
+
+				$check_mail = check_mail($email);
+				
+				if($check_mail != 0){
+					//Message de remercieemnt
+					echo "<script>alert(\"Votre mot de passe a été renvoyé à votre adresse. Merci de vérifier\")</script>";
+
+					$motdepasse = motdepasse($email);
+
+					//Name
+					$name = "OPENWORLD";
+
+					// To
+					$to = $email;
+
+					//From
+					$from = "OPENWORLD <noreply@openworld.fr>";
+					 
+					//Subject
+					$subject = "Votre Mot de passe";
+					 
+					// Message 
+					$message = "Suite à votre demande d'aide à la connexion sur le site OPENWORLD, nous vous informaons que votre mot de passe est : ". $motdepasse;
+
+			        $headers = $from . "\r\n" .
+			        'Reply-To: '.$from. "\r\n" .
+			        'X-Mailer: PHP/' . phpversion();
+
+					//Envoie des parametres entrés
+					mail($to, $subject, $message, $from, $headers);
+
+				} else {
+					echo "<script>alert(\"Vous n'êtes pas inscrit ! Veuillez vous inscrire\")</script>";
+				} 
+			} else {
+				echo "<script>alert(\"Code incorrect, veuillez reprendre\")</script>";
+			}
+		}
 	}
 
-if(isset($_POST["envoyer"])){
-	$code = $_POST["code"];
-	$email = $_POST["mail"];
-
-	if ($code === "W68HP") {
-
-		$check_mail = check_mail($email);
-		if($check_mail != 0){
-			//Message de remercieemnt
-			echo "<script>alert(\"Votre mot de passe a été renvoyé à votre adresse. Merci de vérifier\")</script>";
-
-			$motdepasse = motdepasse($email);
-
-			//Name
-			$name = "OPENWORLD";
-
-			// To
-			$to = $email;
-
-			//From
-			$from = "OPENWORLD <noreply@openworld.fr>";
-			 
-			//Subject
-			$subject = "Votre Mot de passe";
-			 
-			// Message 
-			$message = "Suite à votre demande d'aide à la connexion sur le site OPENWORLD, nous vous informaons que votre mot de passe est : ". $motdepasse;
-
-	        $headers = $from . "\r\n" .
-	        'Reply-To: '.$from. "\r\n" .
-	        'X-Mailer: PHP/' . phpversion();
-
-			//Envoie des parametres entrés
-			mail($to, $subject, $message, $from, $headers);
-
-		} else {
-			echo "<script>alert(\"Vous n'êtes pas inscrit ! Veuillez vous inscrire\")</script>";
-		} 
-	} else {
-		echo "<script>alert(\"Code incorrect, retapez le code\")</script>";
-	}
-}
 ?>
