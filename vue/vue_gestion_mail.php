@@ -113,7 +113,11 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="http://mail.openworld.itinet.fr">
+                        <?php
+                            $id = id($_SESSION['pseudo']);
+                            $mail_open = mail_open($id);
+                        ?>
+                        <a href="<?php if($mail_open != ''){echo 'http://mail.openworld.itinet.fr';}else{echo '#';} ?>">
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à la messagerie OpenWorld</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -157,7 +161,7 @@
                             </div>
                         </div>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "desactiver_mail"){echo $alerte;}} ?>
-                        <a href="<?php echo INDEX ?>?index=vue_gestion_mail&action=desactiver_mail">
+                        <a href="<?php if($mail_open != ''){echo INDEX.'?index=vue_gestion_mail&action=desactiver_mail';}else{echo '#';}?>">
                             <div class="panel-footer">
                                 <span class="pull-left">Desactiver son mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -179,7 +183,7 @@
                             </div>
                         </div>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "supprimer_mail"){echo $alerte;}} ?>
-                        <a href="<?php echo INDEX ?>?index=vue_gestion_mail&action=supprimer_mail">
+                        <a href="<?php if($mail_open != ''){echo INDEX.'?index=vue_gestion_mail&action=supprimer_mail';}else{echo '#';}?>">
                             <div class="panel-footer">
                                 <span class="pull-left">Supprimer son mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
