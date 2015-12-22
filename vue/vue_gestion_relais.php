@@ -123,29 +123,6 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-trash fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalSuppr" data-toggle="modal" data-target="#myModalSuppr">
-                            <?php if(isset($_POST["supprimer"])){echo $alerte;} ?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Supprimer un domaine</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             <ol>
                 Pour ajouter un domaine, entrez l'adresse IP.
             </ol>
@@ -172,23 +149,6 @@
 				</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 
-				<div class="modal fade" id="myModalSuppr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Suppression de domaine</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
-						<input type="textbox" placeholder="Entrer le nom de domaine" class="form-control" name="domain" required>
-						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div>
-
                 <!-- ======================================================================================================================================================================= -->
 
                 <table class="table table-striped table-hover ">
@@ -210,10 +170,10 @@
                     <td>
                         <?php
                             $status_relais = status_relais($result['nom_domain']);
-                            echo $status_relais;
                          ?>
                          <form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
                             <input class="form-control" id="name" type="hidden" name="domain" value="<?php echo $result['nom_domain']; ?>" required>
+                            <input class="form-control" id="name" type="hidden" name="ip" value="<?php echo $result['ip']; ?>" required>
                             <input type="submit" value="<?php if($status_relais != '0'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
                             name="<?php if($status_relais != '0'){echo 'desactiver_relais';}else{echo 'activer_relais';} ?>">
                         </form>

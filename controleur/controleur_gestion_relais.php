@@ -54,6 +54,32 @@
 			}
 			include("./vue/vue_gestion_relais.php");
 		
+	} else if($_POST["Activer_relais"]){
+		$domain = $_POST["domain"];
+		$ip = $_POST["ip"];
+
+		//exec('sudo /var/script/add-relais.sh '.$domain.' '.$ip);
+		$alerte = "Votre nom de domaine vient d’être activé.";
+		$results = liste_relais($id);
+		$status = '1';
+		change_relais($domain,$status);
+		foreach($results as $cle => $result){
+			$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+			$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+		}
+		include("./vue/vue_gestion_relais.php");
+
+	} else if(){
+		//exec('sudo /var/script/del-relais.sh '.$domain);
+		$alerte = "Le nom de domaine vient d’être supprimé de notre service.";
+		$status = '0';
+		change_relais($domain,$status);
+		$results = liste_relais($id);
+		foreach($results as $cle => $result){
+			$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+			$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+		}
+		include("./vue/vue_gestion_relais.php");
 	} else {
 		
 		$results = liste_relais($id);
