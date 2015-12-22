@@ -118,7 +118,7 @@
                             $id = id($_SESSION['pseudo']);
                             $mail_open = mail_open($id);
                         ?>
-                        <a href="<?php if($mail_open != ''){echo 'http://mail.openworld.itinet.fr';}else{echo '#';} ?>" onclick="window.open(this.href); return false;">
+                        <a href="<?php if($mail_open != ''){echo 'http://mail.openworld.itinet.fr';}else{echo '#';} ?>" <?php if($verif_blog == ''){ echo '';}else{echo 'target="_blank"';}?>>
 
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à la messagerie OpenWorld</span>
