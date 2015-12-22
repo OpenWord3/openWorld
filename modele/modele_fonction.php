@@ -342,11 +342,11 @@
 	function status_relais($nom_domain){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT status_mail FROM relais_mail WHERE nom_domain = :domain");
+		$req = $bdd->prepare("SELECT status_relais FROM relais_mail WHERE nom_domain = :domain");
 		$req->execute(array("domain"=>$nom_domain));
 
 		while($results = $req->fetch()){
-			$result = $results["status_mail"];
+			$result = $results["status_relais"];
 		}
 
 		return $result;
