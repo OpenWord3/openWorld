@@ -54,7 +54,7 @@
 		$pseudo = $_POST["pseudo"];
 		echo $pseudo;
 		$id = id($pseudo);
-		$pseudo = $_SESSION["pseudo"];
+		
 		$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
 		exec('sudo /var/script/activation_mail_account.sh '.$pseudo);					
 		active_mail($id);
@@ -67,13 +67,14 @@
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
+		
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["desactiver_mail"])){
 		$pseudo = $_POST["pseudo"];
 		echo $pseudo;
 		$id = id($pseudo);					
-		$pseudo = $_SESSION["pseudo"];
+		
 		$alerte = "Le compte mail de cet utilisateur vient d'être désactivé.";
 		$mail_name = "activer_mail";
 		$mail_value = "Activer";
@@ -86,6 +87,7 @@
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
+		
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["supprimer_mail"])){
