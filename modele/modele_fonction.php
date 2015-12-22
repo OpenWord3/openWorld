@@ -304,4 +304,18 @@
 		$req->closeCursor();
 		return $result;
 	}
+
+	//Fonction qui retourne le mot de passe oublié
+	function motdepasse($email){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT mdp FROM utilisateur WHERE mail = :email");
+		$req->execute(array("email"=>$email));
+
+		while($results = $req->fetch()){
+			$result = $results["mdp"];
+		}
+
+		return $result;
+	}
 ?>

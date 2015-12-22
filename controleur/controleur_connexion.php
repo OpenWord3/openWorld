@@ -38,5 +38,16 @@
 	}else{		
 		include("./vue/vue_connexion.php");
 	}
-	
+
+if(isset($_POST["envoyer"])){
+	$email = $_POST["mail"];
+
+	$check_mail = check_mail($email);
+	if($check_mail != 0){
+		$motdepasse = motdepasse($email);
+		echo $motdepasse;
+	} else {
+				echo "Non";
+	}
+}	
 ?>
