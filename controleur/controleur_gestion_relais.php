@@ -2,6 +2,8 @@
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_fonction.php");
 
+	$pseudo = $_SESSION["pseudo"];
+	$id = id($pseudo);
 	if(isset($_POST["ajouter"])){
 		$domain = $_POST["domain"];
 		$ip = $_POST["ip"];
@@ -15,6 +17,7 @@
 				add_relais($domain,$ip,$id);
 				exec('sudo /var/script/add-relais.sh '.$domain.' '.$ip);
 				$alerte = "Votre nom de domaine vient d’être ajouté parcontre patientez le temps que l’adimistrateur le valide.";
+				$results = liste_relais($id);
 				foreach($results as $cle => $result){
 					$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
 					$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
@@ -22,6 +25,7 @@
 				include("./vue/vue_gestion_relais.php");
 			} else {
 				$alerte = "Cette adresse ip existe déjà dans notre service.";
+				$results = liste_relais($id);
 				foreach($results as $cle => $result){
 					$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
 					$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
@@ -30,6 +34,7 @@
 			}
 		} else {
 			$alerte = "Ce nom de domaine existe déjà dans notre service.";
+			$results = liste_relais($id);
 			foreach($results as $cle => $result){
 				$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
 				$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
@@ -42,6 +47,7 @@
 			del_relais($domain);
 			exec('sudo /var/script/del-relais.sh '.$domain);
 			$alerte = "Le nom de domaine vient d’être supprimé de notre service.";
+			$results = liste_relais($id);
 			foreach($results as $cle => $result){
 				$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
 				$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
@@ -49,6 +55,8 @@
 			include("./vue/vue_gestion_relais.php");
 		
 	} else {
+		
+		$results = liste_relais($id);
 		foreach($results as $cle => $result){
 			$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
 			$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
