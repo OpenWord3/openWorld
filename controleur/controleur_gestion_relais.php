@@ -54,7 +54,7 @@
 			}
 			include("./vue/vue_gestion_relais.php");
 		
-	} else if($_POST["activer_relais"]){
+	} else if(isset($_POST["activer_relais"])){
 		$domain = $_POST["domain"];
 		$ip = $_POST["ip"];
 
@@ -69,7 +69,7 @@
 		}
 		include("./vue/vue_gestion_relais.php");
 
-	} else if($_POST["desactiver_relais"]){
+	} else if(isset($_POST["desactiver_relais"])){
 		$domain = $_POST["domain"];
 		$ip = $_POST["ip"];
 		//exec('sudo /var/script/del-relais.sh '.$domain);
