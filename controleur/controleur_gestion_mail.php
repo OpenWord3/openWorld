@@ -50,7 +50,7 @@
 						$alerte = "Votre compte mail est déjà désactivé.";
 						include("./vue/vue_gestion_mail.php");
 					}
-				}
+				
 				break;
 			case "supprimer_mail":
 				$id = $_SESSION["id"];
