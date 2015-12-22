@@ -27,7 +27,7 @@
 					$blog = $pseudo.".openworld.itinet.fr";
 					$status = "1";					
 					//exec('sudo /var/script/add_vhost.sh '.$pseudo.' '.$mdp);
-					//add_blog($id,$blog,$status); 
+					add_blog($id,$blog,$status); 
 					$alerte = "Votre blog vient d'être activé.";
 					include("./vue/vue_gestion_blog.php");
 				} else {
@@ -74,7 +74,7 @@
 					$status = "0";
 					$alerte = "Votre blog vient d'être définitivement fermé.";
 					//exec('sudo /var/script/remove_vhost.sh '.$pseudo);
-					//del_blog($id,$status);
+					del_blog($id,$status);
 					include("./vue/vue_gestion_blog.php");
 				}
 				break;
