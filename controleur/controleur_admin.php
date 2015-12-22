@@ -52,6 +52,7 @@
 
 	} else if(isset($_POST["activer_mail"])){
 		$pseudo = $_POST["pseudo"];
+		echo $pseudo;
 		$id = id($pseudo);
 		$pseudo = $_SESSION["pseudo"];
 		$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
@@ -70,6 +71,7 @@
 
 	} else if(isset($_POST["desactiver_mail"])){
 		$pseudo = $_POST["pseudo"];
+		echo $pseudo;
 		$id = id($pseudo);					
 		$pseudo = $_SESSION["pseudo"];
 		$alerte = "Le compte mail de cet utilisateur vient d'être désactivé.";
