@@ -66,17 +66,13 @@
 				
 				break;
 			case "supprimer_blog":
-				$verif_blog = blog($id);
-				if($verif_blog == ""){
-					$alerte = "Vous n'avez pas de blog actuellement.";
-					include("./vue/vue_gestion_blog.php");
-				} else {
-					$status = "0";
-					$alerte = "Votre blog vient d'être définitivement fermé.";
-					//exec('sudo /var/script/remove_vhost.sh '.$pseudo);
-					del_blog($id,$status);
-					include("./vue/vue_gestion_blog.php");
-				}
+				
+				$status = "0";
+				$alerte = "Votre blog vient d'être définitivement fermé.";
+				//exec('sudo /var/script/remove_vhost.sh '.$pseudo);
+				del_blog($id,$status);
+				include("./vue/vue_gestion_blog.php");
+				
 				break;
 		}
 	} else {
