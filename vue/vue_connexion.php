@@ -65,7 +65,7 @@
             <center><h3>CAPTCHA</h3><br>
             <img src="./bootstrap/images/captcha.jpg"></center>
             <input class="form-control" placeholder="CODE CAPTCHA" id="code" type="text" name="code" required><BR>
-            <input class="form-control" placeholder="Adresse mail de secours" id="email" type="email" name="email" required><BR>
+            <input class="form-control" placeholder="Adresse mail de secours" id="email" type="email" name="mail" required><BR>
             <input type="checkbox" required> Je ne suis pas un ordinateur
             <center><input type="submit" value="Envoyer" class="panel panel-green" name="envoyer"></center>
         </form>
