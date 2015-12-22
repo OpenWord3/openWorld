@@ -54,16 +54,14 @@
 	}
 
 	//Function qui inscrit un vsiteur
-	function inscription($pseudo,$mdp,$nom,$prenom,$mail){
+	function inscription($pseudo,$mdp,$mail){
 		global $bdd;
 
-		$req = $bdd->prepare("INSERT INTO `utilisateur` (`pseudo`,`mdp`,`mail`,`nom`,`prenom`,`status_utilisateur`) values (:pseudo,:mdp,:mail,:nom,:prenom,FALSE);");
+		$req = $bdd->prepare("INSERT INTO `utilisateur` (`pseudo`,`mdp`,`mail`,`status_utilisateur`) values (:pseudo,:mdp,:mail,FALSE);");
 		$req->execute(array(
 							'pseudo'=>$pseudo,
 							'mdp'=>$mdp,
-							'mail'=>$mail,
-							'nom'=>$nom,
-							'prenom'=>$prenom));
+							'mail'=>$mail));
 		$req->closeCursor();
 	}
 
@@ -127,15 +125,6 @@
 		$req->execute(array('id'=>$id));
 		$req->closeCursor();
 	}
-
-	/*//Fonction qui active un compte mail admin
-	function active_mail_admin($id){
-		global $bdd;
-
-		$req = $bdd->prepare("UPDATE `utilisateur` SET `status_mail` = '1' WHERE id_utilisateur = :id");
-		$req->execute(array('id'=>$id));
-		$req->closeCursor();
-	}*/
 
 	//Fonction qui desactive un compte mail
 	function desactive_mail($id){
@@ -332,6 +321,32 @@
 
 		while($results = $req->fetch()){
 			$result = $results["mdp"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui liste les nom de domaine d'un utilisateur
+	function liste_relais($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT nom_domain, ip FROM relais_mail WHERE utilisateur_id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+		$result = $req->fetchAll();
+
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction qui retourne le status d'un relais
+	function status_relais($nom_domain){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT status_mail FROM relais_mail WHERE nom_domain = :nom_domain");
+		$req->execute(array("nom_domain"=>$nom_domain));
+
+		while($results = $req->fetch()){
+			$result = $results["status_mail"];
 		}
 
 		return $result;

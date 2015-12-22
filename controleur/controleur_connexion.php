@@ -16,6 +16,14 @@
 					$id = id($pseudo);
 					$_SESSION["id"] = $id;
 					$_SESSION["mdp"] = $mdp;
+
+					$results = liste_relais($id);
+
+					foreach($results as $cle => $result){
+						$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+						$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+					}
+
 					include("./vue/vue_gestion_blog.php");
 				} else {
 					$_SESSION["pseudo"] = $pseudo;

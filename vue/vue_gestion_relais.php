@@ -188,6 +188,51 @@
 				</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 				</div>
+
+                <!-- ======================================================================================================================================================================= -->
+
+                <table class="table table-striped table-hover ">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>NOM DE DOMAINE</th>
+                    <th>ADRESSE IP</th>
+                    <th>DECISION</th>
+                    <th class="danger">FERMER</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($results as $result){ ?>
+                  <tr>
+                    <td>1</td>
+                    <td><?php echo $result['nom_domain']; ?></td>
+                    <td><?php echo $result['ip']; ?></td>
+                    <td>
+                        <?php
+                            $status_relais = status_mail($result['nom_domain']);
+                            echo $status_relais;
+                         ?>
+                         <form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
+                            <input class="form-control" id="name" type="hidden" name="domain" value="<?php echo $result['nom_domain']; ?>" required>
+                            <input type="submit" value="<?php if($status_relais != '0'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                            name="<?php if($status_relais != '0'){echo 'desactiver_relais';}else{echo 'activer_relais';} ?>">
+                        </form>
+                    </td>
+                    <td>
+                       <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="domain" value="<?php echo $result['nom_domain']; ?>" required>
+                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer">
+                        </form> 
+                    </td>
+                  </tr>
+                  <?php } ?>                  
+                  </tbody>
+                </table>
+
+                <!-- ======================================================================================================================================================================= -->
+
+
+
 			<!-- /.modal -->
 
     <!-- jQuery -->
