@@ -17,6 +17,9 @@
 					$verif_status_blog = status_blog($id);
 					if($verif_status_blog == "1"){
 						header("location:http://".$pseudo.".openworld.itinet.fr");
+					} else if($verif_status_blog == "2") {
+						$alerte = "Votre blog a été désactivé par l'administrateur.";
+						include("./vue/vue_gestion_blog.php");
 					} else {
 						$alerte = "Votre blog n'est pas actif actuellement, vous devez d'abord l'activé.";
 						include("./vue/vue_gestion_blog.php");
@@ -37,6 +40,9 @@
 					$verif_status_blog = status_blog($id);
 					if($verif_status_blog == "1"){
 						$alerte = "Votre blog est déjà activé.";
+						include("./vue/vue_gestion_blog.php");
+					} else if($verif_status_blog == "2") {
+						$alerte = "Votre blog a été désactivé par l'administrateur.";
 						include("./vue/vue_gestion_blog.php");
 					} else {
 						$alerte = "Votre blog vient d'être activé.";
