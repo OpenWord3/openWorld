@@ -55,7 +55,7 @@
 		$id = id($pseudo);
 		$pseudo = $_SESSION["pseudo"];
 		$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
-		exec('sudo /var/script/activation_mail_account.sh '.$pseudo);*/					
+		exec('sudo /var/script/activation_mail_account.sh '.$pseudo);					
 		active_mail($id);
 		$mail_name = "desactiver_mail";
 		$mail_value = "Désactiver";
