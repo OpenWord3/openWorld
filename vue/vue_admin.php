@@ -435,6 +435,7 @@
                         </form>  
                     </td>
                     <td>
+                        <?php echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
@@ -448,6 +449,7 @@
                         </form> 
                     </td>
                     <td>
+                    <?php echo $status_mail; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"
@@ -461,6 +463,7 @@
                         </form> 
                     </td>
                     <td>
+                    <?php echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"
