@@ -66,7 +66,7 @@
             
             <img src="./bootstrap/images/captcha/<?php echo $nomimages[$nombre]?>.jpg" border=0 width=150 height=90 alt="Image aléatoire"></center>
             <input class="form-control" placeholder="CODE CAPTCHA" id="code" type="text" name="code" required><BR>
-            <input class="form-control" type="hidden" name="nombre" value="$nombre">
+            <input class="form-control" type="hidden" name="nombre" value="<?php echo $nombre ?>">
             <input class="form-control" placeholder="Adresse mail de secours" id="mail" type="email" name="mail" required><BR>
             <input type="checkbox" required> Je ne suis pas un ordinateur
             <center><input type="submit" value="Envoyer" class="panel panel-green" name="envoyer"></center>
