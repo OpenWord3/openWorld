@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php //session_start(); ?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -73,6 +74,8 @@
 				$nomimages[6]="toflo";
 				$nomimages[7]="vol";
 				$nomimages[8]="w68HP";
+				echo $nomimages[$nombre];
+				$_SESSION['nbre'] = $nomimages[$nombre];
 			?>
 
             <img src="./bootstrap/images/captcha/<?php echo $nomimages[$nombre]?>.jpg" border=0 width=150 height=90 alt="Image aléatoire"></center>
