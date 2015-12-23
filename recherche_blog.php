@@ -11,7 +11,7 @@
         }
  
         // Requête SQL
-        $requete = "SELECT * FROM utilisateur WHERE nom LIKE '". $q ."%'or prenom LIKE '". $q ."%'";
+        $requete = "SELECT * FROM utilisateur WHERE nom LIKE '". $q ."%' or prenom LIKE '". $q ."%'";
  
         // Exécution de la requête SQL
         $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));

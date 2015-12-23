@@ -38,6 +38,9 @@
 				break;
 			case "vue_admin":
 				include("./controleur/controleur_admin.php");
+				break;			
+				case "recherche_blog":
+				include("./controleur/controleur_rech.php");
 				break;
 		}
 
