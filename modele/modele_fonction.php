@@ -272,10 +272,9 @@
 		$req = $bdd->prepare("SELECT `nom_domain` FROM `relais_mail` WHERE `utilisateur_id_utilisateur` = :id");
 		$req->execute(array('id'=>$id));
 
-		while($results = $req->fetch()){
-			$result = $results["nom_domain"];
-		}
+		$result = $req->fetchAll();
 
+		$req->closeCursor();
 		return $result;
 	}
 
