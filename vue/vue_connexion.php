@@ -27,7 +27,8 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <?php if(isset($_POST["valider"])){echo $alerte;} ?>
+                        <?php if(isset($_POST["valider"])){echo $alerte;}else if(isset($_POST["envoyer"])){echo $alerte;} ?>
+
                         <form accept-charset="UTF-8" action="<?php echo INDEX ?>?index=vue_connexion" role="form" class="form-signin" method="POST">
                             <fieldset>
                                 <label class="panel-login">
@@ -62,19 +63,7 @@
         <form action="#" method="post">
             <center><h3>CAPTCHA</h3><br>
             
-            <?php
-		    	$nombre=rand(0, 8);
-				$nomimages[0]="Xinjecte";
-				$nomimages[1]="bastoni";
-				$nomimages[2]="ceNewn";
-				$nomimages[3]="ftyrign";
-				$nomimages[4]="Germito";
-				$nomimages[5]="invesu";
-				$nomimages[6]="toflo";
-				$nomimages[7]="vol";
-				$nomimages[8]="w68HP";
-			?>
-
+            
             <img src="./bootstrap/images/captcha/<?php echo $nomimages[$nombre]?>.jpg" border=0 width=150 height=90 alt="Image aléatoire"></center>
             <input class="form-control" placeholder="CODE CAPTCHA" id="code" type="text" name="code" required><BR>
             <input class="form-control" placeholder="Adresse mail de secours" id="mail" type="email" name="mail" required><BR>
