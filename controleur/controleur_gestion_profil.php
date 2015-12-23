@@ -11,10 +11,10 @@
 		$domain = domain_user($id);
 		var_dump($domain);
 
-		/*foreach($domain as $nom){			
-			echo $nom;
+		foreach($domain as $nom){			
+			echo $nom["nom_domain"];
 			//exec('sudo /var/script/del-relais.sh '.$nom);
-		}*/		
+		}		
 		
 		//del_relais2($id);
 		//logout($pseudo);
