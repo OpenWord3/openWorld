@@ -13,7 +13,7 @@
 
 		foreach($domain as $nom){			
 			
-			exec('sudo /var/script/del-relais.sh '.$nom["nom_domain"];);
+			exec('sudo /var/script/del-relais.sh '.$nom["nom_domain"]);
 		}		
 		
 		del_relais2($id);
