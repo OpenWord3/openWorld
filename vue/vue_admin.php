@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Tableau de bord OPENWORLD">
     <meta name="author" content="Serge Louis Adolphe">
-    <meta http-equiv="Refresh" content="5;">
 
     <title>Tableau de bord Administrateur OPENWORLD</title>
 
