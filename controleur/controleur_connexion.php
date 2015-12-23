@@ -44,50 +44,50 @@
 			include("./vue/vue_connexion.php");
 		}
 	}else if(isset($_POST["envoyer"])){
-			$code = $_POST["code"];
-			$email = $_POST["mail"];
+		$code = $_POST["code"];
+		$email = $_POST["mail"];
 
-			if ($code === $nomimages[$nombre]) {
+		if ($code === $nomimages[$nombre]) {
 
-				$check_mail = check_mail($email);
-				
-				if($check_mail != 0){
-					//Message de remercieemnt
-					echo "<script>alert(\"Votre mot de passe a été renvoyé à votre adresse. Merci de vérifier\")</script>";
+			$check_mail = check_mail($email);
+			
+			if($check_mail != 0){
+				//Message de remercieemnt
+				echo "<script>alert(\"Votre mot de passe a été renvoyé à votre adresse. Merci de vérifier\")</script>";
 
-					$motdepasse = motdepasse($email);
+				$motdepasse = motdepasse($email);
 
-					//Name
-					$name = "OPENWORLD";
+				//Name
+				$name = "OPENWORLD";
 
-					// To
-					$to = $email;
+				// To
+				$to = $email;
 
-					//From
-					$from = "OPENWORLD <noreply@openworld.fr>";
-					 
-					//Subject
-					$subject = "Votre Mot de passe";
-					 
-					// Message 
-					$message = "Suite à votre demande d'aide à la connexion sur le site OPENWORLD, nous vous informaons que votre mot de passe est : ". $motdepasse;
+				//From
+				$from = "OPENWORLD <noreply@openworld.fr>";
+				 
+				//Subject
+				$subject = "Votre Mot de passe";
+				 
+				// Message 
+				$message = "Suite à votre demande d'aide à la connexion sur le site OPENWORLD, nous vous informaons que votre mot de passe est : ". $motdepasse;
 
-			        $headers = $from . "\r\n" .
-			        'Reply-To: '.$from. "\r\n" .
-			        'X-Mailer: PHP/' . phpversion();
+		        $headers = $from . "\r\n" .
+		        'Reply-To: '.$from. "\r\n" .
+		        'X-Mailer: PHP/' . phpversion();
 
-					//Envoie des parametres entrés
-					mail($to, $subject, $message, $from, $headers);
+				//Envoie des parametres entrés
+				mail($to, $subject, $message, $from, $headers);
 
-				} else {
-					$alerte = "Vous n'êtes pas inscrit ! Veuillez vous inscrire";
-					include("./vue/vue_connexion.php");
-				} 
 			} else {
-				$alerte = "Code incorrect, veuillez reprendre";
+				$alerte = "Vous n'êtes pas inscrit ! Veuillez vous inscrire";
 				include("./vue/vue_connexion.php");
-			}
+			} 
+		} else {
+			$alerte = "Code incorrect, veuillez reprendre";
+			include("./vue/vue_connexion.php");
 		}
+					
 	} else {
 		include("./vue/vue_connexion.php");
 	}
