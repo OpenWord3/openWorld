@@ -356,7 +356,7 @@
 	function change_relais($nom,$status){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `relais_mail` SET `status_relais` = '$status' WHERE `nom_domain` = $nom");
+		$req = $bdd->query("UPDATE `relais_mail` SET `status_relais` = '$status' WHERE `nom_domain` = '$nom'");
 		
 		$req->closeCursor();
 	}
