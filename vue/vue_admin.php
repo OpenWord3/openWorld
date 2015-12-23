@@ -156,8 +156,8 @@
 
                 <!-- ================================================================================================================================================================ -->
                 
-<!--class="table table-striped table-hover"-->
-                <table >
+
+                <table class="table table-striped table-hover">
                   <thead>
                       <tr>
                         <th>#</th>
@@ -270,7 +270,7 @@
 				</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 			<!-- /.modal -->
-
+        </div>
     <!-- jQuery -->
     <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
 
