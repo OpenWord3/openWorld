@@ -9,7 +9,7 @@
 		//exec('sudo /var/script/remove_vhost.sh '.$pseudo);
 		//exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 		$domain = domain_user($id);
-		var_dump($domain);
+		//var_dump($domain);
 
 		foreach($domain as $nom){			
 			echo $nom["nom_domain"];
