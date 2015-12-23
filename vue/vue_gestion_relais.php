@@ -181,7 +181,7 @@
                     <td>
                        <form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="domain" value="<?php echo $result['nom_domain']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer">
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer">
                         </form> 
                     </td>
                   </tr>
