@@ -43,9 +43,7 @@
 			$alerte = "Vérifiez que vous avez entré le bon pseudo ou mot de passe.";
 			include("./vue/vue_connexion.php");
 		}
-	}else{		
-		include("./vue/vue_connexion.php");
-		/*if(isset($_POST["envoyer"])){
+	}else if(isset($_POST["envoyer"])){
 			$code = $_POST["code"];
 			$email = $_POST["mail"];
 
@@ -82,12 +80,16 @@
 					mail($to, $subject, $message, $from, $headers);
 
 				} else {
-					echo "<script>alert(\"Vous n'êtes pas inscrit ! Veuillez vous inscrire\")</script>";
+					$alerte = "Vous n'êtes pas inscrit ! Veuillez vous inscrire";
+					include("./vue/vue_connexion.php");
 				} 
 			} else {
-				echo "<script>alert(\"Code incorrect, veuillez reprendre\")</script>";
+				$alerte = "Code incorrect, veuillez reprendre";
+				include("./vue/vue_connexion.php");
 			}
-		}*/
+		}
+	} else {
+		include("./vue/vue_connexion.php");
 	}
 
 ?>
