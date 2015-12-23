@@ -76,6 +76,7 @@
 				$nomimages[6]="toflo";
 				$nomimages[7]="vol";
 				$nomimages[8]="w68HP";
+				$alerte = "";
 				include("./vue/vue_connexion.php");
 				$motdepasse = motdepasse($email);
 
