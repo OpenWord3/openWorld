@@ -22,7 +22,7 @@
 		$message = $_POST['message']."
 		Mon telephone est le ".$telephone;
 		 
-		// Affichage des parametres entrés
+		// Affichage du message de remerciement
 		//var_dump($_POST);
 		echo "<script>alert(\"Nous vous remerions de votre intérêt ! Nous repondrons à votre mail dans de brefs delais\")</script>";
 

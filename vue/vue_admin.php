@@ -136,9 +136,6 @@
 				</div>
 				</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->	
-
-				
 
 				<div class="modal fade" id="myModalRebootService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -209,7 +206,7 @@
                     <?php echo $status_mail; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_mail"
                                <?php 
                                     $verif_mail = mail_open($result['id_utilisateur']);
                                     if($verif_mail == ""){
@@ -223,7 +220,7 @@
                     <?php echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_blog"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
                                     if($verif_blog == ""){
