@@ -45,7 +45,7 @@
 		}
 	}else{		
 		include("./vue/vue_connexion.php");
-		if(isset($_POST["envoyer"])){
+		/*if(isset($_POST["envoyer"])){
 			$code = $_POST["code"];
 			$email = $_POST["mail"];
 
@@ -86,7 +86,7 @@
 				} 
 			} else {
 				echo "<script>alert(\"Code incorrect, veuillez reprendre\")</script>";
-			}
+			}*/
 		}
 	}
 
