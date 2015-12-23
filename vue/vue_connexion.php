@@ -63,7 +63,7 @@
             <center><h3>CAPTCHA</h3><br>
             
             <?php
-		    	$nombre=rand(0, 1);
+		    	$nombre=rand(0, 8);
 				$nomimages[0]="Xinjecte";
 				$nomimages[1]="bastoni";
 				$nomimages[2]="ceNewn";
