@@ -46,8 +46,9 @@
 	}else if(isset($_POST["envoyer"])){
 		$code = $_POST["code"];
 		$email = $_POST["mail"];
+		$nombre = $_POST["nombre"];
 
-		$nombre=rand(0, 8);
+		//$nombre=rand(0, 8);
 		$nomimages[0]="Xinjecte";
 		$nomimages[1]="bastoni";
 		$nomimages[2]="ceNewn";
