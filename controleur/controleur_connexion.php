@@ -81,14 +81,44 @@
 
 			} else {
 				$alerte = "Vous n'êtes pas inscrit ! Veuillez vous inscrire";
+				$nombre=rand(0, 8);
+				$nomimages[0]="Xinjecte";
+				$nomimages[1]="bastoni";
+				$nomimages[2]="ceNewn";
+				$nomimages[3]="ftyrign";
+				$nomimages[4]="Germito";
+				$nomimages[5]="invesu";
+				$nomimages[6]="toflo";
+				$nomimages[7]="vol";
+				$nomimages[8]="w68HP";
 				include("./vue/vue_connexion.php");
 			} 
 		} else {
 			$alerte = "Code incorrect, veuillez reprendre";
+			$nombre=rand(0, 8);
+			$nomimages[0]="Xinjecte";
+			$nomimages[1]="bastoni";
+			$nomimages[2]="ceNewn";
+			$nomimages[3]="ftyrign";
+			$nomimages[4]="Germito";
+			$nomimages[5]="invesu";
+			$nomimages[6]="toflo";
+			$nomimages[7]="vol";
+			$nomimages[8]="w68HP";
 			include("./vue/vue_connexion.php");
 		}
-					
+
 	} else {
+		$nombre=rand(0, 8);
+		$nomimages[0]="Xinjecte";
+		$nomimages[1]="bastoni";
+		$nomimages[2]="ceNewn";
+		$nomimages[3]="ftyrign";
+		$nomimages[4]="Germito";
+		$nomimages[5]="invesu";
+		$nomimages[6]="toflo";
+		$nomimages[7]="vol";
+		$nomimages[8]="w68HP";
 		include("./vue/vue_connexion.php");
 	}
 
