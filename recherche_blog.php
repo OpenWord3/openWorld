@@ -5,7 +5,7 @@
  
         // Connexion à la base de données
         try {
-            $bdd = new PDO('mysql:host=localhost;dbname=openworld', 'root', '');
+            $bdd = new PDO('mysql:host=localhost;dbname=openworld', 'root', 'africainetfier');
         } catch(Exception $e) {
             exit('Impossible de se connecter à la base de données.');
         }

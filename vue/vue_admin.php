@@ -86,7 +86,7 @@
                 <table class="table table-striped table-hover">
                   <thead>
                       <tr>
-                        <th>#</th>
+                        
                         <th>PSEUDO</th>
                         <th>SERVICE MAIL</th>
                         <th>SERVICE BLOG</th>
@@ -97,13 +97,13 @@
                   <tbody>
                   <?php foreach($results as $result){ ?>
                   <tr>
-                    <td>1</td>
+                    
                     <td><?php echo $result['pseudo']; ?></td>
                     <td>
                         <?php
                             $status_mail = status_mail($result['id_utilisateur']);
                             $status_blog = status_blog($result['id_utilisateur']);
-                            echo $status_mail;
+                            //echo $status_mail;
                          ?>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
@@ -117,7 +117,7 @@
                         </form>  
                     </td>
                     <td>
-                        <?php echo $status_blog; ?>
+                        <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
@@ -131,7 +131,7 @@
                         </form> 
                     </td>
                     <td>
-                    <?php echo $status_mail; ?>
+                    <?php //echo $status_mail; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_mail"
@@ -145,7 +145,7 @@
                         </form> 
                     </td>
                     <td>
-                    <?php echo $status_blog; ?>
+                    <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
                             <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_blog"
