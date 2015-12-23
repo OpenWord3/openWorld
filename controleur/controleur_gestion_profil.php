@@ -6,18 +6,19 @@
 	$id = id($pseudo);
 
 	if(isset($_GET["desinscrire"])){
-		exec('sudo /var/script/remove_vhost.sh '.$pseudo);
-		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
+		//exec('sudo /var/script/remove_vhost.sh '.$pseudo);
+		//exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 		$domain = domain_user($id);
 
 		foreach($domain as $nom){			
 			echo $nom;
-			exec('sudo /var/script/del-relais.sh '.$nom);
+			//exec('sudo /var/script/del-relais.sh '.$nom);
 		}		
 		
-		del_relais2($id);
-		logout($pseudo);
-		header("location:index.php");
+		//del_relais2($id);
+		//logout($pseudo);
+		include("./vue/vue_gestion_profil.php");
+		//header("location:index.php");
 	} else if (isset($_POST["modifier"])){
 		$nom = $_POST["nom"];
 		$prenom = $_POST["prenom"];
