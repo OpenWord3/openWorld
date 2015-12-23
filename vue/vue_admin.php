@@ -81,72 +81,6 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-unlock-alt fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalActivationBlog"  data-toggle="modal" data-target="#myModalActivationBlog">
-                        <?php if(isset($_POST["activer_blog"])){echo $alerte;}?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Activer un blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-unlock fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalDesactivationBlog"  data-toggle="modal" data-target="#myModalDesactivationBlog">
-                        <?php if(isset($_POST["desactiver_blog"])){echo $alerte;}?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Désactiver un blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-trash fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalSuppressionBlog"  data-toggle="modal" data-target="#myModalSuppressionBlog">
-                        <?php if(isset($_POST["supprimer_blog"])){echo $alerte;}?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Supprimer un blog</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -160,72 +94,6 @@
                         <a href="#myModalReboot"  data-toggle="modal" data-target="#myModalReboot">
                             <div class="panel-footer">
                                 <span class="pull-left">Redemarrer le serveur</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-unlock-alt fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalActivationMail"  data-toggle="modal" data-target="#myModalActivationMail">
-                        <?php if(isset($_POST["activer_mail"])){echo $alerte;}?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Activer une adresse mail</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-unlock fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalDesactivationMail"  data-toggle="modal" data-target="#myModalDesactivationMail">
-                        <?php if(isset($_POST["desactiver_mail"])){echo $alerte;}?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Désactiver une adresse mail</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-trash fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalSuppressionMail"  data-toggle="modal" data-target="#myModalSuppressionMail">
-                        <?php if(isset($_POST["supprimer_mail"])){echo $alerte;}?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Supprimer une adresse mail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -254,58 +122,6 @@
                     </div>
                 </div>
 
-			<!-- Modal -->
-				<div class="modal fade" id="myModalActivationBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Activation de blog</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
-						<center><input type="submit" value="Activer" class="panel panel-green" name="activer_blog"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-				<div class="modal fade" id="myModalDesactivationBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Désactivation de blog</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
-						<center><input type="submit" value="Désactiver" class="panel panel-green" name="desactiver_blog"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-				<div class="modal fade" id="myModalSuppressionBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Suppression de blog</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
-						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
 				<div class="modal fade" id="myModalReboot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 				<div class="modal-content">
@@ -316,57 +132,6 @@
 				<div class="modal-body">
 					<form>
 						<center><input type="submit" value="OUI" class="panel panel-green"><input type="button" value="NON" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-				<div class="modal fade" id="myModalActivationMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Activation de Mail</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
-						<center><input type="submit" value="Activer" class="panel panel-green" name="activer_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-				<div class="modal fade" id="myModalDesactivationMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Désactivation de Mail</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
-						<center><input type="submit" value="Désactiver" class="panel panel-green" name="desactiver_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-				<div class="modal fade" id="myModalSuppressionMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Suppression de Mail</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-						<input class="form-control" placeholder="Le nom du client" id="name" type="name" name="pseudo" required>
-						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
 				</div><!-- /.modal-content -->
@@ -393,10 +158,10 @@
                 <div>
                     <?php 
                         
-                        foreach($results as $result){
+                        /*foreach($results as $result){
                             echo $result['id_utilisateur'];
                             echo $result['pseudo'];
-                        }
+                        }*/
                     ?>
                 </div>
 
@@ -452,7 +217,7 @@
                     <?php echo $status_mail; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_mail"
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_mail"
                                <?php 
                                     $verif_mail = mail_open($result['id_utilisateur']);
                                     if($verif_mail == ""){
@@ -466,7 +231,7 @@
                     <?php echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-green" name="supprimer_blog"
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_blog"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
                                     if($verif_blog == ""){
