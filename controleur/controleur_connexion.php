@@ -86,8 +86,8 @@
 				} 
 			} else {
 				echo "<script>alert(\"Code incorrect, veuillez reprendre\")</script>";
-			}*/
-		}
+			}
+		}*/
 	}
 
 ?>
