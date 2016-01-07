@@ -109,8 +109,7 @@
                                 <div class="col-xs-3">
                                     <i class="fa fa-external-link fa-5x"></i>
                                 </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
+                                <div class="col-xs-9 text-right"></div>
                             </div>
                         </div>
 
@@ -122,7 +121,6 @@
                         ?>
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
                         <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>" <?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo '';}else{echo 'target="_blank"';}?>>
-
 
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à son blog</span>
@@ -156,7 +154,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'panel panel-default';}else{echo 'panel panel-yellow';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
