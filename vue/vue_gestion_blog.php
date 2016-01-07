@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="<?php if($verif_blog == ''){ echo 'panel panel-grey';}else{echo 'panel panel-green';}?>">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'panel panel-grey';}else{echo 'panel panel-green';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
