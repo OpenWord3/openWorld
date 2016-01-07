@@ -103,7 +103,7 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'panel panel-info';}else{echo 'panel panel-primary';}?>">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'panel panel-default';}else{echo 'panel panel-primary';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
