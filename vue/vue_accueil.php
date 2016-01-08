@@ -21,7 +21,7 @@
 	<script>
 		$(document).ready(function() {
 			$('#langages').autocomplete({
-				serviceUrl: 'recherche_blog.php',
+				serviceUrl: './modele/recherche_blog.php',
 				dataType: 'json'
 			});
 		});

@@ -35,19 +35,21 @@
 			$alerte = "Vérifiez que vous avez entré le bon pseudo ou mot de passe.";
 			include("./vue/vue_connexion.php");
 		}
-	}else{		
-		include("./vue/vue_connexion.php");
+	}else if(isset($_POST["envoyer"])){		
+				include("./vue/vue_connexion.php");
+
 		if(isset($_POST["envoyer"])){
 			$code = $_POST["code"];
 			$email = $_POST["mail"];
-
-			if ($code === $nomimages[$nombre]) {
+$nomimages = $_SESSION['nbre'];
+			if ($code === $nomimages) {
 
 				$check_mail = check_mail($email);
 				
 				if($check_mail != 0){
 					//Message de remercieemnt
 					echo "<script>alert(\"Votre mot de passe a été renvoyé à votre adresse. Merci de vérifier\")</script>";
+							//include("./vue/vue_connexion.php");
 
 					$motdepasse = motdepasse($email);
 
@@ -80,6 +82,8 @@
 				echo "<script>alert(\"Code incorrect, veuillez reprendre\")</script>";
 			}
 		}
+
 	}
+
 
 ?>
