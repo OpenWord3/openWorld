@@ -99,11 +99,16 @@
                     <h1 class="page-header">Bienvenue <?php echo $_SESSION["pseudo"];?></h1>
                 </div>
             </div>
+            <?php 
+                $id = id($_SESSION["pseudo"]);
+                $verif_blog = blog($id);
+                $status_blog = status_blog($id); 
+            ?>
 
             <div class="row">
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'panel panel-default';}else{echo 'panel panel-primary';}?>">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'disabled';}else{echo 'panel panel-primary';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -112,16 +117,10 @@
                                 <div class="col-xs-9 text-right"></div>
                             </div>
                         </div>
-
-                        <!--<a href="http://<?php echo $_SESSION["pseudo"];?>.openworld.itinet.fr">-->
-                        <?php 
-                            $id = id($_SESSION["pseudo"]);
-                            $verif_blog = blog($id);
-                            $status_blog = status_blog($id); 
-                        ?>
+                        
                         <?php if(isset($_GET["action"])){ if($_GET["action"] == "acceder_blog"){echo $alerte;}} ?>
-                        <!--<a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>" <?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo '';}else{echo 'target="_blank"';}?>>
--->
+                        <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=acceder_blog';}?>" <?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo '';}else{echo 'target="_blank"';}?>>
+
                             <div class="panel-footer">
                                 <span class="pull-left">Accéder à son blog</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -132,7 +131,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){echo 'panel panel-green';}else{echo 'disabled';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -154,7 +153,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'panel panel-default';}else{echo 'panel panel-yellow';}?>">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'disabled';}else{echo 'panel panel-yellow';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -176,7 +175,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2'){ echo 'disabled';}else{echo 'panel panel-red';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
