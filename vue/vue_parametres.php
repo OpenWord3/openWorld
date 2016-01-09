@@ -12,12 +12,16 @@
 
     <title>Tableau de bord OPENWORLD</title>
 
-    <link href="./bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/timeline.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/morrisjs/morris.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="./bootstrap/css/timeline.css" rel="stylesheet">
+    <link href="./bootstrap/css/sb-admin-2.css" rel="stylesheet">
+    <link href="./bootstrap/morrisjs/morris.css" rel="stylesheet">
+    <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="./bootstrap/js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="./bootstrap/js/sb-admin-2.js"></script>
 
 </head>
 
@@ -73,7 +77,7 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-comments fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
+                            <a  class="nav" data-toggle="nav" href="#"><i class="fa fa-comments fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo INDEX ?>?index=vue_gestion_relais">Gérer les relais</a>
@@ -84,9 +88,31 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li>
-                            <a href="<?php echo INDEX ?>?index=vue_gestion_timeline"><i class="fa fa-table fa-fw"></i> Gérer sa timeline</a>
+                            <a  class="nav" data-toggle="nav" href="#"><i class="fa fa-table fa-fw"></i> Gérer sa timeline<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_timeline">Consulter sa timeline</a>
+                                </li>
+
+                                <li>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_abonnement">Gérer ses abonnements</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <br>
+                    <br>
+                    
+                    <ul>
+                        <li>
+                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                        </li>
+
+                        <li>
+                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
                         </li>
                     </ul>
                 </div>
@@ -94,27 +120,42 @@
         </nav>
 
         <div id="page-wrapper">
-
-            <ol>
-                Parametres de Dashboard
-            </ol>
-
-    <!-- jQuery -->
-    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="./bootstrap/bower_components/raphael/raphael-min.js"></script>
-    <script src="./bootstrap/bower_components/morrisjs/morris.min.js"></script>
-    <script src="./bootstrap/js/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
+            <section id="last">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 text-center">
+                            <h2 class="margin-top-0 wow fadeIn">Envie de nous parler ?</h2>
+                            <hr class="primary">
+                            <p>Tu peux nous écrire ! Nous serons heureux de te repondre ... après notre partie de babyfoot</p>
+                        </div>
+                        <div class="col-lg-10 col-lg-offset-1 text-center">
+                            <form method="POST" class="contact-form row" action="<?php echo INDEX ?>?index=vue_accueil">
+                                <div class="col-md-4">
+                                    <label></label>
+                                    <input type="text" class="form-control" name="nom" placeholder="Nom">
+                                </div>
+                                <div class="col-md-4">
+                                    <label></label>
+                                    <input type="email" class="form-control" name="email" placeholder="Email">
+                                </div>
+                                <div class="col-md-4">
+                                    <label></label>
+                                    <input type="text" class="form-control" name="telephone" placeholder="Telephone">
+                                </div>
+                                <div class="col-md-12">
+                                    <label></label>
+                                    <textarea class="form-control" rows="9" name="message" placeholder="Ton message"></textarea>
+                                </div>
+                                <div class="col-md-4 col-md-offset-4">
+                                    <label></label>
+                                    <button type="submit" name="valider" class="btn btn-primary btn-block btn-lg">Envoyer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
 </body>
 

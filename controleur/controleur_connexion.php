@@ -16,6 +16,14 @@
 					$id = id($pseudo);
 					$_SESSION["id"] = $id;
 					$_SESSION["mdp"] = $mdp;
+
+					$results = liste_relais($id);
+
+					foreach($results as $cle => $result){
+						$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+						$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+					}
+
 					include("./vue/vue_gestion_blog.php");
 				} else {
 					$_SESSION["pseudo"] = $pseudo;
@@ -35,51 +43,106 @@
 			$alerte = "Vérifiez que vous avez entré le bon pseudo ou mot de passe.";
 			include("./vue/vue_connexion.php");
 		}
-	}else{		
-		include("./vue/vue_connexion.php");
-		if(isset($_POST["envoyer"])){
-			$code = $_POST["code"];
-			$email = $_POST["mail"];
+	}else if(isset($_POST["envoyer"])){
+		$code = $_POST["code"];
+		$email = $_POST["mail"];
+		$nombre = $_POST["nombre"];
 
-			if ($code === $nomimages[$nombre]) {
+		
+		$nomimages[0]="Xinjecte";
+		$nomimages[1]="bastoni";
+		$nomimages[2]="ceNewn";
+		$nomimages[3]="ftyrign";
+		$nomimages[4]="Germito";
+		$nomimages[5]="invesu";
+		$nomimages[6]="toflo";
+		$nomimages[7]="vol";
+		$nomimages[8]="w68HP";
 
-				$check_mail = check_mail($email);
-				
-				if($check_mail != 0){
-					//Message de remercieemnt
-					echo "<script>alert(\"Votre mot de passe a été renvoyé à votre adresse. Merci de vérifier\")</script>";
+		if ($code === $nomimages[$nombre]) {
 
-					$motdepasse = motdepasse($email);
+			$check_mail = check_mail($email);
+			
+			if($check_mail != 0){
+				//Message de remercieemnt
+				echo "<script>alert(\"Votre mot de passe a été renvoyé à votre adresse. Merci de vérifier\")</script>";
+				$nombre=rand(0, 8);
+				$nomimages[0]="Xinjecte";
+				$nomimages[1]="bastoni";
+				$nomimages[2]="ceNewn";
+				$nomimages[3]="ftyrign";
+				$nomimages[4]="Germito";
+				$nomimages[5]="invesu";
+				$nomimages[6]="toflo";
+				$nomimages[7]="vol";
+				$nomimages[8]="w68HP";
+				$alerte = "";
+				include("./vue/vue_connexion.php");
+				$motdepasse = motdepasse($email);
 
-					//Name
-					$name = "OPENWORLD";
+				//Name
+				$name = "OPENWORLD";
 
-					// To
-					$to = $email;
+				// To
+				$to = $email;
 
-					//From
-					$from = "OPENWORLD <noreply@openworld.fr>";
-					 
-					//Subject
-					$subject = "Votre Mot de passe";
-					 
-					// Message 
-					$message = "Suite à votre demande d'aide à la connexion sur le site OPENWORLD, nous vous informaons que votre mot de passe est : ". $motdepasse;
+				//From
+				$from = "OPENWORLD <noreply@openworld.fr>";
+				 
+				//Subject
+				$subject = "Votre Mot de passe";
+				 
+				// Message 
+				$message = "Suite à votre demande d'aide à la connexion sur le site OPENWORLD, nous vous informaons que votre mot de passe est : ". $motdepasse;
 
-			        $headers = $from . "\r\n" .
-			        'Reply-To: '.$from. "\r\n" .
-			        'X-Mailer: PHP/' . phpversion();
+		        $headers = $from . "\r\n" .
+		        'Reply-To: '.$from. "\r\n" .
+		        'X-Mailer: PHP/' . phpversion();
 
-					//Envoie des parametres entrés
-					mail($to, $subject, $message, $from, $headers);
+				//Envoie des parametres entrés
+				mail($to, $subject, $message, $from, $headers);
 
-				} else {
-					echo "<script>alert(\"Vous n'êtes pas inscrit ! Veuillez vous inscrire\")</script>";
-				} 
 			} else {
-				echo "<script>alert(\"Code incorrect, veuillez reprendre\")</script>";
-			}
+				$alerte = "Vous n'êtes pas inscrit ! Veuillez vous inscrire";
+				$nombre=rand(0, 8);
+				$nomimages[0]="Xinjecte";
+				$nomimages[1]="bastoni";
+				$nomimages[2]="ceNewn";
+				$nomimages[3]="ftyrign";
+				$nomimages[4]="Germito";
+				$nomimages[5]="invesu";
+				$nomimages[6]="toflo";
+				$nomimages[7]="vol";
+				$nomimages[8]="w68HP";
+				include("./vue/vue_connexion.php");
+			} 
+		} else {
+			$alerte = "Code incorrect, veuillez reprendre";
+			$nombre=rand(0, 8);
+			$nomimages[0]="Xinjecte";
+			$nomimages[1]="bastoni";
+			$nomimages[2]="ceNewn";
+			$nomimages[3]="ftyrign";
+			$nomimages[4]="Germito";
+			$nomimages[5]="invesu";
+			$nomimages[6]="toflo";
+			$nomimages[7]="vol";
+			$nomimages[8]="w68HP";
+			include("./vue/vue_connexion.php");
 		}
+
+	} else {
+		$nombre=rand(0, 8);
+		$nomimages[0]="Xinjecte";
+		$nomimages[1]="bastoni";
+		$nomimages[2]="ceNewn";
+		$nomimages[3]="ftyrign";
+		$nomimages[4]="Germito";
+		$nomimages[5]="invesu";
+		$nomimages[6]="toflo";
+		$nomimages[7]="vol";
+		$nomimages[8]="w68HP";
+		include("./vue/vue_connexion.php");
 	}
 
 ?>
