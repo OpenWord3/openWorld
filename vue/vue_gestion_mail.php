@@ -101,9 +101,13 @@
             </div>
 
             <div class="row">
-                
+                <?php
+                    $id = id($_SESSION['pseudo']);
+                    $mail_open = mail_open($id);
+                    $status_mail = status_mail($id);
+                ?>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="<?php if($mail_open == '' || $status_mail == '0' || $status_mail == '2'){ echo 'disabled';}else{echo 'panel panel-primary';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -114,11 +118,7 @@
                             </div>
                         </div>
 
-                        <?php
-                            $id = id($_SESSION['pseudo']);
-                            $mail_open = mail_open($id);
-                            $status_mail = status_mail($id);
-                        ?>
+                        
                         <a href="<?php if($mail_open != ''){echo 'http://mail.openworld.itinet.fr';}else{echo '#';} ?>" <?php if($mail_open == '' || $status_mail == '0' || $status_mail == '2'){ echo '';}else{echo 'target="_blank"';}?>>
 
                             <div class="panel-footer">
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
+                    <div class="<?php if($mail_open == '' || $status_mail == '0' || $status_mail == '2'){ echo 'panel panel-green';}else{echo 'disabled';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
+                    <div class="<?php if($mail_open == '' || $status_mail == '0' || $status_mail == '2'){ echo 'disabled';}else{echo 'panel panel-yellow';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -175,7 +175,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="<?php if($mail_open == '' || $status_mail == '0' || $status_mail == '2'){ echo 'disabled';}else{echo 'panel panel-red';}?>">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
