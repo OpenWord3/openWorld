@@ -12,12 +12,24 @@
 
     <title>Tableau de bord Administrateur OPENWORLD</title>
 
-    <link href="./bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/timeline.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/sb-admin-3.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/morrisjs/morris.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="./bootstrap/css/timeline.css" rel="stylesheet">
+    <link href="./bootstrap/css/sb-admin-3.css" rel="stylesheet">
+    <link href="./bootstrap/morrisjs/morris.css" rel="stylesheet">
+    <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="./bootstrap/jquery/dist/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="./bootstrap/raphael/raphael-min.js"></script>
+    <script src="./bootstrap/morrisjs/morris.min.js"></script>
+    <script src="./bootstrap/js/morris-data.js"></script>
+    <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
+    <script src="./bootstrap/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
+    <script src="<?PHP echo TWEENLITE ?>"></script>
+    <script src="./bootstrap/js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -37,34 +49,58 @@
                 <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
             </div>
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-cogs fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li class="divider"></li>
-                        <li><a href="<?php echo INDEX ?>"><i class="fa fa-sign-out fa-fw"></i> Se Deconnecter</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="navbar-collapse collapse" id="bs-navbar">
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                        <i class="fa fa-globe"></i>  <i>(Cpt)</i>
-                    </a>
-                </li>
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-cogs fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li class="divider"></li>
+                            <li><a href="<?php echo INDEX ?>"><i class="fa fa-sign-out fa-fw"></i> Se Deconnecter</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                        <i class="fa fa-envelope"></i>  <i>(Cpt)</i>
-                    </a>
-                </li>
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
+                            <i class="fa fa-globe"></i>  <i>(Cpt)</i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
+                            <i class="fa fa-envelope"></i>  <i>(Cpt)</i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> MAIL</i></a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> PHPMYADMIN</i></a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
+                                <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
+                            </form>
+                        </div>
+                    </li>
+                </ul>
 
             </div>
         </nav>
@@ -78,7 +114,89 @@
                 </center>
             </div>
 
-            <div class="row">
+            <div class="row">              
+                <table class="table table-striped table-hover">
+                  <thead>
+                      <tr>
+                        
+                        <th>PSEUDO</th>
+                        <th>SERVICE MAIL</th>
+                        <th>SERVICE BLOG</th>
+                        <th>FERMER MAIL</th>
+                        <th>FERMER BLOG</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($results as $result){ ?>
+                  <tr>
+                    
+                    <td><?php echo $result['pseudo']; ?></td>
+                    <td>
+                        <?php
+                            $status_mail = status_mail($result['id_utilisateur']);
+                            $status_blog = status_blog($result['id_utilisateur']);
+                            //echo $status_mail;
+                         ?>
+                       <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                            name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
+                            <?php 
+                                $verif_mail = mail_open($result['id_utilisateur']);
+                                if($verif_mail == ""){
+                                    echo "disabled='disabled'";
+                                } ?>>
+                        </form>  
+                    </td>
+                    <td>
+                        <?php //echo $status_blog; ?>
+                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                                name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
+                                <?php 
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                } ?>
+                            >
+                        </form> 
+                    </td>
+                    <td>
+                    <?php //echo $status_mail; ?>
+                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_mail"
+                               <?php 
+                                    $verif_mail = mail_open($result['id_utilisateur']);
+                                    if($verif_mail == ""){
+                                        echo "disabled='disabled'";
+                                    } 
+                                ?> 
+                            >
+                        </form> 
+                    </td>
+                    <td>
+                    <?php //echo $status_blog; ?>
+                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_blog"
+                                <?php 
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                    } 
+                                ?>
+                            >
+                        </form> 
+                    </td>
+                  </tr>
+                  <?php } ?>
+                  </tbody>
+                </table>
+
+
+                <!-- ================================================================================================================================================================ -->
 
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
@@ -123,179 +241,69 @@
                 </div>
 
 				<div class="modal fade" id="myModalReboot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Redemarrer le serveur ?</h4>
-				</div>
-				<div class="modal-body">
-					<form>
-						<center><input type="submit" value="OUI" class="panel panel-green"><input type="button" value="NON" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-				<div class="modal fade" id="myModalRebootService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Redemarrer un service ?</h4>
-				</div>
-				<div class="modal-body">
-					<form>
-						<input class="form-control" placeholder="Le nom du service" id="name" type="name" required>
-						<center><input type="submit" value="Redemarrer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-                <div>
-                    <?php 
-                        
-                        /*foreach($results as $result){
-                            echo $result['id_utilisateur'];
-                            echo $result['pseudo'];
-                        }*/
-                    ?>
+    				<div class="modal-dialog">
+        				<div class="modal-content">
+            				<div class="modal-header">
+                				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                				<h4 class="modal-title" id="myModalLabel">Redemarrer le serveur ?</h4>
+            				</div>
+            				<div class="modal-body">
+            					<form>
+            						<center><input type="submit" value="OUI" class="panel panel-green"><input type="button" value="NON" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+            					</form>
+            				</div>
+        				</div><!-- /.modal-content -->
+    				</div><!-- /.modal-dialog -->
                 </div>
 
-                <!-- ================================================================================================================================================================ -->
-                <table class="table table-striped table-hover ">
-                  <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>PSEUDO</th>
-                        <th>SERVICE MAIL</th>
-                        <th>SERVICE BLOG</th>
-                        <th>FERMER MAIL</th>
-                        <th>FERMER BLOG</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                  <?php foreach($results as $result){ ?>
-                  <tr>
-                    <td>1</td>
-                    <td><?php echo $result['pseudo']; ?></td>
-                    <td>
-                        <?php
-                            $status_mail = status_mail($result['id_utilisateur']);
-                            $status_blog = status_blog($result['id_utilisateur']);
-                            echo $status_mail;
-                         ?>
-                       <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
-                            name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
-                            <?php 
-                                $verif_mail = mail_open($result['id_utilisateur']);
-                                if($verif_mail == ""){
-                                    echo "disabled='disabled'";
-                                } ?>>
-                        </form>  
-                    </td>
-                    <td>
-                        <?php echo $status_blog; ?>
-                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
-                                name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
-                                <?php 
-                                    $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
-                                        echo "disabled='disabled'";
-                                } ?>
-                            >
-                        </form> 
-                    </td>
-                    <td>
-                    <?php echo $status_mail; ?>
-                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_mail"
-                               <?php 
-                                    $verif_mail = mail_open($result['id_utilisateur']);
-                                    if($verif_mail == ""){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?> 
-                            >
-                        </form> 
-                    </td>
-                    <td>
-                    <?php echo $status_blog; ?>
-                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_blog"
-                                <?php 
-                                    $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?>
-                            >
-                        </form> 
-                    </td>
-                  </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-
+				<div class="modal fade" id="myModalRebootService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    				<div class="modal-dialog">
+        				<div class="modal-content">
+        				<div class="modal-header">
+            				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            				<h4 class="modal-title" id="myModalLabel">Redemarrer un service ?</h4>
+        				</div>
+        				<div class="modal-body">
+        					<form>
+        						<input class="form-control" placeholder="Le nom du service" id="name" type="name" required>
+        						<center><input type="submit" value="Redemarrer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+        					</form>
+        				</div>
+        				</div><!-- /.modal-content -->
+    				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
 
                 <!-- ================================================================================================================================================================ -->
 
-
-
-				<div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Mail</h4>
-				</div>
-				<div class="modal-body">
-					Mail
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
+                <div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    				<div class="modal-dialog">
+        				<div class="modal-content">
+            				<div class="modal-header">
+                				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                				<h4 class="modal-title" id="myModalLabel">Mail</h4>
+            				</div>
+            				<div class="modal-body">
+            					Mail
+            				</div>
+        				</div><!-- /.modal-content -->
+    				</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 
 				<div class="modal fade" id="myModalNotifications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Notifications</h4>
-				</div>
-				<div class="modal-body">
-					Notifications
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
+    				<div class="modal-dialog">
+        				<div class="modal-content">
+            				<div class="modal-header">
+                				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                				<h4 class="modal-title" id="myModalLabel">Notifications</h4>
+            				</div>
+            				<div class="modal-body">
+            					Notifications
+            				</div>
+        				</div><!-- /.modal-content -->
+    				</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 			<!-- /.modal -->
-
-    <!-- jQuery -->
-    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="./bootstrap/bower_components/raphael/raphael-min.js"></script>
-    <script src="./bootstrap/bower_components/morrisjs/morris.min.js"></script>
-    <script src="./bootstrap/js/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
+        </div>
 
 </body>
 

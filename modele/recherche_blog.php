@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     if(isset($_GET['query'])) {
         // Mot tapé par l'utilisateur
         $q = htmlentities($_GET['query']);
@@ -10,6 +11,14 @@
             exit('Impossible de se connecter à la base de données.');
         }
  
+=======
+    include("modele_connexion_bdd.php");
+
+    if(isset($_GET['query'])) {
+        // Mot tapé par l'utilisateur
+        $q = htmlentities($_GET['query']);
+
+>>>>>>> adolphe
         // Requête SQL
         $requete = "SELECT * FROM utilisateur WHERE nom LIKE '". $q ."%' or prenom LIKE '". $q ."%'";
  

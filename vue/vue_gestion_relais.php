@@ -12,12 +12,16 @@
 
     <title>Tableau de bord OPENWORLD</title>
 
-    <link href="./bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/timeline.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/morrisjs/morris.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="./bootstrap/css/timeline.css" rel="stylesheet">
+    <link href="./bootstrap/css/sb-admin-2.css" rel="stylesheet">
+    <link href="./bootstrap/morrisjs/morris.css" rel="stylesheet">
+    <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="./bootstrap/js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="./bootstrap/js/sb-admin-2.js"></script>
 
 </head>
 
@@ -73,7 +77,7 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-comments fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
+                            <a  class="nav" data-toggle="nav" href="#"><i class="fa fa-comments fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo INDEX ?>?index=vue_gestion_relais">Gérer les relais</a>
@@ -84,9 +88,31 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li>
-                            <a href="<?php echo INDEX ?>?index=vue_gestion_timeline"><i class="fa fa-table fa-fw"></i> Gérer sa timeline</a>
+                            <a  class="nav" data-toggle="nav" href="#"><i class="fa fa-table fa-fw"></i> Gérer sa timeline<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_timeline">Consulter sa timeline</a>
+                                </li>
+
+                                <li>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_abonnement">Gérer ses abonnements</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <br>
+                    <br>
+                    
+                    <ul>
+                        <li>
+                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                        </li>
+
+                        <li>
+                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
                         </li>
                     </ul>
                 </div>
@@ -96,7 +122,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue <?php echo $_SESSION["pseudo"];?></h1>
+                    <h1 class="page-header">Bienvenue <?php echo strtoupper($_SESSION["pseudo"]);?></h1>
                 </div>
             </div>
 
@@ -122,29 +148,6 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-trash fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalSuppr" data-toggle="modal" data-target="#myModalSuppr">
-                            <?php if(isset($_POST["supprimer"])){echo $alerte;} ?>
-                            <div class="panel-footer">
-                                <span class="pull-left">Supprimer un domaine</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
             <ol>
                 Pour ajouter un domaine, entrez l'adresse IP.
@@ -172,40 +175,48 @@
 				</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 
-				<div class="modal fade" id="myModalSuppr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Suppression de domaine</h4>
-				</div>
-				<div class="modal-body">
-					<form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
-						<input type="textbox" placeholder="Entrer le nom de domaine" class="form-control" name="domain" required>
-						<center><input type="submit" value="Supprimer" class="panel panel-green" name="supprimer"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-					</form>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div>
+                <!-- ======================================================================================================================================================================= -->
+
+                <table class="table table-striped table-hover ">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>NOM DE DOMAINE</th>
+                    <th>ADRESSE IP</th>
+                    <th>DECISION</th>
+                    <th class="danger">FERMER</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($results as $result){ ?>
+                  <tr>
+                    <td>1</td>
+                    <td><?php echo $result['nom_domain']; ?></td>
+                    <td><?php echo $result['ip']; ?></td>
+                    <td>
+                        <?php
+                            $status_relais = status_relais($result['nom_domain']);
+                         ?>
+                         <form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
+                            <input class="form-control" id="name" type="hidden" name="domain" value="<?php echo $result['nom_domain']; ?>" required>
+                            <input class="form-control" id="name" type="hidden" name="ip" value="<?php echo $result['ip']; ?>" required>
+                            <input type="submit" value="<?php if($status_relais != '0'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                            name="<?php if($status_relais != '0'){echo 'desactiver_relais';}else{echo 'activer_relais';} ?>">
+                        </form>
+                    </td>
+                    <td>
+                       <form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="domain" value="<?php echo $result['nom_domain']; ?>" required>
+                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer">
+                        </form> 
+                    </td>
+                  </tr>
+                  <?php } ?>                  
+                  </tbody>
+                </table>
+
+                <!-- ======================================================================================================================================================================= -->
 			<!-- /.modal -->
-
-    <!-- jQuery -->
-    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="./bootstrap/bower_components/raphael/raphael-min.js"></script>
-    <script src="./bootstrap/bower_components/morrisjs/morris.min.js"></script>
-    <script src="./bootstrap/js/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
 
 </body>
 

@@ -5,8 +5,12 @@
 	if(isset($_POST["valider"])){
 		$pseudo = $_POST["pseudo"];
 		$mdp = $_POST["mdp"];
+<<<<<<< HEAD
 	//	$nom = $_POST["nom"];
 	//	$prenom = $_POST["prenom"];
+=======
+
+>>>>>>> adolphe
 		$mail = $_POST["mail"];
 
 		$verif_pseudo = compte($pseudo);
@@ -19,12 +23,24 @@
 				$alerte = "Cette adresse mail exite déjà";
 				include("./vue/vue_inscription.php");
 			} else {
-				inscription($pseudo,$mdp,$nom,$prenom,$mail);
+				inscription($pseudo,$mdp,$mail);
 				$_SESSION["pseudo"] = $pseudo;
+<<<<<<< HEAD
 			//	$_SESSION["prenom"] = $prenom;
+=======
+
+>>>>>>> adolphe
 				$_SESSION["mdp"] = $mdp;
 				$id = id($pseudo);
 				$_SESSION["id"] = $id;
+
+				$results = liste_relais($id);
+
+				foreach($results as $cle => $result){
+					$results[$cle]["nom_domain"] = nl2br(htmlspecialchars($result["nom_domain"]));
+					$results[$cle]["ip"] = nl2br(htmlspecialchars($result["ip"]));
+				}
+
 				include("./vue/vue_gestion_blog.php");
 			}
 		}					
