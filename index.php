@@ -33,11 +33,17 @@
 			case "vue_gestion_timeline":
 				include("./controleur/controleur_gestion_timeline.php");
 				break;
+			case "vue_gestion_abonnement":
+				include("./controleur/controleur_gestion_abonnement.php");
+				break;
 			case "vue_parametres":
 				include("./controleur/controleur_parametres.php");
 				break;
 			case "vue_admin":
 				include("./controleur/controleur_admin.php");
+				break;			
+				case "recherche_blog":
+				include("./controleur/controleur_rech.php");
 				break;
 		}
 

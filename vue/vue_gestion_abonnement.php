@@ -97,7 +97,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="<?php echo INDEX ?>?index=vue_gestion_abonnement">Gérer ses abonnements</a>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_mail">Gérer ses abonnements</a>
                                 </li>
                             </ul>
                         </li>
@@ -125,113 +125,7 @@
                     <h1 class="page-header">Bienvenue <?php echo strtoupper($_SESSION["pseudo"]);?></h1>
                 </div>
             </div>
-
-            <div class="row">
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-external-link fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-
-                        <?php
-                            $id = id($_SESSION['pseudo']);
-                            $mail_open = mail_open($id);
-                            $status_mail = status_mail($id);
-                        ?>
-                        <a href="<?php if($mail_open != ''){echo 'http://mail.openworld.itinet.fr';}else{echo '#';} ?>" <?php if($mail_open == '' || $status_mail == '0' || $status_mail == '2'){ echo '';}else{echo 'target="_blank"';}?>>
-
-                            <div class="panel-footer">
-                                <span class="pull-left">Accéder à la messagerie OpenWorld</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-unlock-alt fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "activer_mail"){echo $alerte;}} ?>
-                        <a href="<?php echo INDEX ?>?index=vue_gestion_mail&action=activer_mail">
-                            <div class="panel-footer">
-                                <span class="pull-left">Activer son mail</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-unlock fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "desactiver_mail"){echo $alerte;}} ?>
-                        <a href="<?php if($mail_open != ''){echo INDEX.'?index=vue_gestion_mail&action=desactiver_mail';}else{echo '#';}?>">
-                            <div class="panel-footer">
-                                <span class="pull-left">Desactiver son mail</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-trash fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "supprimer_mail"){echo $alerte;}} ?>
-                        <a href="<?php if($mail_open != ''){echo INDEX.'?index=vue_gestion_mail&action=supprimer_mail';}else{echo '#';}?>">
-                            <div class="panel-footer">
-                                <span class="pull-left">Supprimer son mail</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <ol>
-                L'activation permet d'activer un mail désactivé au préalable.
-            </ol>
-            <ol>
-                La désactivation permet de désactiver un mail. Attention vous ne pourrez plus y accéder jusqu'à ce qu'il soit réactivé.
-            </ol>
-            <ol>
-                La suppression du mail est définitive
-            </ol>
+        </div>
 
 </body>
 
