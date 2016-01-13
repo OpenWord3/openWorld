@@ -12,12 +12,16 @@
 
     <title>Tableau de bord OPENWORLD</title>
 
-    <link href="./bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/timeline.css" rel="stylesheet">
-    <link href="./bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/morrisjs/morris.css" rel="stylesheet">
-    <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="./bootstrap/css/timeline.css" rel="stylesheet">
+    <link href="./bootstrap/css/sb-admin-2.css" rel="stylesheet">
+    <link href="./bootstrap/morrisjs/morris.css" rel="stylesheet">
+    <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="./bootstrap/js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="./bootstrap/js/sb-admin-2.js"></script>
 
 </head>
 
@@ -85,7 +89,7 @@ function recupererFichier(fichier, div) {
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-comments fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
+                            <a  class="nav" data-toggle="nav" href="#"><i class="fa fa-comments fa-fw"></i> Gérer son service mail<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo INDEX ?>?index=vue_gestion_relais">Gérer les relais</a>
@@ -96,7 +100,7 @@ function recupererFichier(fichier, div) {
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li>
 						<?php
 						include("C:\Users\wamp\www\wp-load.php");
@@ -114,6 +118,31 @@ function recupererFichier(fichier, div) {
 						?>
                           <!--  <a href="#" onclick="recupererFichier('http://localhost/steephen/?p=4', test);recupererFichier('http://localhost/adolf/?p=4', test1)"><i  class="fa fa-table fa-fw"></i> Gérer sa timeline</a> -->
 						<a href="#" onclick="<?php  while ($donnees = $resultat->fetch()) { $pseudo = $donnees['pseudo']; $newdb = new wpdb( 'root' , '' , "$pseudo" , 'localhost'); $results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' ORDER BY post_modified_gmt DESC");  $i=0; foreach ($results as $result) { $i++; $r = $result->guid; echo "recupererFichier('$r', test$i);" ;} }?>"><i  class="fa fa-table fa-fw"></i> Gérer sa timeline</a>
+
+                            <a  class="nav" data-toggle="nav" href="#"><i class="fa fa-table fa-fw"></i> Gérer sa timeline<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_timeline">Consulter sa timeline</a>
+                                </li>
+
+                                <li>
+                                    <a href="<?php echo INDEX ?>?index=vue_gestion_abonnement">Gérer ses abonnements</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <br>
+                    <br>
+                    
+                    <ul>
+                        <li>
+                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                        </li>
+
+                        <li>
+                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+
                         </li>
                     </ul>
                 </div>
@@ -140,10 +169,17 @@ function recupererFichier(fichier, div) {
 <div id="test10">
 </div>
         <div id="page-wrapper">
+            
+            <div class="container">
+
+            <!-- Portfolio Item Heading -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue <?php echo $_SESSION["pseudo"];?></h1>
+                    <h1 class="page-header">Bienvenue dans votre tiemeline
+                        <small><?php echo strtoupper($_SESSION["pseudo"]);?></small>
+                    </h1>
                 </div>
+
             </div>
 		</div>
             <ol>
@@ -158,22 +194,82 @@ function recupererFichier(fichier, div) {
  ?>
             </ol>
 
-    <!-- jQuery -->
-    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+                </div>
+                <!-- /.row -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                <!-- Portfolio Item Row -->
+                <div class="row">
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+                    <div class="col-md-8">
+                        <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+                    </div>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="./bootstrap/bower_components/raphael/raphael-min.js"></script>
-    <script src="./bootstrap/bower_components/morrisjs/morris.min.js"></script>
-    <script src="./bootstrap/js/morris-data.js"></script>
+                    <div class="col-md-4">
+                        <h3>Description de l'article</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+                        <h3>Details de l'article</h3>
+                        <ul>
+                            <li>Lorem Ipsum</li>
+                            <li>Dolor Sit Amet</li>
+                            <li>Consectetur</li>
+                            <li>Adipiscing Elit</li>
+                        </ul>
+                        <h3>Créateur de l'article</h3>
+                        <p>Louis-Adolphe :).</p>
+                    </div>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
+
+                </div>
+                <!-- /.row -->
+
+                <!-- Related Projects Row -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <h3 class="page-header">Les derniers articles</h3>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                </div>
+                <!-- /.row -->
+
+                <hr>
+
+                <!-- Footer -->
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Copyright &copy; OPENWORLD 2016</p>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </footer>
+
+            </div>
+        </div>
 
 </body>
 

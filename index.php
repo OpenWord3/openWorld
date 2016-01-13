@@ -33,6 +33,9 @@
 			case "vue_gestion_timeline":
 				include("./controleur/controleur_gestion_timeline.php");
 				break;
+			case "vue_gestion_abonnement":
+				include("./controleur/controleur_gestion_abonnement.php");
+				break;
 			case "vue_parametres":
 				include("./controleur/controleur_parametres.php");
 				break;

@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
     <script src="<?PHP echo TWEENLITE ?>"></script>
     <script src="<?PHP echo CONNECTION ?>"></script>
-    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
 
   </head>
   <body>

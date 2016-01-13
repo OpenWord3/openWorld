@@ -359,6 +359,7 @@
 		
 		$req->closeCursor();
 	}
+
 	
 	//FONCTION POUR LA NOTIFICATION
 	function notifications () {
@@ -381,4 +382,5 @@
 		
 		$req->closeCursor();
 	}
+
 ?>
