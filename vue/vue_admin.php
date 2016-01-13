@@ -53,7 +53,7 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                        <i class="fa fa-globe"></i>  <i>(Cpt)</i>
+                        <i class="fa fa-globe"></i>  <i><?php echo $nb_demande; ?></i>
                     </a>
                 </li>
             </ul>
@@ -61,7 +61,7 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                        <i class="fa fa-envelope"></i>  <i>(Cpt)</i>
+                        <i class="fa fa-envelope"></i>  <i></i>
                     </a>
                 </li>
             </ul>
@@ -222,7 +222,7 @@
 				</div>
 				</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
-
+</div>
 				<div class="modal fade" id="myModalRebootService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 				<div class="modal-content">
@@ -350,7 +350,70 @@
 				<h4 class="modal-title" id="myModalLabel">Notifications</h4>
 				</div>
 				<div class="modal-body">
-					Notifications
+					<?php
+					/*
+foreach($affiche_relais_demande as $result){
+	echo $result['nom_domain'];
+	echo $result['ip'];
+	echo $result['pseudo'],"<br>";
+}*/
+
+?>
+<table class="table table-striped table-hover">
+                  <thead>
+                      <tr>
+                        <th>Nom de domaine</th>
+                        <th>IP</th>
+                        <th>Pseudo</th>
+                        <th>choix</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($affiche_relais_demande as $result){ ?>
+                  <tr>
+                    <td>
+						<?php echo $result['nom_domain']; ?>
+
+                    </td>
+                    <td>
+                        <?php //echo $status_blog; ?>
+							<?php echo $result['ip']; ?>
+                    </td>                    
+					<td>
+                        <?php //echo $status_blog; ?>
+							<?php echo $result['pseudo']; ?>
+                    </td>
+                    <td>
+                    <?php //echo $status_blog; ?>
+                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
+                            <input type="submit" value="Valider" class="panel panel-green" name="valider_relais"
+                                <?php 
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                    } 
+                                ?>
+                            >
+                        </form> 
+					</td>
+					<td>
+						<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
+                            <input type="submit" value="refuser" class="panel panel-red" name="refuser_relais"
+                                <?php 
+                                    $verif_blog = blog($result['id_utilisateur']);
+                                    if($verif_blog == ""){
+                                        echo "disabled='disabled'";
+                                    } 
+                                ?>
+                            >
+                        </form> 
+                    </td>
+                  </tr>
+                  <?php } ?>
+                  </tbody>
+                </table>
 				</div>
 				</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->

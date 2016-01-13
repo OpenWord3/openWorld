@@ -28,6 +28,8 @@
 				} else {
 					$_SESSION["pseudo"] = $pseudo;
 					$results = liste_utilisateur();
+					$nb_demande = notifications();
+					$affiche_relais_demande = affiche_relais_demande();
 
 					foreach($results as $cle => $result){
 						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));

@@ -359,4 +359,26 @@
 		
 		$req->closeCursor();
 	}
+	
+	//FONCTION POUR LA NOTIFICATION
+	function notifications () {
+		global $bdd;
+		
+		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status = 0");
+		
+		$donnees = $req->fetch();
+		$nb_demande = $donnees['nb_demande'];
+		
+		return $nb_demande;
+	}	
+	
+	//FONCTION POUR AFFICHER LES DEMANDES DE RELAIS
+	function affiche_relais_demande () {
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status = 0");
+		return $req;
+		
+		$req->closeCursor();
+	}
 ?>

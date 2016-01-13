@@ -22,7 +22,19 @@
 </head>
 
 <body>
-
+<script>
+function recupererFichier(fichier, div) {
+    if(window.XMLHttpRequest) // FF
+        xhr_object = new XMLHttpRequest();
+    else if(window.ActiveXObject) // IE
+        xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+    else
+        return(false);
+    xhr_object.open("GET", fichier, false); // Ouverture du fichier
+    xhr_object.send(null);
+    div.innerHTML = xhr_object.responseText; // Mofication du div
+}
+</script>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -86,22 +98,64 @@
                         </li>
                         
                         <li>
-                            <a href="<?php echo INDEX ?>?index=vue_gestion_timeline"><i class="fa fa-table fa-fw"></i> Gérer sa timeline</a>
+						<?php
+						include("C:\Users\wamp\www\wp-load.php");
+						try{
+							$bdd = new PDO("mysql:host=localhost;dbname=openworld;charset=utf8", "root", "", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+						}catch(Exception $e){
+							die("ERREUR : ".$e->getMessage());
+						}	
+						$resultat = $bdd->query("SELECT pseudo FROM utilisateur WHERE pseudo LIKE 'adolf' OR pseudo LIKE 'steephen'");
+						/*while ($donnees = $resultat->fetch()) {
+							$pseudo = $donnees['pseudo'];
+							$newdb = new wpdb( 'root' , '' , "$pseudo" , 'localhost');
+							$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post'");*/
+
+						?>
+                          <!--  <a href="#" onclick="recupererFichier('http://localhost/steephen/?p=4', test);recupererFichier('http://localhost/adolf/?p=4', test1)"><i  class="fa fa-table fa-fw"></i> Gérer sa timeline</a> -->
+						<a href="#" onclick="<?php  while ($donnees = $resultat->fetch()) { $pseudo = $donnees['pseudo']; $newdb = new wpdb( 'root' , '' , "$pseudo" , 'localhost'); $results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' ORDER BY post_modified_gmt DESC");  $i=0; foreach ($results as $result) { $i++; $r = $result->guid; echo "recupererFichier('$r', test$i);" ;} }?>"><i  class="fa fa-table fa-fw"></i> Gérer sa timeline</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
+<div id="test1">
+</div>
+<div id="test2">
+</div>
+<div id="test3">
+</div>
+<div id="test4">
+</div>
+<div id="test5">
+</div>
+<div id="test6">
+</div>
+<div id="test7">
+</div>
+<div id="test8">
+</div>
+<div id="test9">
+</div>
+<div id="test10">
+</div>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Bienvenue <?php echo $_SESSION["pseudo"];?></h1>
                 </div>
             </div>
-
+		</div>
             <ol>
-                GESTION DE TIMELINE ICI
+                GESTION DE TIMELINE ICI<br>
+				
+ <?php include("C:\Users\wamp\www\wp-load.php");
+ 	/*$newdb = new wpdb( 'root' , '' , 'steephen' , 'localhost');
+	$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post'");
+	foreach ($results as $result) {
+		echo $result->guid,"<br>";
+	}*/
+ ?>
             </ol>
 
     <!-- jQuery -->
