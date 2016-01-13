@@ -69,11 +69,11 @@
                     </li>
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-<<<<<<< HEAD
+
 	                        <form action="./recherche_membre.php" method = "post">
-=======
+
 	                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
->>>>>>> 32471861c4a8df867ae10d311853aa7e267c0382
+
 	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
 	                        </form>
                         </div>
