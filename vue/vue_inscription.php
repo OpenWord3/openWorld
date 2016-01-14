@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
     <script src="<?PHP echo TWEENLITE ?>"></script>
     <script src="<?PHP echo CONNECTION ?>"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
   <body>
         <div class="container">
@@ -33,6 +34,7 @@
                                     <input class="form-control" placeholder="Votre pseudo" id="username" type="text" name="pseudo" required>
                                     <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp" required>
                                     <input class="form-control" placeholder="Confirmez le mot de passe" id="passworda" type="password" name="mdp2" required>
+                                    <span id="mdp" style="display:none; color:red;">Les mots de passe ne concordent pas !</span>
                                     <br>
                                     <input type="checkbox" name="verif" value="verif" required> Accepter les <a href="<?php echo INDEX ?>?index=vue_conditions">conditions</a> de OpenWorld
                                     <br></br>
@@ -46,5 +48,38 @@
                 </div>
             </div>
         </div>
+        <script>
+        $(document).ready(function(){
+
+            //code pour verifier le nouveau mot de passe et la verification du nouveau mot de passe
+            var newMdp;
+            var newMdp1;
+            
+            $("#password").blur(function(){
+                
+                $("#mdp").fadeOut();
+                newMdp = $("#password").val();
+                console.log("MDP "+newMdp);
+
+                $("#passworda").blur(function(){
+
+                    newMdp1 = $(this).val();
+                    console.log("MDP2 "+newMdp1);
+
+                    if(newMdp !== newMdp1){
+                        
+                        console.log(newMdp);
+                        console.log(newMdp1);
+                        $("#mdp").fadeIn();
+                        $("#password").val("");
+                        $("#passworda").val("");
+                        $("#password").focus();
+                    
+                    } 
+
+                });
+             });   
+        });
+        </script>
   </body>
 </html>
