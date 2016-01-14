@@ -2,9 +2,11 @@
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_rech.php");
 
-$res_rech = $_POST['res_rech'];
-$hello = explode(" ", $res_rech);
-$nbre_occurences = compteur_rech($hello);
+
+	$res_rech = $_POST['res_rech'];
+	$hello = explode(" ", $res_rech);
+	$nbre_occurences = compteur_rech($hello);
+
 	if($nbre_occurences == 0) {
 		$alert="Aucun résultat pour : ";
 		include("./vue/page_recherche.php");

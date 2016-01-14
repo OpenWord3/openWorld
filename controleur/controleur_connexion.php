@@ -47,7 +47,6 @@
 		$code = $_POST["code"];
 		$email = $_POST["mail"];
 		$nombre = $_POST["nombre"];
-
 		
 		$nomimages[0]="Xinjecte";
 		$nomimages[1]="bastoni";
@@ -58,9 +57,7 @@
 		$nomimages[6]="toflo";
 		$nomimages[7]="vol";
 		$nomimages[8]="w68HP";
-
 		if ($code === $nomimages[$nombre]) {
-
 			$check_mail = check_mail($email);
 			
 			if($check_mail != 0){
@@ -79,13 +76,10 @@
 				$alerte = "";
 				include("./vue/vue_connexion.php");
 				$motdepasse = motdepasse($email);
-
 				//Name
 				$name = "OPENWORLD";
-
 				// To
 				$to = $email;
-
 				//From
 				$from = "OPENWORLD <noreply@openworld.fr>";
 				 
@@ -94,14 +88,11 @@
 				 
 				// Message 
 				$message = "Suite à votre demande d'aide à la connexion sur le site OPENWORLD, nous vous informaons que votre mot de passe est : ". $motdepasse;
-
 		        $headers = $from . "\r\n" .
 		        'Reply-To: '.$from. "\r\n" .
 		        'X-Mailer: PHP/' . phpversion();
-
 				//Envoie des parametres entrés
 				mail($to, $subject, $message, $from, $headers);
-
 			} else {
 				$alerte = "Vous n'êtes pas inscrit ! Veuillez vous inscrire";
 				$nombre=rand(0, 8);
@@ -130,7 +121,6 @@
 			$nomimages[8]="w68HP";
 			include("./vue/vue_connexion.php");
 		}
-
 	} else {
 		$nombre=rand(0, 8);
 		$nomimages[0]="Xinjecte";
@@ -144,5 +134,4 @@
 		$nomimages[8]="w68HP";
 		include("./vue/vue_connexion.php");
 	}
-
 ?>

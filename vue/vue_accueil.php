@@ -17,17 +17,32 @@
     <script src="<?PHP echo WOW ?>"></script>
     <script src="<?PHP echo JQUERY ?>"></script>
     <script src="<?PHP echo JQUERYEASING ?>"></script>
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('#langages').autocomplete({
 				serviceUrl: 'recherche_blog.php',
+
+	<script type="text/javascript" src="./bootstrap/js/jquery.autocomplete.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#langages').autocomplete({
+				serviceUrl: './modele/recherche_blog.php',
+
 				dataType: 'json'
 			});
 		});
 	</script>
 
     <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
   </head>
   <body>
@@ -45,21 +60,33 @@
             </div>
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                	<li class="sidebar-search">
+                	<li>
+                    	<a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> MAIL</i></a>
+                    </li>
+                    <li>
+                    	<a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> PHPMYADMIN</i></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" title="L'équipe OPENWORLD" href="#footer"><i class="fa fa-group fa-1x"> A Propos</i></a>
+                    </li>
+                    <li class="sidebar-search">
                         <div class="input-group custom-search-form">
+
+
+	                        <form action="./recherche_membre.php" method = "post">
+
 	                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
+
+
 	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
 	                        </form>
                         </div>
-                    </li>
-                    <li>
-                        <a class="page-scroll" title="L'équipe OPENWORLD" href="#footer">A Propos</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-<
+
     <header id="first">
         <div class="header-content">
             <div class="inner">
@@ -73,7 +100,246 @@
             <source src="<?PHP echo IMAGE."background_accueil.mp4" ?>" type="video/mp4">Oups ! La vidéo ne s'affiche pas ? Changer de navigateur.
         </video>
     </header>
+    <br>
+    <br>
+
     <section id="two" class="no-padding">
+    	<center><img src="./bootstrap/images/traite.png" width="550" height="70"></center>
+    	<center><h2 class="cursive">BLOGS STARS</h2><h3 class="cursive"><a class="page-scroll" title="Nous contacter" href="#footer">Deviens star</a></h3></center>
+    	<center><img src="./bootstrap/images/trait.png" width="550" height="70"></center>
+        <div class="container container-fluid">
+            <div class="row no-gutter">
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        	Blog Guepard<br><br>
+	                        	Un blog sur les félins
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        	Nom du blog<br>
+	                        	Description du blog
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/3.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/4.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/5.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/6.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/7.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/8.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/9.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/10.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/11.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/12.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        	Nom du blog<br>
+	                        	Description du blog
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        	Nom du blog<br>
+	                        	Description du blog
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/3.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/4.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/5.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/6.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/7.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/8.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/9.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/10.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/11.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/12.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section id="tree" class="no-padding">
+    	<center><img src="./bootstrap/images/traite.png" width="550" height="70"></center>
         <div class="container-fluid">
             <center>
 	            <table class="row no-gutter">
@@ -90,157 +356,9 @@
 	            </table>
             </center>
         </div>
+        <center><img src="./bootstrap/images/trait.png" width="550" height="70"></center>
     </section>
-    <section id="three" class="no-padding">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/3.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/4.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/5.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/6.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/7.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/8.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/9.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/10.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/11.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-4 col-sm-6">
-	                <a href="#" class="gallery-box">
-	                    <img src="./bootstrap/images/12.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                            <div>
-	                                <i><img src="./bootstrap/images/loupe.png"></i>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-            </div>
-        </div>
-    </section>
+
     <section id="last">
         <div class="container">
             <div class="row">
@@ -282,7 +400,9 @@
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Informations</h4>
                     <ul class="list-unstyled">
-                        <li><a href="http://www.boyaka.org/lequipe-projet-pfh-boyaka-etudiants-intech-info-en-france/" title="Sur BOYAKA" onclick="window.open(this.href); return false;"><a href="">L'équipe OPENWORLD</a></li>
+
+                        <li><a href="http://www.boyaka.org/lequipe-projet-pfh-boyaka-etudiants-intech-info-en-france/" title="Sur BOYAKA" onclick="window.open(this.href); return false;">	L'équipe OPENWORLD</a></li>
+
                         <li><a href="http://www.intechinfo.fr" title="INTECHINFO" onclick="window.open(this.href); return false;">L'école IN'TECH</a></li>
                     </ul>
                 </div>

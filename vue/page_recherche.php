@@ -12,9 +12,11 @@
     <script src="<?PHP echo TWEENLITE ?>"></script>
     <script src="<?PHP echo CONNECTION ?>"></script>
     <!-- jQuery -->
-    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="./bootstrap/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+
 
   </head>
 	<body>
@@ -40,7 +42,9 @@
 	?> 
                         </div>
                         </FONT>
-                        <br><a href="<?php echo INDEX ?>?index=vue_accueil"><input class="btn btn-lg btn-success btn-block" type="cancel" id="cancel" value="« RETOUR"></a>
+
+                        <br><center><a href="<?php echo INDEX ?>?index=vue_accueil"><input class="btn btn-success " type="cancel" id="cancel" value="« RETOUR"></a></center>
+                        
                     </div>
                 </div>
             </div>
