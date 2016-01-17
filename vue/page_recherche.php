@@ -32,18 +32,19 @@
                         <center>
                         <font face="times new roman">
 							<?php 
-
-								if(isset($alert)){
-									echo "<H2>$alert $res_rech</H2>";
-								}
-								else {
+							if($rech_compteur == 0){
+								echo "<H2>Aucun résultat pour <B>$res_rech</B></H2>";
+							}
+							else {
 							?>
-                        <H2>Suggestions pour : <?php echo $res_rech; ?> </H2>
+                        <H2>Suggestions pour : <?php echo "<B>$res_rech</B>"; ?> </H2>
                         </center>
-                      <?php if(isset($recherche)){while ($donnees = $recherche->fetch()) {
-	echo "Nom : ",$donnees['nom']," / "," Prenom : ",$donnees['prenom']," / "," Pseudo : ",$donnees['pseudo']," / ";echo '   <a href="http://' . $donnees['fqdn_blog'] . '">' . $donnees['fqdn_blog'] . '</a>',"<br>";	
-								}}}
-	?> 
+						  <?php 
+								foreach($rech as $res){
+									echo $res,"<br>";
+								}
+							}
+						  ?> 
                         </div>
                         </FONT>
 

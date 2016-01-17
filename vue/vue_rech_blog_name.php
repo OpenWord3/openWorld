@@ -129,24 +129,35 @@
             <!-- Portfolio Item Heading -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue dans votre tiemeline
-                        <small><?php echo strtoupper($_SESSION["pseudo"]);?></small>
+                    <h1 class="page-header">Résultats de votre recherche pour : <?php echo "<B>$res_rech</B;" ?>
                     </h1>
                 </div>
 
             </div>
 		</div>
-            <ol>
-                GESTION DE TIMELINE ICI<br>
-            </ol>
+
 <?php
-if($timeline_compteur == 0){
-	echo "<H2>Il n'y a pas d'article.</H2>";
+if($rech_compteur == 0){
+	echo "<H2>Aucun résultat</H2>";
 }
 else {
-	foreach($timeline as $lien){
-		echo "<center><iframe  style='width:600px;height:600px' src='$lien'></iframe></center><br>" ;
+	for($i=0; $i < count($rech); $i++){
+		for($x=0; $x < count($abonne); $x++){
+			if($pseudo[$i] == $abonne[$x]){
+				//$verif = true;
+				$verif = "abonne";
+				//exit;
+			}
+		}
+		if($verif != "abonne"){
+		echo "Nom du blog : <B>$rech[$i]</B> / <a href='$siteurl[$i]'> Accéder à ce blog</a>" ?> <form action="<?php echo INDEX ?>?index=recherche_blog_name" method='post' ><input type='hidden' name='pseudo' value="<?php echo $pseudo[$i] ?>"><input type='hidden' name='res_rech' value="<?php echo $res_rech ?>"><input type='hidden' name='abonne' value="abonne"><input class='btn btn-md btn-success' type='submit'  value='abonner' name='sumbit'></form><br>
+		<?php
+		}
+		//echo $siteurl[$i];
 	}
+	/*foreach($rech as $resultats){
+		echo $resultats ;
+	}*/
 }
  ?>
                 </div>

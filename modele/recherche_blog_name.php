@@ -1,6 +1,7 @@
 <?php
  //   include("modele_connexion_bdd.php");
 	include("C:\Users\wamp\www\wp-load.php");
+	
 	$test[0] = "steephen";
 	$test[1] = "adolf";
 	$test[2] = "hassane";
@@ -13,14 +14,14 @@
         //$requete = "SELECT * FROM utilisateur WHERE nom LIKE '". $q ."%' or prenom LIKE '". $q ."%'";
 		
 		$newdb = new wpdb( 'root' , '' , "$res" , 'localhost'); 
-		$resultat = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE '". $q ."%'");
+		$resultat = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname' AND option_value LIKE '". $q ."%'");
         // Exécution de la requête SQL
        // $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
  
         // On parcourt les résultats de la requête SQL
 			foreach($resultat as $res){
 				// On ajoute les données dans un tableau
-				$rech[] = $res->post_title;
+				$rech[] = $res->option_value;
 
 				}
 

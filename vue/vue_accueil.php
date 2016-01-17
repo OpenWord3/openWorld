@@ -40,12 +40,7 @@
 
   </head>
   <body>
-  <?php include("C:\Users\wamp\www\wp-load.php"); ?>
-    <?php //global $wpdb;
-	//$results = $wpdb->get_results('SELECT * FROM wp_posts', OBJECT);
-	//$newdb = new wpdb( 'root' , '' , 'steephen' , 'localhost');
-	//echo $results;
-	//$myrows = $wpdb->get_results( "SELECT id, name FROM mytable" ); ?>
+
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -418,33 +413,30 @@
             <span class="pull-right text-muted small">OPENWORLD ©2015 Company</span>
         </div>
     </footer>
-	<?php //print_r ($results);
-	/*foreach($results as $result){
-		$content = $result->post_content;
-		$title = $result->post_title;
-	echo "contenue = $content ";
-	echo "title = $title";
-
-	}*/
-	//echo "contenue = $content ";
-	//echo "title = $title";
-
-	try{
-		$bdd = new PDO("mysql:host=localhost;dbname=openworld;charset=utf8", "root", "", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-	}catch(Exception $e){
-		die("ERREUR : ".$e->getMessage());
-	}	
-	$resultat = $bdd->query("SELECT pseudo FROM utilisateur WHERE pseudo LIKE 'steephen' OR pseudo LIKE 'adolf'");
-while ($donnees = $resultat->fetch()) {
-		$pseudo = $donnees['pseudo'];
-		$newdb = new wpdb( 'root' , '' , "$pseudo" , 'localhost');
-		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post'");
-
-		foreach ($results as $result) {
-			echo "$pseudo : ",$result->guid,"<br>";
-		}
+<?php 
+include("C:\Users\wamp\www\wp-load.php");
+$test[0] = "steephen";
+$test[1] = "adolf";
+$test[2] = "hassane";
+	
+	function recherche($res){
+		$newdb = new wpdb( 'root' , '' , "$res" , 'localhost'); 
+		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE 'ce%'");
+	}
+	$res_rech = "ce";
+/*foreach($test as $res){
+	$results = recherche($res,$res_rech);
+	
+	foreach($results as $res){
+		$rech[] = $res->post_content;
+	}
+		
 }
-	$resultat->closeCursor();
-	?>
+foreach($rech as $res){
+	echo $res;
+}*/
+
+
+?>
   </body>
 </html>
