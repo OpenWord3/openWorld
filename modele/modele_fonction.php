@@ -359,4 +359,216 @@
 		
 		$req->closeCursor();
 	}
+
+	//Fonction qui compte le nombre de star
+	function nb_star(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT COUNT(id_utilisateur) AS nb_star FROM utilisateur WHERE star = TRUE");
+		
+		$result = $req->fetch();
+		
+		$req->closeCursor();
+		return $result['nb_star'];
+	}
+
+	//Fonction qui le rend star
+	function star($pseudo){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `star` = TRUE WHERE `pseudo` = '$pseudo'");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui liste les stars
+	function liste_star(){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT id_utilisateur,pseudo,fqdn_blog FROM utilisateur WHERE star = TRUE;");
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction ne plus etre star
+	function no_star($pseudo){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `star` = FALSE WHERE `pseudo` = '$pseudo'");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui calcule la duree d'un blog qui est star
+	function duree_star(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT TIMEDIFF(MINUTE(CURRENT_TIMESTAMP),MINUTE(date_star)) FROM utilisateur WHERE star = TRUE");
+
+		$result = $req->$fetchAll();
+
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction qui gere les demandes devenir star
+	function devenir_star($pseudo){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `devenir_star` = TRUE WHERE `pseudo` = '$pseudo'");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui annnule la demande de devenir staer
+	function no_devenir_star($pseudo){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `devenir_star` = FALSE WHERE `pseudo` = '$pseudo'");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui donne le nom de ceux qui veulent devenir star
+	function nb_demande(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT COUNT(id_utilisateur) AS nb_demande FROM utilisateur WHERE devenir_star = TRUE");
+		
+		$result = $req->fetch();
+		
+		$req->closeCursor();
+		return $result['nb_demande'];
+	}
+
+	//Fonction qui donne la date lorsque l'utilisateur devient star
+	function date_star($pseudo){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `date_star` = CURRENT_TIMESTAMP WHERE `pseudo` = '$pseudo'");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui donne la date lorsque l'utilisateur devient star
+	function date_no_star($pseudo){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `utilisateur` SET `date_star` = NULL WHERE `pseudo` = '$pseudo'");
+		
+		$req->closeCursor();
+	}
+
+	//Fonction qui liste les stars qui ont une duree superieure a 10 mins
+	function ancien_star(){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT pseudo FROM utilisateur WHERE star = TRUE AND TIME_TO_SEC(TIMEDIFF((CURRENT_TIMESTAMP),(DATE_STAR)))/60 > 10;");
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction qui verifie si utilisateur est star
+	function verif_star($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT star FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["star"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui verifie si utilisateur demande star
+	function verif_demande_star($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT devenir_star FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["devenir_star"];
+		}
+
+		return $result;
+	}
+
+	//Fonction qui liste les utilisateurs qui demandent d'etre une star
+	function liste_demande_star(){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT id_utilisateur,pseudo FROM utilisateur WHERE devenir_star = TRUE");
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction qui liste les anciennes stars
+	function liste_ancienne_star(){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT id_utilisateur,pseudo FROM utilisateur WHERE star = TRUE AND TIME_TO_SEC(TIMEDIFF((CURRENT_TIMESTAMP),(DATE_STAR)))/60 > 10");
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction qui donne le nombre des anciennes stars
+	function nb_ancienne_star(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT COUNT(pseudo) AS nb_ancienne_star FROM utilisateur WHERE star = TRUE AND TIME_TO_SEC(TIMEDIFF((CURRENT_TIMESTAMP),(DATE_STAR)))/60 > 10");
+		$result = $req->fetch();
+		
+		$req->closeCursor();
+		return $result['nb_ancienne_star'];
+	}
+
+	// Fonction pour hasher mot de passe
+	function hash_mdp($mdp){
+
+		// choisir 256 bits de caractere au hasard
+		$salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+
+		// on recupere le sel ensuite on prepare le hash
+		$hash = hash("sha256",$mdp.$salt);
+
+		$hasher = $salt.$hash;
+
+		// on retourne le hash
+		return $hasher;
+	}
+
+	// Fonction qui verifie le mot de passe de l'utilisateur
+	function check_mdp($mdp, $bddhash){
+		// on recupere le sel du hash qui se trouve dans la base de donnees
+		$salt = substr($bddhash,0,64);
+
+		// on recupere le SHA256 hash
+		$valid_hash = substr($bddhash,64,64);
+
+		// hash le mot de passe
+		$check_hash = hash("sha256",$mdp.$salt);
+
+		// test
+		$check = false;
+		if($check_hash === $valid_hash){
+			$check = true;
+		}
+
+		return $check;
+	}
 ?>

@@ -3,13 +3,16 @@
 	include("./modele/modele_fonction.php");
 
 	if(isset($_POST["valider"])){
-		$pseudo = $_POST["pseudo"];
-		$mdp = $_POST["mdp"];
+		$pseudo = htmlspecialchars($_POST["pseudo"]);
+		$mdp = htmlspecialchars($_POST["mdp"]);
 
 		$existe = compte($pseudo);
 		if($existe != 0){
-			$check_mdp = mdp($pseudo);
-			if($check_mdp == $mdp){
+			// on verifie le mot de passe rattache au pseudo
+			$pass = mdp($pseudo);
+
+			$verif_mdp = check_mdp($mdp, $pass);
+			if($verif_mdp === TRUE){
 				$status = status_user($pseudo);
 				if($status == "0"){
 					$_SESSION["pseudo"] = $pseudo;
@@ -32,6 +35,19 @@
 					foreach($results as $cle => $result){
 						$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 						$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+					}
+
+					$liste_demande_star = liste_demande_star();
+					foreach($liste_demande_star as $cle => $result1){
+						$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+						$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+					}
+
+					//On recupere la liste des anciennes stars
+					$liste_ancienne_star = liste_ancienne_star();
+					foreach($liste_ancienne_star as $cle => $result2){
+						$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+						$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
 					}					
 					include("./vue/vue_admin.php");
 				}

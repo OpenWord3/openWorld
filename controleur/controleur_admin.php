@@ -15,6 +15,19 @@
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+		}
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["desactiver_blog"])) {
@@ -30,6 +43,19 @@
 		foreach($results as $cle => $result){
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
 		}
 		include("./vue/vue_admin.php");
 				
@@ -48,11 +74,24 @@
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+		}
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["activer_mail"])){
 		$pseudo = $_POST["pseudo"];
-		echo $pseudo;
+		
 		$id = id($pseudo);
 		
 		$alerte = "Le compte mail de cet utilisateur vient d'être activé.";
@@ -68,11 +107,24 @@
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
 		
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+		}
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["desactiver_mail"])){
 		$pseudo = $_POST["pseudo"];
-		echo $pseudo;
+		
 		$id = id($pseudo);					
 		
 		$alerte = "Le compte mail de cet utilisateur vient d'être désactivé.";
@@ -88,6 +140,19 @@
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
 		
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+		}
 		include("./vue/vue_admin.php");
 
 	} else if(isset($_POST["supprimer_mail"])){
@@ -106,14 +171,77 @@
 					$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 					$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 				}
+
+				//On recupere la liste des demandeurs de devenir star
+				$liste_demande_star = liste_demande_star();
+				foreach($liste_demande_star as $cle => $result1){
+					$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+					$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+				}
+
+				//On recupere la liste des anciennes stars
+				$liste_ancienne_star = liste_ancienne_star();
+				foreach($liste_ancienne_star as $cle => $result2){
+					$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+					$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+				}
 				include("./vue/vue_admin.php");
 
+	} else if(isset($_POST["remplacer"])){
+		$pseudoold = $_POST["pseudoold"];
+		$idold = id($pseudoold);
+
+		$pseudonew = $_POST["pseudonew"];
+		$idnew = id($pseudonew);
+
+		no_star($pseudoold);
+		date_no_star($pseudoold);
+
+		star($pseudonew);
+		no_devenir_star($pseudonew);
+		date_star($pseudonew);
+
+		// On recupere la liste des utilisateurs	
+		$results = liste_utilisateur();
+		foreach($results as $cle => $result){
+			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
+
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+		}	
+		include("./vue/vue_admin.php");
 	} else {
 		// On recupere la liste des utilisateurs	
 		$results = liste_utilisateur();
 		foreach($results as $cle => $result){
 			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
+
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
 		}		
 		include("./vue/vue_admin.php");
 	}
