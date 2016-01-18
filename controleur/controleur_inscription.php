@@ -18,8 +18,9 @@
 				$alerte = "Cette adresse mail exite déjà";
 				include("./vue/vue_inscription.php");
 			} else {
-				//$mdp1 = hash_mdp($mdp);  
-				inscription($pseudo,$mdp,$mail);
+				$salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+				$mdp1 = hash_mdp($mdp,$salt);  
+				inscription($pseudo,$mdp1,$mail);
 				$_SESSION["pseudo"] = $pseudo;
 
 				$_SESSION["mdp"] = $mdp;
