@@ -425,30 +425,5 @@
             <span class="pull-right text-muted small">OPENWORLD ©2015 Company</span>
         </div>
     </footer>
-<?php 
-include("C:\Users\wamp\www\wp-load.php");
-$test[0] = "steephen";
-$test[1] = "adolf";
-$test[2] = "hassane";
-	
-	function recherche($res){
-		$newdb = new wpdb( 'root' , '' , "$res" , 'localhost'); 
-		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE 'ce%'");
-	}
-	$res_rech = "ce";
-/*foreach($test as $res){
-	$results = recherche($res,$res_rech);
-	
-	foreach($results as $res){
-		$rech[] = $res->post_content;
-	}
-		
-}
-foreach($rech as $res){
-	echo $res;
-}*/
-
-
-?>
   </body>
 </html>
