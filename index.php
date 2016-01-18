@@ -2,6 +2,14 @@
 	require_once'configuration.php';
 
 	if(!isset($_GET["index"])){
+		include("./modele/modele_connexion_bdd.php");
+		include("./modele/modele_fonction.php");
+
+		$liste_star = liste_star();
+		foreach($liste_star as $cle => $result){
+			//$liste_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$liste_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
 		include('./vue/vue_accueil.php');
 	} else {
 
@@ -50,6 +58,9 @@
 				break;			
 			case "abonner":
 				include("./controleur/controleur_abonnement.php");
+				break;
+			case "devenir_star":
+				include("./controleur/star.php");
 				break;
 		}
 

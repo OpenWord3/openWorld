@@ -17,7 +17,7 @@
     <script src="<?PHP echo WOW ?>"></script>
     <script src="<?PHP echo JQUERY ?>"></script>
     <script src="<?PHP echo JQUERYEASING ?>"></script>
-
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -25,6 +25,7 @@
 				serviceUrl: 'recherche_blog.php',
 
 	</script>
+
 	<script>
 		$(document).ready(function() {
 			$('#langages').autocomplete({
@@ -36,6 +37,10 @@
 	</script>
 
     <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
     <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -65,9 +70,14 @@
                     </li>
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
+
+
+	                        <form action="./recherche_membre.php" method = "post">
+
 	                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
 
 	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
+
 
 	                        </form>
                         </div>
@@ -76,7 +86,7 @@
             </div>
         </div>
     </nav>
-<
+
     <header id="first">
         <div class="header-content">
             <div class="inner">
@@ -99,18 +109,24 @@
     	<center><img src="./bootstrap/images/trait.png" width="550" height="70"></center>
         <div class="container container-fluid">
             <div class="row no-gutter">
+            <?php 
+            	//$liste_star = liste_star();
+            	foreach ($liste_star as $result) {
+            ?>
 	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 	                <a href="#" class="thumbnail gallery-box">
 	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
 	                    <div class="gallery-box-caption">
 	                        <div class="gallery-box-content">
+	                        	<?php echo $result["pseudo"]; ?>
 	                        	Blog Guepard<br><br>
 	                        	Un blog sur les félins
 	                        </div>
 	                    </div>
 	                </a>
 	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	        <?php } ?>
+	            <!--<div class="col-lg-3 col-md-4 col-xs-6 thumb">
 	                <a href="#" class="thumbnail gallery-box">
 	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
 	                    <div class="gallery-box-caption">
@@ -322,7 +338,7 @@
 	                        </div>
 	                    </div>
 	                </a>
-	            </div>
+	            </div>-->
             </div>
         </div>
     </section>

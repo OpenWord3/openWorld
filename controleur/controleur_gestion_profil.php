@@ -21,8 +21,8 @@
 		
 		header("location:index.php");
 	} else if (isset($_POST["modifier"])){
-		$nom = $_POST["nom"];
-		$prenom = $_POST["prenom"];
+		$nom = htmlspecialchars($_POST["nom"]);
+		$prenom = htmlspecialchars($_POST["prenom"]);
 		$email = $_POST["email"];
 		$mdp = $_POST["mdp"];
 
@@ -34,15 +34,15 @@
 
 			$_SESSION["mdp"] = $mdp;
 			$verif_mail = mail_open($id);
-
+			$mdp1 = hash_mdp($mdp);
 			if($verif_mail !== ""){
 				exec('sudo /var/script/change_passwd.sh '.$pseudo.' '.$mdp);
-				edit_profil($id,$nom,$prenom,$email,$mdp);
+				edit_profil($id,$nom,$prenom,$email,$mdp1);
 				$alerte = "Vos modifications ont bien été prises en compte.";
 				include("./vue/vue_gestion_profil.php");
 
 			} else {
-				edit_profil($id,$nom,$prenom,$email,$mdp);
+				edit_profil($id,$nom,$prenom,$email,$mdp1);
 				$alerte = "Vos modifications ont bien été prises en compte.";
 				include("./vue/vue_gestion_profil.php");
 			}

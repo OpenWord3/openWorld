@@ -67,7 +67,13 @@
                     </ul>
                 </li>
             </ul>
-
+            <?php 
+                $id = id($_SESSION["pseudo"]);
+                $verif_blog = blog($id);
+                $status_blog = status_blog($id);
+                $verif_star = verif_star($id);
+                $verif_demande = verif_demande_star($id); 
+            ?>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -125,6 +131,11 @@
 
                         <li>
                             <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+                        </li>
+                        <li>
+                            <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2' || $verif_star == '1' || $verif_demande == '1'){ echo 'disabled';}else{echo '';}?>">
+                                <a href="<?php echo INDEX ?>?index=devenir_star"><i class="">Devenir star</i></a>
+                            </div>
                         </li>
                     </ul>
                 </div>

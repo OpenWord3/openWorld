@@ -57,7 +57,13 @@
                     </ul>
                 </li>
             </ul>
-
+            <?php 
+                $id = id($_SESSION["pseudo"]);
+                $verif_blog = blog($id);
+                $status_blog = status_blog($id);
+                $verif_star = verif_star($id);
+                $verif_demande = verif_demande_star($id); 
+            ?>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -113,6 +119,11 @@
 
                         <li>
                             <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+                        </li>
+                        <li>
+                            <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2' || $verif_star == '1' || $verif_demande == '1'){ echo 'disabled';}else{echo '';}?>">
+                                <a href="<?php echo INDEX ?>?index=devenir_star"><i class="">Devenir star</i></a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -181,12 +192,12 @@
 				<div class="modal-body">
                     
 					<form action="<?php echo INDEX ?>?index=vue_gestion_profil" method="post">
-						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
-                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
-                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="email" required pattern="[a-z0-9._]+@[a-z]+.[a-z]{2,4}">
-                        <!--<input class="form-control" placeholder="Votre pseudo" id="username" type="text" required>-->
-                        <input pattern=".{6,32}" class="form-control" placeholder="Votre Mot de passe(6 caractères min)" id="password" type="password" name="mdp" required>
-                        <!--<input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp2" required>-->
+
+						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["nom"]."'";} ?> required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
+                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["prenom"]."'";} ?> required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
+                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="email" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["email"]."'";} ?> required pattern="[a-z0-9._]+@[a-z]+.[a-z]{2,4}">
+                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp" required>
+
 						<center><input type="submit" value="Modifier" class="panel panel-green" name="modifier"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>

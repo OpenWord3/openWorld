@@ -117,19 +117,25 @@
     <section id="three" class="no-padding">
         <div class="container-fluid">
             <div class="row no-gutter">
+            <?php 
+
+            	foreach ($liste_star as $result) {
+            ?>
 	            <div class="col-lg-4 col-sm-6">
 	                <a href="#" class="gallery-box">
 	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
 	                    <div class="gallery-box-caption">
 	                        <div class="gallery-box-content">
 	                            <div>
+	                            	<?php echo $result["pseudo"]; ?>
 	                                <i><img src="./bootstrap/images/loupe.png"></i>
 	                            </div>
 	                        </div>
 	                    </div>
 	                </a>
 	            </div>
-	            <div class="col-lg-4 col-sm-6">
+	        <?php } ?>
+	            <!--<div class="col-lg-4 col-sm-6">
 	                <a href="#" class="gallery-box">
 	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
 	                    <div class="gallery-box-caption">
@@ -262,7 +268,7 @@
 	                </a>
 	            </div>
             </div>
-        </div>
+        </div>-->
     </section>
     <section id="last">
         <div class="container">
