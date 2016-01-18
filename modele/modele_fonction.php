@@ -587,7 +587,7 @@
 	function hash_mdp($mdp,$salt){
 
 		// choisir 256 bits de caractere au hasard
-		//$salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+		$salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 
 		// on recupere le sel ensuite on prepare le hash
 		$hash = hash("sha256",$mdp.$salt);
