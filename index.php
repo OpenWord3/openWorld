@@ -4,11 +4,25 @@
 	if(!isset($_GET["index"])){
 		include("./modele/modele_connexion_bdd.php");
 		include("./modele/modele_fonction.php");
+		include("C:\Users\wamp\www\wp-load.php");
 
 		$liste_star = liste_star();
 		foreach($liste_star as $cle => $result){
 			//$liste_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$liste_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
+		for($i=0; $i < count($liste_star); $i++){
+			$pseudo = $liste_star[$i]['pseudo'];
+			$img_star = img_star($pseudo);
+			
+			if(empty($img_star)){
+			$img[$pseudo] = "./bootstrap/images/6.jpg"; 
+			}
+			else {
+				foreach($img_star as $res){
+					$img[$pseudo] = $res->guid;
+				}
+			}
 		}
 		include('./vue/vue_accueil.php');
 	} else {

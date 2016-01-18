@@ -365,7 +365,7 @@
 	function notifications () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status = 0");
+		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status_relais = 0");
 		
 		$donnees = $req->fetch();
 		$nb_demande = $donnees['nb_demande'];
@@ -377,7 +377,7 @@
 	function affiche_relais_demande () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status = 0");
+		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = 0");
 		return $req;
 		
 		$req->closeCursor();
@@ -616,5 +616,13 @@
 		}
 
 		return $check;
+	}
+	
+	function img_star($pseudo){
+		$newdb = new wpdb( 'root' , '' , "$pseudo" , 'localhost'); 
+		
+		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_mime_type LIKE 'image%' ORDER BY post_modified DESC LIMIT 1");
+		
+		return $results;
 	}
 ?>

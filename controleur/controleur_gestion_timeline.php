@@ -1,8 +1,7 @@
 <?php
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_timeline.php");
-	include("C:\Users\wamp\www\wp-load.php");
-	
+	include("/var/www/wordpress/wp-load.php"); 	
 	$id_pseudo = $_SESSION['id'];
 	
 	$voir_abonne = voir_abonne($id_pseudo);

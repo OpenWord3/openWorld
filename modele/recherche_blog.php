@@ -1,12 +1,12 @@
 <?php
 
-	include("C:\Users\wamp\www\wp-load.php");
-	include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_fonction.php");
-	include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_connexion_bdd.php");
+	include("/var/www/wordpress/wp-load.php"); 
+	include("/var/www/openworld.itinet.fr/modele/modele_fonction.php");
+	include("/var/www/openworld.itinet.fr/modele/modele_connexion_bdd.php");
 	
-	/*$test[0] = "steephen";
-	$test[1] = "adolf";
-	$test[2] = "hassane";*/
+	/*$tous_utilisateur[0] = "steephen";
+	$tous_utilisateur[1] = "adolf";
+	$tous_utilisateur[2] = "hassane";*/
 	
 	$tous_utilisateurs = tous_utilisateurs();
 	while($donnees = $tous_utilisateurs->fetch()){

@@ -34,8 +34,8 @@
                                     </label>
 
                                     <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="mail" <?php if(isset($_POST["valider"])){echo "value='".$_POST["mail"]."'";} ?> required pattern="[a-z0-9._]+@[a-z]+.[a-z]{2,4}" >
-                                    <input class="form-control" placeholder="Votre pseudo" id="username" type="text" name="pseudo" <?php if(isset($_POST["valider"])){echo "value='".$_POST["pseudo"]."'";} ?> required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12">
-                                    <input pattern=".{6,32}" class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp" required>
+                                    <input class="form-control" placeholder="Votre pseudo (12 caractères max)" id="username" type="text" name="pseudo" <?php if(isset($_POST["valider"])){echo "value='".$_POST["pseudo"]."'";} ?> required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12">
+                                    <input pattern=".{6,32}" class="form-control" placeholder="Votre Mot de passe (6 caractères min)" id="password" type="password" name="mdp" required>
                                     <input pattern=".{6,32}" class="form-control" placeholder="Confirmez le mot de passe" id="passworda" type="password" name="mdp2" required>
                                     <span id="mdp" style="display:none; color:red;">Les mots de passe ne concordent pas !</span>
 

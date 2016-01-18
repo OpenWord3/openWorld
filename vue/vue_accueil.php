@@ -17,14 +17,7 @@
     <script src="<?PHP echo WOW ?>"></script>
     <script src="<?PHP echo JQUERY ?>"></script>
     <script src="<?PHP echo JQUERYEASING ?>"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('#langages').autocomplete({
-				serviceUrl: 'recherche_blog.php',
-
-	</script>
 
 	<script>
 		$(document).ready(function() {
@@ -110,12 +103,14 @@
         <div class="container container-fluid">
             <div class="row no-gutter">
             <?php 
+			$i=0;
             	//$liste_star = liste_star();
             	foreach ($liste_star as $result) {
+					$pseudo = $result['pseudo'];
             ?>
 	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
+	                <a href="<?php echo $pseudo,".openworld.itinet.fr"; ?>" class="thumbnail gallery-box">
+	                    <img src="<?php echo $img[$pseudo]; ?>" class="img-responsive" alt="Image 1">
 	                    <div class="gallery-box-caption">
 	                        <div class="gallery-box-content">
 	                        	<?php echo $result["pseudo"]; ?>
@@ -125,7 +120,8 @@
 	                    </div>
 	                </a>
 	            </div>
-	        <?php } ?>
+	        <?php 					$i++;
+} ?>
 	            <!--<div class="col-lg-3 col-md-4 col-xs-6 thumb">
 	                <a href="#" class="thumbnail gallery-box">
 	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">

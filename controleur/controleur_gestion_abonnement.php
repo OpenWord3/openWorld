@@ -3,7 +3,7 @@
 	include("./modele/modele_timeline.php");
 	include("./modele/modele_abonnement.php");
 	include("./modele/modele_fonction.php");
-	include("C:\Users\wamp\www\wp-load.php");
+	include("/var/www/wordpress/wp-load.php");
 	
 	$id_suivi = $_SESSION['id'];
 	$pseudo_suiveur = $_POST['pseudo'];
