@@ -19,7 +19,7 @@
 				include("./vue/vue_inscription.php");
 			} else {
 				//$mdp1 = hash_mdp($mdp);  
-				inscription($pseudo,$mdp1,$mail);
+				inscription($pseudo,$mdp,$mail);
 				$_SESSION["pseudo"] = $pseudo;
 
 				$_SESSION["mdp"] = $mdp;
