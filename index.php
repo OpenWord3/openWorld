@@ -11,7 +11,7 @@
 			//$liste_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 			$liste_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
 		}
-		for($i=0; $i < count($liste_star); $i++){
+		/*for($i=0; $i < count($liste_star); $i++){
 			$pseudo = $liste_star[$i]['pseudo'];
 			$img_star = img_star($pseudo);
 			
@@ -23,7 +23,7 @@
 					$img[$pseudo] = $res->guid;
 				}
 			}
-		}
+		}*/
 		include('./vue/vue_accueil.php');
 	} else {
 
