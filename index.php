@@ -4,7 +4,7 @@
 	if(!isset($_GET["index"])){
 		include("./modele/modele_connexion_bdd.php");
 		include("./modele/modele_fonction.php");
-		include("C:\Users\wamp\www\wp-load.php");
+//		include("C:\Users\wamp\www\wp-load.php");
 
 		$liste_star = liste_star();
 		foreach($liste_star as $cle => $result){
