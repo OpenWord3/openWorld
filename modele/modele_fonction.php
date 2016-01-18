@@ -382,5 +382,27 @@
 		
 		$req->closeCursor();
 	}
+	
+	//FONCTION QUI SELECTIONE TOUS LES UTILISATEURS 
+	
+	function tous_util($id_pseudo){
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE id_utilisateur != $id_pseudo AND status_utilisateur = 0");
+		
+		return $req;
+		
+		//$req->closeCursor;
+	}	
+	
+	function tous_utilisateurs(){
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_utilisateur = 0");
+		
+		return $req;
+		
+		//$req->closeCursor;
+	}
 
 ?>

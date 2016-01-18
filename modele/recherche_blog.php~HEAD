@@ -1,22 +1,14 @@
 <?php
-
+ //   include("modele_connexion_bdd.php");
 	include("C:\Users\wamp\www\wp-load.php");
-	include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_fonction.php");
-	include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_connexion_bdd.php");
-	
-	/*$test[0] = "steephen";
+	$test[0] = "steephen";
 	$test[1] = "adolf";
-	$test[2] = "hassane";*/
-	
-	$tous_utilisateurs = tous_utilisateurs();
-	while($donnees = $tous_utilisateurs->fetch()){
-		$tous_utilisateur[] = $donnees['pseudo'];
-	}
+	$test[2] = "hassane";
 
     if(isset($_GET['query'])) {
         // Mot tapé par l'utilisateur
         $q = htmlentities($_GET['query']);
-		foreach($tous_utilisateur as $res){
+		foreach($test as $res){
         // Requête SQL
         //$requete = "SELECT * FROM utilisateur WHERE nom LIKE '". $q ."%' or prenom LIKE '". $q ."%'";
 		

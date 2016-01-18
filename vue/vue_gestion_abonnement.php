@@ -22,7 +22,16 @@
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
     <script src="./bootstrap/js/sb-admin-2.js"></script>
+	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#langages').autocomplete({
+				serviceUrl: './modele/recherche_blog_name.php',
 
+				dataType: 'json'
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -63,7 +72,9 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Recherche...">
+                                <form action="<?php echo INDEX ?>?index=recherche_blog_name" method="post" >
+									<input type="text" id="langages" name="res_rech" class="form-control" placeholder="Recherche...">
+                                </form>
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -124,6 +135,13 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Bienvenue <?php echo strtoupper($_SESSION["pseudo"]);?></h1>
                 </div>
+				<?php
+	while($donnees = $voir_abonne->fetch()){
+		$pseudo = $donnees['pseudo'];
+		?> <form action="<?php echo INDEX ?>?index=vue_gestion_abonnement" method='post' ><input class='btn btn-md btn-success' type='submit'  value="<?php echo "Se desabonner de ",$pseudo," (Nom du blog : ",$blog_name[$pseudo], ")"; ?>" name='desabonner'><input type='hidden' name='pseudo' value="<?php echo $donnees['pseudo'] ?>"></form><br>
+	<?php
+	}
+?>
             </div>
         </div>
 

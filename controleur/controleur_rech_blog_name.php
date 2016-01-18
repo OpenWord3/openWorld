@@ -34,12 +34,17 @@ $id_pseudo = $_SESSION['id'];
 		$res_rech = $_POST['res_rech'];
 	}
 	$voir_abonne = voir_abonne($id_pseudo);
-	$test[0] = "steephen";
-	$test[1] = "hassane";
-	$test[2] = "adolf";
+/*	$tous_utilisateurs[0] = "steephen";
+	$tous_utilisateurs[1] = "hassane";
+	$tous_utilisateurs[2] = "adolf";*/
+	
+	$tous_util = tous_util($id_pseudo);
+	while($donnees = $tous_util->fetch()){
+		$tous_utilisateurs[] = $donnees['pseudo'];
+	}
 	
 	$rech_compteur = 0;
-	foreach($test as $res){
+	foreach($tous_utilisateurs as $res){
 		$recherche = recherche_blog_name($res,$res_rech);
 		$resultats_siteurl = resultats_siteurl($res);
 

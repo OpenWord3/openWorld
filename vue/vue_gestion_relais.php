@@ -22,7 +22,17 @@
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
     <script src="./bootstrap/js/sb-admin-2.js"></script>
+	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
+	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#langages').autocomplete({
+				serviceUrl: './modele/recherche_blog_name.php',
 
+				dataType: 'json'
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -63,7 +73,9 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Recherche...">
+                                <form action="<?php echo INDEX ?>?index=recherche_blog_name" method="post" >
+									<input type="text" id="langages" name="res_rech" class="form-control" placeholder="Recherche...">
+                                </form>
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -166,8 +178,8 @@
 				</div>
 				<div class="modal-body">
 					<form action="<?php echo INDEX ?>?index=vue_gestion_relais" method="post">
-                        <input type="textbox" placeholder="Entrer le nom de domaine" class="form-control" name="domain" required>
-						<input type="textbox" placeholder="Entrer l'adresse IP" class="form-control" name="ip" required>
+                        <input type="textbox" placeholder="Entrer le nom de domaine" class="form-control" name="domain" required pattern="[a-z0-9._-]+.[a-z]{2,4}">
+						<input type="textbox" placeholder="Entrer l'adresse IP" class="form-control" name="ip" required pattern="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}">
 						<center><input type="submit" value="Ajouter" class="panel panel-green" name="ajouter"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>

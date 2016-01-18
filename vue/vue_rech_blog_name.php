@@ -22,7 +22,16 @@
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
     <script src="./bootstrap/js/sb-admin-2.js"></script>
+	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#langages').autocomplete({
+				serviceUrl: './modele/recherche_blog_name.php',
 
+				dataType: 'json'
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -63,7 +72,9 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Recherche...">
+                                <form action="<?php echo INDEX ?>?index=recherche_blog_name" method="post" >
+									<input type="text" id="langages" name="res_rech" class="form-control" placeholder="Recherche...">
+                                </form>
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -142,17 +153,19 @@ if($rech_compteur == 0){
 }
 else {
 	for($i=0; $i < count($rech); $i++){
+		$button = "<input class='btn btn-md btn-success' type='submit'  value='abonner' name='sumbit'>";
 		for($x=0; $x < count($abonne); $x++){
 			if($pseudo[$i] == $abonne[$x]){
 				//$verif = true;
-				$verif = "abonne";
+				$button = "<h5 style='color:green;'>Vous êtes déjà abonné à ce Blog</h5>";
 				//exit;
 			}
 		}
-		if($verif != "abonne"){
-		echo "Nom du blog : <B>$rech[$i]</B> / <a href='$siteurl[$i]'> Accéder à ce blog</a>" ?> <form action="<?php echo INDEX ?>?index=recherche_blog_name" method='post' ><input type='hidden' name='pseudo' value="<?php echo $pseudo[$i] ?>"><input type='hidden' name='res_rech' value="<?php echo $res_rech ?>"><input type='hidden' name='abonne' value="abonne"><input class='btn btn-md btn-success' type='submit'  value='abonner' name='sumbit'></form><br>
+
+	//	if($verif != "abonne"){
+		echo "Nom du blog : <B>$rech[$i]</B> / <a href='$siteurl[$i]'> Accéder à ce blog</a>" ?> <form action="<?php echo INDEX ?>?index=recherche_blog_name" method='post' ><input type='hidden' name='pseudo' value="<?php echo $pseudo[$i] ?>"><input type='hidden' name='res_rech' value="<?php echo $res_rech ?>"><input type='hidden' name='abonne' value="abonne"><?php echo $button; ?></form><br>
 		<?php
-		}
+	//	}
 		//echo $siteurl[$i];
 	}
 	/*foreach($rech as $resultats){

@@ -27,12 +27,6 @@
 	<script>
 		$(document).ready(function() {
 			$('#langages').autocomplete({
-				serviceUrl: 'recherche_blog.php',
-
-	</script>
-	<script>
-		$(document).ready(function() {
-			$('#langages').autocomplete({
 				serviceUrl: './modele/recherche_blog_name.php',
 
 				dataType: 'json'
