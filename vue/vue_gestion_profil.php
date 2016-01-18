@@ -192,12 +192,10 @@
 				<div class="modal-body">
                     
 					<form action="<?php echo INDEX ?>?index=vue_gestion_profil" method="post">
-						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" required>
-                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" required>
-                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="email" required>
-                        <!--<input class="form-control" placeholder="Votre pseudo" id="username" type="text" required>-->
+						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["nom"]."'";} ?> required>
+                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["prenom"]."'";} ?> required>
+                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="email" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["email"]."'";} ?>required>
                         <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp" required>
-                        <!--<input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp2" required>-->
 						<center><input type="submit" value="Modifier" class="panel panel-green" name="modifier"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>
