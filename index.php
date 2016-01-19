@@ -23,8 +23,8 @@
 				foreach($img_star as $res){
 					$img[$pseudo] = $res->guid;
 				}
-				foreach($blog_name as $res){
-					$blog[$pseudo] = $res->option_value;
+				foreach($blog_name as $result){
+					$blog[$pseudo] = $result->option_value;
 				}
 			}
 		}
