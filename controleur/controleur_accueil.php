@@ -7,6 +7,7 @@
 	foreach($liste_star as $cle => $result){
 		//$liste_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
 		$liste_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		$liste_star[$cle]["fqdn_blog"] = nl2br(htmlspecialchars($result["fqdn_blog"])); 
 	}
 	for($i=0; $i < count($liste_star); $i++){
 		$pseudo = $liste_star[$i]['pseudo'];
