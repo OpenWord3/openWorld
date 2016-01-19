@@ -13,7 +13,7 @@
 
 	function recherche($res,$res_rech){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
-		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE '$res_rech%'");
+		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE '$res_rech%' AND post_name NOT LIKE 'bonjour-tout-le-monde'");
 		
 		return $results;
 	}	
