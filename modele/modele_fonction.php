@@ -625,7 +625,7 @@
 		
 		return $results;
 	}
-	function blog_name($res,$res_rech){
+	function blog_name($res){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
 		
