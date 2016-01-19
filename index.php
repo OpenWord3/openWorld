@@ -14,6 +14,7 @@
 		for($i=0; $i < count($liste_star); $i++){
 			$pseudo = $liste_star[$i]['pseudo'];
 			$img_star = img_star($pseudo);
+			$blog_name = blog_name($pseudo);
 			
 			if(empty($img_star)){
 			$img[$pseudo] = "./bootstrap/images/6.jpg"; 
@@ -21,6 +22,9 @@
 			else {
 				foreach($img_star as $res){
 					$img[$pseudo] = $res->guid;
+				}
+				foreach($blog_name as $res){
+					$blog[$pseudo] = $res->option_value;
 				}
 			}
 		}

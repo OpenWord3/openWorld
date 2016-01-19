@@ -110,8 +110,8 @@
 	                    <div class="gallery-box-caption">
 	                        <div class="gallery-box-content">
 	                        	<?php echo $result["pseudo"]; ?>
-	                        	Blog Guepard<br><br>
-	                        	Un blog sur les félins
+	                        	Blog<br><br>
+	                        	<?php echo "Un blog sur ",$blog[$pseudo]; ?>
 	                        </div>
 	                    </div>
 	                </a>
