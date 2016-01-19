@@ -163,7 +163,7 @@ else {
 		}
 
 	//	if($verif != "abonne"){
-		echo "Nom du blog : <B>$rech[$i]</B> / <a href='$siteurl[$i]'> Accéder à ce blog</a>" ?> <form action="<?php echo INDEX ?>?index=recherche_blog_name" method='post' ><input type='hidden' name='pseudo' value="<?php echo $pseudo[$i] ?>"><input type='hidden' name='res_rech' value="<?php echo $res_rech ?>"><input type='hidden' name='abonne' value="abonne"><?php echo $button; ?></form><br>
+		echo "Nom du blog : <B>$rech[$i]</B> / <a href='$siteurl[$i]' target=_blank> Accéder à ce blog</a>" ?> <form action="<?php echo INDEX ?>?index=recherche_blog_name" method='post' ><input type='hidden' name='pseudo' value="<?php echo $pseudo[$i] ?>"><input type='hidden' name='res_rech' value="<?php echo $res_rech ?>"><input type='hidden' name='abonne' value="abonne"><?php echo $button; ?></form><br>
 		<?php
 	//	}
 		//echo $siteurl[$i];
