@@ -13,11 +13,11 @@
 		$pseudo = $liste_star[$i]['pseudo'];
 		$img_star = img_star($pseudo);
 		if(empty($img_star)){
-			$img[pseudo] = "./bootstrap/images/2.jpg"; 
+			$img[$pseudo] = "./bootstrap/images/2.jpg"; 
 		}
 		else {
 			foreach($img_star as $res){
-				$img[] = $res->guid;
+				$img[$pseudo] = $res->guid;
 			}
 		}
 	}
