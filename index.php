@@ -16,9 +16,9 @@
 			$img_star = img_star($pseudo);
 			$blog_name = blog_name($pseudo);
 			
-			foreach($blog_name as $result){
+		/*	foreach($blog_name as $result){
 				$blog[$pseudo] = $result->option_value;
-			}
+			}*/
 			if(empty($img_star)){
 			$img[$pseudo] = "./bootstrap/images/6.jpg"; 
 			}
