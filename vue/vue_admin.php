@@ -475,21 +475,6 @@ foreach($affiche_relais_demande as $result){
     <!-- Custom Theme JavaScript -->
     <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
 
-
-    				<div class="modal-dialog">
-        				<div class="modal-content">
-            				<div class="modal-header">
-                				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                				<h4 class="modal-title" id="myModalLabel">Notifications</h4>
-            				</div>
-            				<div class="modal-body">
-            					Notifications
-            				</div>
-        				</div><!-- /.modal-content -->
-    				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-			<!-- /.modal -->
-        </div>
  
 
 
