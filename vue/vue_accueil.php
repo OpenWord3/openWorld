@@ -62,11 +62,7 @@
                         <a class="page-scroll" title="L'équipe OPENWORLD" href="#footer"><i class="fa fa-group fa-1x"> A Propos</i></a>
                     </li>
                     <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-
-
-	                        <form action="./recherche_membre.php" method = "post">
-
+                        <div class="input-group custom-search-form"> 
 	                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
 
 	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
