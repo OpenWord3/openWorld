@@ -8,7 +8,7 @@
 	}
 	
 	function recupere_timeline($pseudo){
-		$newdb = new wpdb( 'root' , '' , "$pseudo" , 'localhost'); 
+		$newdb = new wpdb( 'root' , 'africainetfier' , "$pseudo" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' ORDER BY post_modified_gmt DESC");
 		
 		return $results;

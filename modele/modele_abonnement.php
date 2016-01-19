@@ -21,7 +21,7 @@
 		$req->closeCursor();
 	}
 	function abonne_blog_name($res){
-		$newdb = new wpdb( 'root' , '' , "$res" , 'localhost'); 
+		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
 		
 		return $results;

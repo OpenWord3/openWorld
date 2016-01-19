@@ -22,7 +22,7 @@ session_start();
         // Requête SQL
         //$requete = "SELECT * FROM utilisateur WHERE nom LIKE '". $q ."%' or prenom LIKE '". $q ."%'";
 		
-		$newdb = new wpdb( 'root' , '' , "$res" , 'localhost'); 
+		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$resultat = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname' AND option_value LIKE '". $q ."%'");
         // Exécution de la requête SQL
        // $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
