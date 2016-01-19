@@ -21,7 +21,7 @@ $res_rech = $_POST['res_rech'];
 		if(!empty($recherche)){
 			$rech_compteur++;	
 			foreach($recherche as $res){
-				$rech[] = "Titre du poste : " . "<B>" . $res->post_title . "</B>" . " / "  . "<a href=" . $res->guid . ">" . "Accéder à ce poste" . "</a>  ";
+				$rech[] = "Titre du poste : " . "<B>" . $res->post_title . "</B>" . " / "  . "<a href=" . $res->guid . " target=_blank>" . "Accéder à ce poste" . "</a>  ";
 			}			
 		}	
 	}
