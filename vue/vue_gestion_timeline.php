@@ -67,11 +67,11 @@
                 </li>
             </ul>
             <?php 
-                $id = id($_SESSION["pseudo"]);
+               /* $id = id($_SESSION["pseudo"]);
                 $verif_blog = blog($id);
                 $status_blog = status_blog($id);
                 $verif_star = verif_star($id);
-                $verif_demande = verif_demande_star($id); 
+                $verif_demande = verif_demande_star($id); */
             ?>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
