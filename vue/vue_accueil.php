@@ -105,8 +105,8 @@
 					$pseudo = $result['pseudo'];
             ?>
 	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="<?php echo "http://",$pseudo,".openworld.itinet.fr"; ?>" class="thumbnail gallery-box" target="_blank" height="640" width="480">
-	                    <img src="<?php echo $img[$pseudo]; ?>" class="img-responsive" alt="Image 1">
+	                <a href="<?php echo "http://",$pseudo,".openworld.itinet.fr"; ?>" class="thumbnail gallery-box" target="_blank" >
+	                    <img src="<?php echo $img[$pseudo]; ?>" class="img-responsive" alt="Image 1" height="640" width="480">
 	                    <div class="gallery-box-caption">
 	                        <div class="gallery-box-content">
 	                        	<?php echo $result["pseudo"]; ?>
