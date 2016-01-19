@@ -619,7 +619,7 @@
 	}
 	
 	function img_star($pseudo){
-		$newdb = new wpdb( 'root' , '' , "$pseudo" , 'localhost'); 
+		$newdb = new wpdb( 'root' , 'africainetfier' , "$pseudo" , 'localhost'); 
 		
 		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_mime_type LIKE 'image%' ORDER BY post_modified DESC LIMIT 1");
 		
