@@ -1,4 +1,4 @@
-<?php
+	<?php
 	//Fonction qui verifie si un compte existe
 	function compte($pseudo){
 		global $bdd;
@@ -618,17 +618,18 @@
 		return $check;
 	}
 	
-	/*function img_star($pseudo){
+	function img_star($pseudo){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$pseudo" , 'localhost'); 
 		
 		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_mime_type LIKE 'image%' ORDER BY post_modified DESC LIMIT 1");
 		
 		return $results;
-	}*/
-	/*function blog_name($res){
+	}
+	
+	function blog_name($res){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
 		
 		return $results;
-	}*/
+	}
 ?>
