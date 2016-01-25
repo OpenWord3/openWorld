@@ -52,6 +52,13 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                </li>
+
+                <li>
+                    <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -67,6 +74,7 @@
                     </ul>
                 </li>
             </ul>
+            
             <?php 
                 $id = id($_SESSION["pseudo"]);
                 $verif_blog = blog($id);
@@ -121,18 +129,6 @@
                         </li>
                     </ul>
 
-                    <br>
-                    <br>
-                    
-                    <ul>
-                        <li>
-                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
-                        </li>
-
-                        <li>
-                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
