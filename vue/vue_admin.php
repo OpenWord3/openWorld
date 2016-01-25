@@ -159,7 +159,7 @@
                          ?>
                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                            <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="<?php if($status_mail != '2'){echo 'btn btn-warning btn-xs';}else{echo 'btn btn-success btn-xs';} ?>" 
                             name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
                             <?php 
                                 $verif_mail = mail_open($result['id_utilisateur']);
@@ -172,7 +172,7 @@
                         <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="panel panel-green" 
+                            <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="<?php if($status_blog != '2'){echo 'btn btn-warning btn-xs';}else{echo 'btn btn-success btn-xs';} ?>" 
                                 name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
@@ -186,7 +186,7 @@
                     <?php //echo $status_mail; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_mail"
+                            <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_mail"
                                <?php 
                                     $verif_mail = mail_open($result['id_utilisateur']);
                                     if($verif_mail == ""){
@@ -200,7 +200,7 @@
                     <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="panel panel-red" name="supprimer_blog"
+                            <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_blog"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
                                     if($verif_blog == ""){

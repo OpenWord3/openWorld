@@ -363,3 +363,20 @@ table.dataTable thead .sorting:after {
 .disabled a {
 	color: #000000;
 }
+
+
+
+.panel-star .panel-heading{
+    z-index: 1000;
+    background-color: #E1E901;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.panel-star a {
+	color: #E1E901;
+}
+
+.panel-yellow a:hover {
+    color: #E1E901;
+}
