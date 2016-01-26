@@ -28,9 +28,17 @@
     <script src="./bootstrap/js/jquery.min.js"></script>
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
     <script src="<?PHP echo TWEENLITE ?>"></script>
-    <script src="./bootstrap/js/jquery.min.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>    
+	<script>
+		$(document).ready(function() {
+			$('#langages').autocomplete({
+				serviceUrl: './modele/recherche_user.php',
 
+				dataType: 'json'
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -67,9 +75,10 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-                            <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
-                                <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
-                            </form>
+                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
+
+	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
+	                        </form>
                         </div>
                     </li>
                 </ul>
@@ -87,8 +96,7 @@
                 </ul>
 
                 <?php 
-                    $nb_demande = nb_demande();
-                    $nb_ancienne_star = nb_ancienne_star();
+
                 ?>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -103,7 +111,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                            <i class="fa fa-at"></i>  <i><?php echo $nb_demande; ?></i>
+                            <i class="fa fa-at"></i>  <i style="color: red;"><?php echo $nb_demande; ?></i>
                         </a>
                     </li>
                 </ul>
@@ -111,13 +119,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                            <i class="fa fa-star-half-o"></i>  <i><?php if($nb_demande > 0) {echo "<span style='color:red;'>".$nb_demande."</span>";}else{echo $nb_demande;} ?></i>
+                            <i class="fa fa-star-half-o"></i>  <i style="color: red;"><?php if($nb_demande_mail > 0) {echo "<span style='color:red;'>".$nb_demande_mail."</span>";}else{echo $nb_demande_mail;} ?></i>
                         </a>
                     </li>
                 </ul>
 
             </div>
         </nav>
+		</div>
 
         <div id="page-wrapper-admin">
             <div class="row">
@@ -171,7 +180,7 @@
                                 name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
+                                    if($verif_blog == "supprimer"){
                                         echo "disabled='disabled'";
                                 } ?>
                             >
@@ -198,7 +207,7 @@
                             <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_blog"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
+                                    if($verif_blog == "supprimer"){
                                         echo "disabled='disabled'";
                                     } 
                                 ?>
@@ -391,8 +400,6 @@ foreach($affiche_relais_demande as $result){
                   </thead>
                   <tbody>
                   <?php
-	                  //$affiche_relais_demande = affiche_relais_demande();
-	                  print_r($affiche_relais_demande);
 	                  foreach($affiche_relais_demande as $result){
                   ?>
                   <tr>
@@ -415,7 +422,7 @@ foreach($affiche_relais_demande as $result){
                             <input type="submit" value="Valider" class="panel panel-green" name="valider_relais"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
+                                    if($verif_blog == "supprimer"){
                                         echo "disabled='disabled'";
                                     } 
                                 ?>
@@ -428,7 +435,7 @@ foreach($affiche_relais_demande as $result){
                             <input type="submit" value="refuser" class="panel panel-red" name="refuser_relais"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
+                                    if($verif_blog == "supprimer"){
                                         echo "disabled='disabled'";
                                     } 
                                 ?>
@@ -455,7 +462,11 @@ foreach($affiche_relais_demande as $result){
 			<h4 class="modal-title" id="myModalLabel">Archive des utilisateurs et Indésirables</h4>
 			</div>
 			<div class="modal-body">
-			    {Liste}
+			    <?php
+				while($donnees = $archive->fetch()){
+					echo "Pseudo : ",$donnees['pseudo'],"<br>";
+				}
+				?>
 			</div>
 			</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->

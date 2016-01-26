@@ -204,7 +204,7 @@
 	function del_blog($id,$status){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `utilisateur` SET `fqdn_blog` = NULL WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `fqdn_blog` = 'supprimer' WHERE `id_utilisateur` = $id");
 		$req = $bdd->query("UPDATE `utilisateur` SET `status_blog` = '$status' WHERE `id_utilisateur` = $id");
 		
 		$req->closeCursor();
@@ -631,4 +631,12 @@
 		
 		return $results;
 	}*/
+	function archive(){
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_mail = '0' AND status_blog = '0' AND fqdn_blog LIKE 'supprimer'");
+		
+		//$req->closeCursor();
+		return $req;
+	}
 ?>

@@ -31,6 +31,9 @@
 				} else {
 					$_SESSION["pseudo"] = $pseudo;
 					$results = liste_utilisateur();
+					$archive = archive();
+				    $nb_demande_mail = nb_demande();
+                    $nb_ancienne_star = nb_ancienne_star();
 					$nb_demande = notifications();
 					$affiche_relais_demande = affiche_relais_demande();
 

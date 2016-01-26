@@ -2,7 +2,10 @@
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_fonction.php");
 	
-
+	$archive = archive();
+	$nb_demande_mail = nb_demande();
+    $nb_ancienne_star = nb_ancienne_star();
+	$nb_demande = notifications();
 	if(isset($_POST["activer_blog"])){
 		$pseudo = $_POST["pseudo"];
 		$id = id($pseudo);
