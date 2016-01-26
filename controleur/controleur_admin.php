@@ -1,6 +1,7 @@
 <?php
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_fonction.php");
+	
 
 	if(isset($_POST["activer_blog"])){
 		$pseudo = $_POST["pseudo"];
@@ -242,7 +243,7 @@
 		foreach($liste_ancienne_star as $cle => $result2){
 			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
 			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
-		}		
+		}
 		include("./vue/vue_admin.php");
 	}
 	

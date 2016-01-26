@@ -46,26 +46,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>"><i><img src="./bootstrap/images/logo.png" height="40" width="50"></i>OPENWORLD</i></a>
             </div>
 
             <div class="navbar-collapse collapse" id="bs-navbar">
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                        <i class="fa fa-globe"></i>  <i><?php echo $nb_demande; ?></i>
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                        <i class="fa fa-envelope"></i>  <i></i>
-                    </a>
-                </li>
-            </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -81,21 +65,12 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                            <i class="fa fa-globe"></i>  <i>(Cpt)</i>
-                        </a>
-                    </li>
-                </ul>
-                <?php 
-                    $nb_demande = nb_demande();
-                    $nb_ancienne_star = nb_ancienne_star();
-                ?>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                            <i class="fa fa-envelope"></i>  <i><?php if($nb_demande > 0) {echo "<span style='color:red;'>".$nb_demande."</span>";}else{echo $nb_demande;} ?></i>
-                        </a>
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
+                                <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
+                            </form>
+                        </div>
                     </li>
                 </ul>
 
@@ -111,13 +86,33 @@
                     </li>
                 </ul>
 
+                <?php 
+                    $nb_demande = nb_demande();
+                    $nb_ancienne_star = nb_ancienne_star();
+                ?>
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
-                                <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
-                            </form>
-                        </div>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalArchive"  data-toggle="modal" data-target="#myModalArchive">
+                            <i class="fa fa-archive"></i>
+                        </a>
+                    </li>
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
+                            <i class="fa fa-at"></i>  <i><?php echo $nb_demande; ?></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
+                            <i class="fa fa-star-half-o"></i>  <i><?php if($nb_demande > 0) {echo "<span style='color:red;'>".$nb_demande."</span>";}else{echo $nb_demande;} ?></i>
+                        </a>
                     </li>
                 </ul>
 
@@ -373,7 +368,7 @@
 				<div class="modal-content">
 				<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Notifications</h4>
+				<h4 class="modal-title" id="myModalLabel">Ajout de domaines</h4>
 				</div>
 				<div class="modal-body">
 					<?php
@@ -395,7 +390,11 @@ foreach($affiche_relais_demande as $result){
                       </tr>
                   </thead>
                   <tbody>
-                  <?php foreach($affiche_relais_demande as $result){ ?>
+                  <?php
+	                  //$affiche_relais_demande = affiche_relais_demande();
+	                  print_r($affiche_relais_demande);
+	                  foreach($affiche_relais_demande as $result){
+                  ?>
                   <tr>
                     <td>
 						<?php echo $result['nom_domain']; ?>
@@ -446,6 +445,21 @@ foreach($affiche_relais_demande as $result){
 				</div><!-- /.modal -->
 			<!-- /.modal -->
         </div>
+
+		<!-- Modal -->
+			<div class="modal fade" id="myModalArchive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Archive des utilisateurs et Indésirables</h4>
+			</div>
+			<div class="modal-body">
+			    {Liste}
+			</div>
+			</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
     <!--==============================================================================================================================================  -->
 
         <script>
