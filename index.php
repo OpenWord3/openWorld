@@ -48,42 +48,66 @@
 				if(empty($_SESSION)){
 					include("./controleur/controleur_connexion.php");
 				}else{
-					include("./controleur/controleur_gestion_blog.php");
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_gestion_blog.php");
+					}					
 				}				
 				break;
 			case "vue_gestion_mail":
 				if(empty($_SESSION)){
 					include("./controleur/controleur_connexion.php");
 				}else{
-					include("./controleur/controleur_gestion_mail.php");
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_gestion_mail.php");
+					}
 				}				
 				break;
 			case "vue_gestion_profil":
 				if(empty($_SESSION)){
 					include("./controleur/controleur_connexion.php");
 				}else{
-					include("./controleur/controleur_gestion_profil.php");
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_gestion_profil.php");
+					}
 				}				
 				break;
 			case "vue_gestion_relais":
 				if(empty($_SESSION)){
 					include("./controleur/controleur_connexion.php");
 				}else{
-					include("./controleur/controleur_gestion_relais.php");
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_gestion_relais.php");
+					}
 				}				
 				break;
 			case "vue_gestion_timeline":
 				if(empty($_SESSION)){
 					include("./controleur/controleur_connexion.php");
 				}else{
-					include("./controleur/controleur_gestion_timeline.php");
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_gestion_timeline.php");
+					}
 				}				
 				break;
 			case "vue_gestion_abonnement":
 				if(empty($_SESSION)){
 					include("./controleur/controleur_connexion.php");
 				}else{
-					include("./controleur/controleur_gestion_abonnement.php");
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_gestion_abonnement.php");
+					}
 				}				
 				break;
 			case "vue_parametres":
@@ -93,7 +117,11 @@
 				if(empty($_SESSION)){
 					include("./controleur/controleur_connexion.php");
 				} else {
-					include("./controleur/controleur_admin.php");
+					if($_SESSION["pseudo"] != "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_admin.php");
+					}
 				}
 				break;			
 			case "recherche_blog":
