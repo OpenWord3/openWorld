@@ -10,7 +10,7 @@
     <meta name="description" content="Tableau de bord OPENWORLD">
     <meta name="author" content="Serge Louis Adolphe">
 
-    <title>Tableau de bord OPENWORLD</title>
+    <title>Résultats de <?php echo "<B>$res_rech</B;" ?></title>
 
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="./bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>"><i><img src="./bootstrap/images/logo.png" height="30" width="40"></i>OPENWORLD</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

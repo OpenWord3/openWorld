@@ -60,6 +60,9 @@
 					$alerte = "Votre blog vient d'être désactivé.";
 					$status = "0";
 					active_blog($id,$status);
+					no_star($pseudo);
+					no_devenir_star($pseudo);
+					date_no_star($pseudo);
 					exec('sudo /var/script/unactivation_vhost.sh '.$pseudo);
 					include("./vue/vue_gestion_blog.php");
 				}
@@ -69,6 +72,9 @@
 				
 				$status = "0";
 				$alerte = "Votre blog vient d'être définitivement fermé.";
+				no_star($pseudo);
+				no_devenir_star($pseudo);
+				date_no_star($pseudo);
 				exec('sudo /var/script/remove_vhost.sh '.$pseudo);
 				del_blog($id,$status);
 				include("./vue/vue_gestion_blog.php");

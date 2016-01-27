@@ -28,7 +28,6 @@
 		$(document).ready(function() {
 			$('#langages').autocomplete({
 				serviceUrl: './modele/recherche_blog_name.php',
-
 				dataType: 'json'
 			});
 		});
@@ -48,10 +47,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>"><i><img src="./bootstrap/images/logo.png" height="30" width="40"></i>OPENWORLD</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                </li>
+
+                <li>
+                    <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -115,30 +121,14 @@
                         </li>
                     </ul>
 
-                    <br>
                         <?php 
                             $id = id($_SESSION["pseudo"]);
                             $verif_blog = blog($id);
                             $status_blog = status_blog($id);
                             $verif_star = verif_star($id);
-                            $verif_demande = verif_demande_star($id); 
+                            $verif_demande = verif_demande_star($id);
                         ?>
-                    <br>
-                    
-                    <ul>
-                        <li>
-                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
-                        </li>
-
-                        <li>
-                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
-                        </li>
-                        <li>
-                            <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2' || $verif_star == '1' || $verif_demande == '1'){ echo 'disabled';}else{echo '';}?>">
-                                <a href="<?php echo INDEX ?>?index=devenir_star"><i class="">Devenir star</i></a>
-                            </div>
-                        </li>
-                    </ul>
+                        
                 </div>
             </div>
         </nav>
@@ -188,7 +178,7 @@
                                 </div>
                             </div>
                         </div>
-                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "activer_blog"){echo $alerte;}} ?>
+                        <?php //if(isset($_GET["action"])){ if($_GET["action"] == "activer_blog"){echo $alerte;}} ?>
                         <a href="<?php echo INDEX ?>?index=vue_gestion_blog&action=activer_blog">
                             <div class="panel-footer">
                                 <span class="pull-left">Activer son blog</span>
@@ -210,7 +200,7 @@
                                 </div>
                             </div>
                         </div>
-                        <?php if(isset($_GET["action"])){ if($_GET["action"] == "desactiver_blog"){echo $alerte;}} ?>
+                        <?php //if(isset($_GET["action"])){ if($_GET["action"] == "desactiver_blog"){echo $alerte;}} ?>
                         <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=vue_gestion_blog&action=desactiver_blog';} ?>">
                             <div class="panel-footer">
                                 <span class="pull-left">Desactiver son blog</span>
@@ -253,7 +243,37 @@
             <ol>
                 La suppression du blog est définitive
             </ol>
+            
+            <br><br><br>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2' || $verif_star == '1' || $verif_demande == '1'){ echo 'disabled';}else{echo 'panel panel-star';}?>">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-star fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right"></div>
+                            </div>
+                        </div>
+                        <a href="<?php if($verif_blog == ''){ echo '#';}else{echo INDEX.'?index=devenir_star';}?>">
+                            <div class="panel-footer">
+                                <span class="pull-left">Devenir star</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
+            <ol>
+                Pour pouvoir paraître sur la vitrine du site, veuillez faire une demande s'il vous plaît.
+                <br>NB : Vous pouvez ne pas être accepté
+            </ol>
+
+        </div>
+    </div>
 
 </body>
 

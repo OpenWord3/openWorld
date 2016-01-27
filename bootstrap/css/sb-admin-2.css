@@ -353,6 +353,24 @@ table.dataTable thead .sorting:after {
     color: #df8a13;
 }
 
+.panel-star {
+    border-color: #E1E901;
+}
+
+.panel-star .panel-heading {
+    border-color: #E1E901;
+    color: #fff;
+    background-color: #E1E901;
+}
+
+.panel-star a {
+    color: #E1E901;
+}
+
+.panel-star a:hover {
+    color: #df8a13;
+}
+
 .disabled {
     z-index: 1000;
     background-color: lightgrey;

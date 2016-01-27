@@ -48,10 +48,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>"><i><img src="./bootstrap/images/logo.png" height="30" width="40"></i>OPENWORLD</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                </li>
+
+                <li>
+                    <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -67,6 +74,7 @@
                     </ul>
                 </li>
             </ul>
+            
             <?php 
                 $id = id($_SESSION["pseudo"]);
                 $verif_blog = blog($id);
@@ -121,23 +129,6 @@
                         </li>
                     </ul>
 
-                    <br>
-                    <br>
-                    
-                    <ul>
-                        <li>
-                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
-                        </li>
-
-                        <li>
-                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
-                        </li>
-                        <li>
-                            <div class="<?php if($verif_blog == '' || $status_blog == '0' || $status_blog == '2' || $verif_star == '1' || $verif_demande == '1'){ echo 'disabled';}else{echo '';}?>">
-                                <a href="<?php echo INDEX ?>?index=devenir_star"><i class="">Devenir star</i></a>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
