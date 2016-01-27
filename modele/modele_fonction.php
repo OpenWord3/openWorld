@@ -377,7 +377,7 @@
 	function affiche_relais_demande () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = 0");
+		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = '0'");
 		return $req;
 		
 		$req->closeCursor();
