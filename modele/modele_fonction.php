@@ -1,5 +1,5 @@
-<?php
-	//Fonction qui verifie si un compte existe
+	<?php
+	//Fonction qui verifie si un compte existe 
 	function compte($pseudo){
 		global $bdd;
 
@@ -626,7 +626,7 @@
 
 		return $check;
 	}
-	 
+
 	function img_star($pseudo){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$pseudo" , 'localhost'); 
 		
@@ -634,6 +634,7 @@
 		
 		return $results;
 	}
+
 	function blog_name($res){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
@@ -648,4 +649,5 @@
 		//$req->closeCursor();
 		return $req;
 	}
+
 ?>
