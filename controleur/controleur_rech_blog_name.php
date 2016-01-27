@@ -1,7 +1,7 @@
 <?php
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_rech.php");
-	include("C:\Users\wamp\www\wp-load.php");
+	include("/var/www/wordpress/wp-load.php");
 	include("./modele/modele_timeline.php");
 	include("./modele/modele_abonnement.php");
 	include("./modele/modele_fonction.php");

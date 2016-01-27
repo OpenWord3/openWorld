@@ -22,12 +22,12 @@
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
     <script src="./bootstrap/js/sb-admin-2.js"></script>
+
 	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('#langages').autocomplete({
 				serviceUrl: './modele/recherche_blog_name.php',
-
 				dataType: 'json'
 			});
 		});
@@ -47,10 +47,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>"><i><img src="./bootstrap/images/logo.png" height="30" width="40"></i>OPENWORLD</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                </li>
+
+                <li>
+                    <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -67,6 +74,13 @@
                 </li>
             </ul>
 
+            <?php 
+               /* $id = id($_SESSION["pseudo"]);
+                $verif_blog = blog($id);
+                $status_blog = status_blog($id);
+                $verif_star = verif_star($id);
+                $verif_demande = verif_demande_star($id); */
+            ?>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -114,20 +128,6 @@
                             </ul>
                         </li>
                     </ul>
-
-                    <br>
-                    <br>
-                    
-                    <ul>
-                        <li>
-                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
-                        </li>
-
-                        <li>
-                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
-
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -150,29 +150,19 @@
             <ol>
                 GESTION DE TIMELINE ICI<br>
             </ol>
-<?php
-if($timeline_compteur == 0){
-	echo "<H2>Il n'y a pas d'article.</H2>";
-}
-else {
-	foreach($timeline as $lien){
-		echo "<center><iframe  style='width:600px;height:600px' src='$lien'></iframe></center><br>" ;
-	}
-}
- ?>
+			<?php
+			if($timeline_compteur == 0){
+				echo "<H2>Il n'y a pas d'article.</H2>";
+			}
+			else {
+				foreach($timeline as $lien){
+					echo "<center><iframe  style='width:600px;height:600px' src='$lien'></iframe></center><br>" ;
+				}
+			}
+			 ?>
                 </div>
 				
                 <hr>
-
-                <!-- Footer -->
-                <footer>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>Copyright &copy; OPENWORLD 2016</p>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-                </footer>
 
             </div>
         </div>

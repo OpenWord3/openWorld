@@ -17,14 +17,8 @@
     <script src="<?PHP echo WOW ?>"></script>
     <script src="<?PHP echo JQUERY ?>"></script>
     <script src="<?PHP echo JQUERYEASING ?>"></script>
-
 	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('#langages').autocomplete({
-				serviceUrl: 'recherche_blog.php',
 
-	</script>
 	<script>
 		$(document).ready(function() {
 			$('#langages').autocomplete({
@@ -36,6 +30,10 @@
 	</script>
 
     <link href="./bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
     <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -64,10 +62,11 @@
                         <a class="page-scroll" title="L'équipe OPENWORLD" href="#footer"><i class="fa fa-group fa-1x"> A Propos</i></a>
                     </li>
                     <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
+                        <div class="input-group custom-search-form"> 
 	                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
 
 	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
+
 
 	                        </form>
                         </div>
@@ -76,7 +75,7 @@
             </div>
         </div>
     </nav>
-<
+
     <header id="first">
         <div class="header-content">
             <div class="inner">
@@ -99,13 +98,134 @@
     	<center><img src="./bootstrap/images/trait.png" width="550" height="70"></center>
         <div class="container container-fluid">
             <div class="row no-gutter">
+            <?php 
+			$i=0;
+            	//$liste_star = liste_star();
+            	foreach ($liste_star as $result) {
+					$pseudo = $result['pseudo'];
+            ?>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="<?php echo "http://",$pseudo,".openworld.itinet.fr"; ?>" class="thumbnail gallery-box" target="_blank" >
+	                    <img src="<?php echo $img[$pseudo]; ?>" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        	<?php echo $result["pseudo"]; ?>
+	                        	Blog<br><br>
+	                        	<?php echo "Un blog sur ",$blog[$pseudo]; ?>
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	        <?php 					$i++;
+} ?>
+	            <!--<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        	Nom du blog<br>
+	                        	Description du blog
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/3.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/4.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/5.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/6.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/7.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/8.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/9.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/10.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/11.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a href="#" class="thumbnail gallery-box">
+	                    <img src="./bootstrap/images/12.jpg" class="img-responsive" alt="Image 1">
+	                    <div class="gallery-box-caption">
+	                        <div class="gallery-box-content">
+	                        </div>
+	                    </div>
+	                </a>
+	            </div>
 	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 	                <a href="#" class="thumbnail gallery-box">
 	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
 	                    <div class="gallery-box-caption">
 	                        <div class="gallery-box-content">
-	                        	Blog Guepard<br><br>
-	                        	Un blog sur les félins
+	                        	Nom du blog<br>
+	                        	Description du blog
 	                        </div>
 	                    </div>
 	                </a>
@@ -210,119 +330,7 @@
 	                        </div>
 	                    </div>
 	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/1.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        	Nom du blog<br>
-	                        	Description du blog
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/2.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        	Nom du blog<br>
-	                        	Description du blog
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/3.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/4.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/5.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/6.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/7.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/8.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/9.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/10.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/11.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a href="#" class="thumbnail gallery-box">
-	                    <img src="./bootstrap/images/12.jpg" class="img-responsive" alt="Image 1">
-	                    <div class="gallery-box-caption">
-	                        <div class="gallery-box-content">
-	                        </div>
-	                    </div>
-	                </a>
-	            </div>
+	            </div>-->
             </div>
         </div>
     </section>
@@ -413,30 +421,5 @@
             <span class="pull-right text-muted small">OPENWORLD ©2015 Company</span>
         </div>
     </footer>
-<?php 
-include("C:\Users\wamp\www\wp-load.php");
-$test[0] = "steephen";
-$test[1] = "adolf";
-$test[2] = "hassane";
-	
-	function recherche($res){
-		$newdb = new wpdb( 'root' , '' , "$res" , 'localhost'); 
-		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE 'ce%'");
-	}
-	$res_rech = "ce";
-/*foreach($test as $res){
-	$results = recherche($res,$res_rech);
-	
-	foreach($results as $res){
-		$rech[] = $res->post_content;
-	}
-		
-}
-foreach($rech as $res){
-	echo $res;
-}*/
-
-
-?>
   </body>
 </html>

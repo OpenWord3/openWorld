@@ -38,10 +38,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>"><i><img src="./bootstrap/images/logo.png" height="30" width="40"></i>OPENWORLD</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
+                </li>
+
+                <li>
+                    <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -58,6 +65,13 @@
                 </li>
             </ul>
 
+            <?php 
+                $id = id($_SESSION["pseudo"]);
+                $verif_blog = blog($id);
+                $status_blog = status_blog($id);
+                $verif_star = verif_star($id);
+                $verif_demande = verif_demande_star($id); 
+            ?>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -102,19 +116,7 @@
                             </ul>
                         </li>
                     </ul>
-
-                    <br>
-                    <br>
                     
-                    <ul>
-                        <li>
-                            <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> Accéder à OpenMail</i></a>
-                        </li>
-
-                        <li>
-                            <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> Accéder à PHPMyAdmin</i></a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -181,12 +183,12 @@
 				<div class="modal-body">
                     
 					<form action="<?php echo INDEX ?>?index=vue_gestion_profil" method="post">
-						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
-                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
-                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="email" required pattern="[a-z0-9._]+@[a-z]+.[a-z]{2,4}">
-                        <!--<input class="form-control" placeholder="Votre pseudo" id="username" type="text" required>-->
-                        <input pattern=".{6,32}" class="form-control" placeholder="Votre Mot de passe(6 caractères min)" id="password" type="password" name="mdp" required>
-                        <!--<input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp2" required>-->
+
+						<input class="form-control" placeholder="Votre Nom" id="name" type="name" name="nom" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["nom"]."'";} ?> required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
+                        <input class="form-control" placeholder="Vos Prénoms" id="surname" type="surname" name="prenom" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["prenom"]."'";} ?> required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}">
+                        <input class="form-control" placeholder="Votre E-Mail" id="mail" type="mail" name="email" <?php if(isset($_POST["modifier"])){echo "value='".$_POST["email"]."'";} ?> required pattern="[a-z0-9._]+@[a-z]+.[a-z]{2,4}">
+                        <input class="form-control" placeholder="Votre Mot de passe" id="password" type="password" name="mdp" required>
+
 						<center><input type="submit" value="Modifier" class="panel panel-green" name="modifier"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
 					</form>
 				</div>

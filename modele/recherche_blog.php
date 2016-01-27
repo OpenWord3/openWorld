@@ -1,12 +1,12 @@
 <?php
 
-	include("C:\Users\wamp\www\wp-load.php");
-	include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_fonction.php");
-	include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_connexion_bdd.php");
+	include("/var/www/wordpress/wp-load.php"); 
+	include("/var/www/openworld.itinet.fr/modele/modele_fonction.php");
+	include("/var/www/openworld.itinet.fr/modele/modele_connexion_bdd.php");
 	
-	/*$test[0] = "steephen";
-	$test[1] = "adolf";
-	$test[2] = "hassane";*/
+	/*$tous_utilisateur[0] = "steephen";
+	$tous_utilisateur[1] = "adolf";
+	$tous_utilisateur[2] = "hassane";*/
 	
 	$tous_utilisateurs = tous_utilisateurs();
 	while($donnees = $tous_utilisateurs->fetch()){
@@ -20,8 +20,8 @@
         // Requête SQL
         //$requete = "SELECT * FROM utilisateur WHERE nom LIKE '". $q ."%' or prenom LIKE '". $q ."%'";
 		
-		$newdb = new wpdb( 'root' , '' , "$res" , 'localhost'); 
-		$resultat = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE '". $q ."%'");
+		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
+		$resultat = $newdb->get_results("SELECT * FROM wp_posts WHERE post_type LIKE 'post' AND post_status LIKE 'publish' AND post_title LIKE '". $q ."%' AND post_name NOT LIKE 'bonjour-tout-le-monde'");
         // Exécution de la requête SQL
        // $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
  

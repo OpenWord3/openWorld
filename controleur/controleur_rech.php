@@ -1,38 +1,27 @@
 <?php
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_rech.php");
-	include("C:\Users\wamp\www\wp-load.php");
+	include("./modele/modele_fonction.php");
+	include("/var/www/wordpress/wp-load.php");
 
 $res_rech = $_POST['res_rech'];
-//$hello = explode(" ", $res_rech);
-//$nbre_occurences = compteur_rech($hello);
 
-	/*if($nbre_occurences == 0) {
-		$alert="Aucun résultat pour : ";
-		include("./vue/page_recherche.php");
-	}
-	
-	else {
-		if (isset ($hello[1])){
-			$recherche = rech_complet($hello);
-	}
-	else {
-		$recherche = rech_moitie($hello);
-	}
-		include("./vue/page_recherche.php");
-	}*/
-	$test[0] = "steephen";
+
+	/*$test[0] = "steephen";
 	$test[1] = "adolf";
-	$test[2] = "hassane";
-	
+	$test[2] = "hassane";*/
+	$tous_utilisateurs = tous_utilisateurs();
+	while($donnees = $tous_utilisateurs->fetch()){
+		$tous_utilisateur[] = $donnees['pseudo'];
+	}	
 	$rech_compteur = 0;
-	foreach($test as $res){
+	foreach($tous_utilisateur as $res){
 		$recherche = recherche($res,$res_rech);
 		
 		if(!empty($recherche)){
 			$rech_compteur++;	
 			foreach($recherche as $res){
-				$rech[] = "Titre du poste : " . "<B>" . $res->post_title . "</B>" . " / "  . "<a href=" . $res->guid . ">" . "Accéder à ce poste" . "</a>  ";
+				$rech[] = "Titre du poste : " . "<B>" . $res->post_title . "</B>" . " / "  . "<a href=" . $res->guid . " target=_blank>" . "Accéder à ce poste" . "</a>  ";
 			}			
 		}	
 	}

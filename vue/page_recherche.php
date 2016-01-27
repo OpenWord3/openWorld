@@ -47,7 +47,6 @@
 						  ?> 
                         </div>
                         </FONT>
-
  
                         <br><center><a href="<?php echo INDEX ?>?index=vue_accueil"><input class="btn btn-success " type="cancel" id="cancel" value="« RETOUR"></a></center>
 

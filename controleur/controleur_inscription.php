@@ -3,7 +3,7 @@
 	include("./modele/modele_fonction.php");
 
 	if(isset($_POST["valider"])){
-		$pseudo = $_POST["pseudo"];
+		$pseudo = htmlspecialchars($_POST["pseudo"]);
 		$mdp = $_POST["mdp"];
 
 		$mail = $_POST["mail"];
@@ -18,7 +18,8 @@
 				$alerte = "Cette adresse mail exite déjà";
 				include("./vue/vue_inscription.php");
 			} else {
-				inscription($pseudo,$mdp,$mail);
+				$mdp1 = hash_mdp($mdp); 
+				inscription($pseudo,$mdp1,$mail);
 				$_SESSION["pseudo"] = $pseudo;
 
 				$_SESSION["mdp"] = $mdp;
