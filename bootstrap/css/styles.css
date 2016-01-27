@@ -527,6 +527,6 @@ table {
         border-spacing: 50px 10px; /* Nombre de pixels d'espace horizontal (5px), vertical (8px) */
 }
 .taille {
-  width: 300px;
-  height: 200px;
+  width: auto;
+  height: auto;
 }
