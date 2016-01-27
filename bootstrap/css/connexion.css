@@ -45,4 +45,5 @@
     }
 	.ligne {
 	display: inline-block;
+	word-spacing: normal;
 	}
