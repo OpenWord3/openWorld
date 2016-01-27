@@ -1,5 +1,5 @@
 <?php
-    include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_connexion_bdd.php"); 
+	include("/var/www/openworld.itinet.fr/modele/modele_connexion_bdd.php");
 
     if(isset($_GET['query'])) {
         // Mot tapé par l'utilisateur

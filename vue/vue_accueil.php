@@ -421,6 +421,5 @@
             <span class="pull-right text-muted small">OPENWORLD ©2015 Company</span>
         </div>
     </footer>
-	<?php print_r($img); ?>
   </body>
 </html>
