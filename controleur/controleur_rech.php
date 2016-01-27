@@ -22,7 +22,7 @@ $res_rech = $_POST['res_rech'];
 			$rech_compteur++;	
 			foreach($recherche as $res){
 				$post_date = explode(" ",$res->post_date);
-				$rech[] = "<ol><h3><a href=" . $res->guid . " target=_blank><i class='fa fa-compass'></i> " . $res->post_title . "</a></h3></n>" . $res->guid . "<i class='fa fa-caret-down'></i></n>" . strftime(" in FRENCH %F",strtotime($post_date)) . "</ol>";
+				$rech[] = "<ol><h3><a href=" . $res->guid . " target=_blank><i class='fa fa-compass'></i> " . $res->post_title . "</a></h3></n>" . $res->guid . "<i class='fa fa-caret-down'></i></n>" . strftime("%F",strtotime($post_date)) . "</ol>";
 			}			
 		}	
 	}
