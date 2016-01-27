@@ -13,8 +13,8 @@
 		}
 		for($i=0; $i < count($liste_star); $i++){
 			$pseudo = $liste_star[$i]['pseudo'];
-			//$img_star = img_star($pseudo);
-			//$blog_name = blog_name($pseudo);
+			$img_star = img_star($pseudo);
+			$blog_name = blog_name($pseudo);
 			
 			foreach($blog_name as $result){
 				$blog[$pseudo] = $result->option_value;
