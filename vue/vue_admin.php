@@ -41,16 +41,16 @@
         .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
     </style>       
 
-	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>    
-	<script>
-		$(document).ready(function() {
-			$('#langages').autocomplete({
-				serviceUrl: './modele/recherche_user.php',
+    <script type="text/javascript" src="./jquery.autocomplete.min.js"></script>    
+    <script>
+      $(document).ready(function() {
+       $('#langages').autocomplete({
+        serviceUrl: './modele/recherche_user.php',
 
-				dataType: 'json'
-			});
-		});
-	</script>
+        dataType: 'json'
+    });
+   });
+  </script>
 
 </head>
 
@@ -88,426 +88,454 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-                        <form action="<?php echo INDEX ?>?index=recherche_user" method="post" >
+                            <form action="<?php echo INDEX ?>?index=recherche_user" method="post" >
 
-	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
-	                        </form>
-                        </div>
-                    </li>
-                </ul>
+                             <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
+                         </form>
+                     </div>
+                 </li>
+             </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> MAIL</i></a>
-                    </li>
-                </ul>
+             <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="http://mail.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-comments-o fa-1x"> MAIL</i></a>
+                </li>
+            </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> PHPMYADMIN</i></a>
-                    </li>
-                </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="http://phpmyadmin.openworld.itinet.fr" onclick="window.open(this.href); return false;"><i class="fa fa-sitemap fa-1x"> PHPMYADMIN</i></a>
+                </li>
+            </ul>
 
-                <?php 
+            <?php 
 
-                ?>
+            ?>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#myModalArchive"  data-toggle="modal" data-target="#myModalArchive">
-                            <i class="fa fa-archive"></i>
-                        </a>
-                    </li>
-                </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#myModalArchive"  data-toggle="modal" data-target="#myModalArchive">
+                        <i class="fa fa-archive"></i>
+                    </a>
+                </li>
+            </ul>
 
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                            <i class="fa fa-at"></i>  <i style="color: red;"><?php echo $nb_demande; ?></i>
-                        </a>
-                    </li>
-                </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
+                        <i class="fa fa-at"></i>  <i style="color: red;"><?php echo $nb_demande; ?></i>
+                    </a>
+                </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
+                        <i class="fa fa-star-half-o"></i>  <i style="color: red;"><?php if($nb_demande_mail > 0) {echo "<span style='color:red;'>".$nb_demande_mail."</span>";}else{echo $nb_demande_mail;} ?></i>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+<div id="page-wrapper-admin">
+    <div class="row">
+        <center>
+            <div class="col-lg-12">
+                <h1 class="page-header">Bienvenue Administrateur</h1>
+            </div>
+        </center>
+    </div>
+    
+    <div class="row">              
+
+        <table class="table table-striped table-hover">
+          <thead>
+              <tr>
                 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                            <i class="fa fa-star-half-o"></i>  <i style="color: red;"><?php if($nb_demande_mail > 0) {echo "<span style='color:red;'>".$nb_demande_mail."</span>";}else{echo $nb_demande_mail;} ?></i>
-                        </a>
-                    </li>
-                </ul>
+                <th>PSEUDO</th>
+                <th>SERVICE MAIL</th>
+                <th>SERVICE BLOG</th>
+                <th>FERMER MAIL</th>
+                <th>FERMER BLOG</th>
+            </tr>
+        </thead>
+        <tbody>
+          <?php foreach($results as $result){ ?>
+          <tr>
+            
+            <td><?php echo $result['pseudo']; ?></td>
+            <td>
+                <?php
+                $status_mail = status_mail($result['id_utilisateur']);
+                $status_blog = status_blog($result['id_utilisateur']);
+                            //echo $status_mail;
+                ?>
+                <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                    <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                    <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="<?php if($status_mail != '2'){echo 'btn btn-warning btn-xs';}else{echo 'btn btn-success btn-xs';} ?>" 
+                    name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
+                    <?php 
+                    $verif_mail = mail_open($result['id_utilisateur']);
+                    if($verif_mail == ""){
+                        echo "disabled='disabled'";
+                    } ?>>
+                </form>  
+            </td>
+            <td>
+                <?php //echo $status_blog; ?>
+                <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                    <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                    <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="<?php if($status_blog != '2'){echo 'btn btn-warning btn-xs';}else{echo 'btn btn-success btn-xs';} ?>" 
+                    name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
+                    <?php 
+                    $verif_blog = blog($result['id_utilisateur']);
+                    if($verif_blog == "supprimer"){
+                        echo "disabled='disabled'";
+                    } ?>
+                    >
+                </form> 
+            </td>
+            <td>
+                <?php //echo $status_mail; ?>
+                <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                    <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                    <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_mail"
+                    <?php 
+                    $verif_mail = mail_open($result['id_utilisateur']);
+                    if($verif_mail == ""){
+                        echo "disabled='disabled'";
+                    } 
+                    ?> 
+                    >
+                </form> 
+            </td>
+            <td>
+                <?php //echo $status_blog; ?>
+                <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                    <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                    <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_blog"
+                    <?php 
+                    $verif_blog = blog($result['id_utilisateur']);
+                    if($verif_blog == "supprimer"){
+                        echo "disabled='disabled'";
+                    } 
+                    ?>
+                    >
+                </form> 
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
 
-            </div>
-        </nav>
-		</div>
 
-        <div id="page-wrapper-admin">
+<!-- ================================================================================================================================================================ -->
+
+<div class="col-lg-3 col-md-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
             <div class="row">
-                <center>
-                <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue Administrateur</h1>
+                <div class="col-xs-3">
+                    <i class="fa fa-power-off fa-5x"></i>
                 </div>
-                </center>
+                <div class="col-xs-9 text-right">
+                </div>
             </div>
-			
-            <div class="row">              
+        </div>
+        <a href="#myModalReboot"  data-toggle="modal" data-target="#myModalReboot">
+            <div class="panel-footer">
+                <span class="pull-left">Redemarrer le serveur</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
+    </div>
+</div>
 
+<div class="col-lg-3 col-md-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-refresh fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                </div>
+            </div>
+        </div>
+        <a href="#myModalRebootService"  data-toggle="modal" data-target="#myModalRebootService">
+            <div class="panel-footer">
+                <span class="pull-left">Redemarrer un service</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="modal fade" id="myModalReboot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Redemarrer le serveur ?</h4>
+            </div>
+            <div class="modal-body">
+             <form>
+              <center><input type="submit" value="OUI" class="panel panel-green"><input type="button" value="NON" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+          </form>
+      </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="myModalRebootService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Redemarrer un service ?</h4>
+            </div>
+            <div class="modal-body">
+             <form>
+              <input class="form-control" placeholder="Le nom du service" id="name" type="name" required>
+              <center><input type="submit" value="Redemarrer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
+          </form>
+      </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- ================================================================================================================================================================ -->
+
+<div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Demande blog star</h4>
+            </div>
+            <div class="modal-body">
                 <table class="table table-striped table-hover">
                   <thead>
-                      <tr>
-                        
+                      <tr>                                        
                         <th>PSEUDO</th>
-                        <th>SERVICE MAIL</th>
-                        <th>SERVICE BLOG</th>
-                        <th>FERMER MAIL</th>
-                        <th>FERMER BLOG</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                  <?php foreach($results as $result){ ?>
+                        <th>VALIDER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($liste_demande_star as $result1){ ?>
                   <tr>
-                    
-                    <td><?php echo $result['pseudo']; ?></td>
+                    <td><?php echo $result1['pseudo']; ?></td>
                     <td>
-                        <?php
-                            $status_mail = status_mail($result['id_utilisateur']);
-                            $status_blog = status_blog($result['id_utilisateur']);
-                            //echo $status_mail;
-                         ?>
-                       <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="<?php if($status_mail != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="<?php if($status_mail != '2'){echo 'btn btn-warning btn-xs';}else{echo 'btn btn-success btn-xs';} ?>" 
-                            name="<?php if($status_mail != '2'){echo 'desactiver_mail';}else{echo 'activer_mail';} ?>" 
-                            <?php 
-                                $verif_mail = mail_open($result['id_utilisateur']);
-                                if($verif_mail == ""){
-                                    echo "disabled='disabled'";
-                                } ?>>
-                        </form>  
-                    </td>
-                    <td>
-                        <?php //echo $status_blog; ?>
-                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="<?php if($status_blog != '2'){echo 'Désactiver';}else{echo 'Activer';} ?>" class="<?php if($status_blog != '2'){echo 'btn btn-warning btn-xs';}else{echo 'btn btn-success btn-xs';} ?>" 
-                                name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
-                                <?php 
-                                    $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == "supprimer"){
-                                        echo "disabled='disabled'";
-                                } ?>
-                            >
-                        </form> 
-                    </td>
-                    <td>
-                    <?php //echo $status_mail; ?>
-                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_mail"
-                               <?php 
-                                    $verif_mail = mail_open($result['id_utilisateur']);
-                                    if($verif_mail == ""){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?> 
-                            >
-                        </form> 
-                    </td>
-                    <td>
-                    <?php //echo $status_blog; ?>
-                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                            <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_blog"
-                                <?php 
-                                    $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == "supprimer"){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?>
-                            >
-                        </form> 
-                    </td>
-                  </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-
-
-                <!-- ================================================================================================================================================================ -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-power-off fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
+                        <div class="<?php if($nb_ancienne_star == 0){ echo 'disabled';}?>">
+                            <a href="#<?php echo $result1['pseudo']; ?>" class="echanger" data-toggle="modal" data-target="#<?php echo $result1['pseudo']; ?>">Valider</a>
                         </div>
-                        <a href="#myModalReboot"  data-toggle="modal" data-target="#myModalReboot">
-                            <div class="panel-footer">
-                                <span class="pull-left">Redemarrer le serveur</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-refresh fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#myModalRebootService"  data-toggle="modal" data-target="#myModalRebootService">
-                            <div class="panel-footer">
-                                <span class="pull-left">Redemarrer un service</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-				<div class="modal fade" id="myModalReboot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    				<div class="modal-dialog">
-        				<div class="modal-content">
-            				<div class="modal-header">
-                				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                				<h4 class="modal-title" id="myModalLabel">Redemarrer le serveur ?</h4>
-            				</div>
-            				<div class="modal-body">
-            					<form>
-            						<center><input type="submit" value="OUI" class="panel panel-green"><input type="button" value="NON" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-            					</form>
-            				</div>
-        				</div><!-- /.modal-content -->
-    				</div><!-- /.modal-dialog -->
-                </div>
-
-				<div class="modal fade" id="myModalRebootService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    				<div class="modal-dialog">
-        				<div class="modal-content">
-        				<div class="modal-header">
-            				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            				<h4 class="modal-title" id="myModalLabel">Redemarrer un service ?</h4>
-        				</div>
-        				<div class="modal-body">
-        					<form>
-        						<input class="form-control" placeholder="Le nom du service" id="name" type="name" required>
-        						<center><input type="submit" value="Redemarrer" class="panel panel-green"><input type="button" value="Annuler" class="panel panel-red" class="close" data-dismiss="modal" aria-hidden="true"></center>
-        					</form>
-        				</div>
-        				</div><!-- /.modal-content -->
-    				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-                <!-- ================================================================================================================================================================ -->
-
-                <div class="modal fade" id="myModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    				<div class="modal-dialog">
-        				<div class="modal-content">
-            				<div class="modal-header">
-                				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                				<h4 class="modal-title" id="myModalLabel">Demande blog star</h4>
-            				</div>
-            				<div class="modal-body">
-                                <table class="table table-striped table-hover">
-                                  <thead>
-                                      <tr>                                        
-                                        <th>PSEUDO</th>
-                                        <th>VALIDER</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                  <?php foreach ($liste_demande_star as $result1){ ?>
-                                    <tr>
-                                        <td><?php echo $result1['pseudo']; ?></td>
-                                        <td>
-                                            <div class="<?php if($nb_ancienne_star == 0){ echo 'disabled';}?>">
-                                                <a href="#<?php echo $result1['pseudo']; ?>" class="echanger" data-toggle="modal" data-target="#<?php echo $result1['pseudo']; ?>">Valider</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    
-                                    <?php } ?>
-                                  </tbody>
-                                </table>            					
-            				</div>
-        				</div><!-- /.modal-content -->
-    				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-
-                <?php foreach ($liste_demande_star as $result1){ ?>
-                <div class="modal fade" id="<?php echo $result1['pseudo']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="myModalLabel">Modal test</h4>
-                            </div>
-                            <div class="modal-body">
-                                <table class="table table-striped table-hover">
-                                  <thead>
-                                      <tr>                                        
-                                        <th>PSEUDO</th>
-                                        <th>REMPLACER</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                    <?php foreach ($liste_ancienne_star as $result2){ ?>
-                                    <tr>
-                                        <td><?php echo $result2['pseudo']; ?></td>
-                                        <td>
-                                            <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                                                <input class="form-control" id="name" type="hidden" name="pseudonew" value="<?php echo $result1['pseudo']; ?>" required>
-                                                <input class="form-control" id="name" type="hidden" name="pseudoold" value="<?php echo $result2['pseudo']; ?>" required>
-                                                <input type="submit" value="Remplacer" class="panel panel-green" name="remplacer">
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                  </tbody>
-                                </table>
-                                
-                            </div>
+                    </td>
+                </tr>
                 
-                        </div><!-- /.modal-content -->
-                    </div>
-                </div>
                 <?php } ?>
-				<div class="modal fade" id="myModalNotifications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            </tbody>
+        </table>            					
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<?php foreach ($liste_demande_star as $result1){ ?>
+<div class="modal fade" id="<?php echo $result1['pseudo']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal test</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-hover">
+                  <thead>
+                      <tr>                                        
+                        <th>PSEUDO</th>
+                        <th>REMPLACER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($liste_ancienne_star as $result2){ ?>
+                    <tr>
+                        <td><?php echo $result2['pseudo']; ?></td>
+                        <td>
+                            <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                                <input class="form-control" id="name" type="hidden" name="pseudonew" value="<?php echo $result1['pseudo']; ?>" required>
+                                <input class="form-control" id="name" type="hidden" name="pseudoold" value="<?php echo $result2['pseudo']; ?>" required>
+                                <input type="submit" value="Remplacer" class="panel panel-green" name="remplacer">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            
+        </div>
+        
+    </div><!-- /.modal-content -->
+</div>
+</div>
+<?php } ?>
+<div class="modal fade" id="myModalNotifications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  
-				<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Ajout de domaines</h4>
-				</div>
-				<div class="modal-body">
-					
-<table class="table table-striped table-hover">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Ajout de domaines</h4>
+            </div>
+            <div class="modal-body">
+             
+                <table class="table table-striped table-hover">
                   <thead>
                       <tr>
                         <th>Nom de domaine</th>
                         <th>IP</th>
                         <th>Pseudo</th>
                         <th>choix</th>
-                      </tr>
-                  </thead>
-                  <tbody>
+                    </tr>
+                </thead>
+                <tbody>
                   <?php
-	                  foreach($affiche_relais_demande as $result){
-                  ?>
-                  <tr>
-                    <td>
-						<?php echo $result['nom_domain']; ?>
+                  foreach($affiche_relais_demande as $result){
+                      ?>
+                      <tr>
+                        <td>
+                          <?php echo $result['nom_domain']; ?>
 
-                    </td>
-                    <td>
+                      </td>
+                      <td>
                         <?php //echo $status_blog; ?>
-							<?php echo $result['ip']; ?>
+                        <?php echo $result['ip']; ?>
                     </td>                    
-					<td>
+                    <td>
                         <?php //echo $status_blog; ?>
-							<?php echo $result['pseudo']; ?>
+                        <?php echo $result['pseudo']; ?>
                     </td>
                     <td>
-                    <?php //echo $status_blog; ?>
+                        <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
-
-                            <input type="submit" value="Valider" class="panel panel-green" name="valider_relais">
-
-                        </form> 
-					</td>
-					<td>
-						<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
-
-                            <input type="submit" value="refuser" class="panel panel-red" name="refuser_relais">
+                            <input class="form-control"  id="nom_domain" type="hidden" name="nom_domain" value="<?php echo $result['nom_domain']; ?>" required>
+                            <input class="form-control"  id="ip" type="hidden" name="ip" value="<?php echo $result['ip']; ?>" required>
+                            <input type="submit" value="Valider" class="btn btn-success btn-xs" name="valider_relais">
 
                         </form> 
                     </td>
-                  </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-				</div>
-				</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-			<!-- /.modal -->
+                    <td>
+						<!--<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                            <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
+
+                            <input type="submit" value="refuser" class="btn btn-raised btn-danger btn-xs" name="refuser_relais">-->
+                            <a href="#<?php echo $result['ip']; ?>" class="btn btn-raised btn-danger btn-xs" name="refuser_relais" data-toggle="modal" data-target="#<?php echo $result['ip']; ?>">Refuser</a>
+
+                            <!--</form>--> 
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- /.modal -->
+<!--</div>-->
 
-		<!-- Modal -->
-			<div class="modal fade" id="myModalArchive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-			<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 class="modal-title" id="myModalLabel"></h4>
-			</div>
-			<div class="modal-body">
+<?php
+foreach($affiche_relais_demande as $result){
+    ?>
+    <div class="modal fade" id="<?php echo $result['ip']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Motif de refus</h4>
+                </div>
+                <div class="modal-body">
 
-				<center><table border="2" cellpadding="15" cellspacing="15" width="100%">
-					<tr align="center">
-						<th colspan="3"><center><h3>Archive des utilisateurs et Indésirables</h3></center></th>
-					</tr>
-					<tr align="center">
-						<td><h4>Pseudo</h4></td>
-						<td><h4>Nom</h4></td>
-						<td><h4>Prenom</h4></td>
-					</tr>
-			    <?php
-				while($donnees = $archive->fetch()){?>					
-					<tr align="center">
-						<td><?php echo $donnees['pseudo']; ?></td>
-						<td><?php echo $donnees['nom']; ?></td>
-						<td><?php echo $donnees['prenom']; ?></td>
-					</tr>
-				<?php
-				}
-				?>	
-				</table></center>
+                    <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
+                        <input type="hidden" value="<?php echo $result['ip']; ?>" name="ip"> 
+                        <textarea name="motif" required>
 
-			</div>
-			</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-    <!--==============================================================================================================================================  -->
+                        </textarea>
+                        <input type="submit" value="Envoyer" name="refuser_relais"/>
+                    </form>
 
-    <!-- jQuery -->
-    <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <?php } ?>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="myModalArchive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                   <h4 class="modal-title" id="myModalLabel"></h4>
+               </div>
+               <div class="modal-body">
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+                <center><table border="2" cellpadding="15" cellspacing="15" width="100%">
+                 <tr align="center">
+                  <th colspan="3"><center><h3>Archive des utilisateurs et Indésirables</h3></center></th>
+              </tr>
+              <tr align="center">
+                  <td><h4>Pseudo</h4></td>
+                  <td><h4>Nom</h4></td>
+                  <td><h4>Prenom</h4></td>
+              </tr>
+              <?php
+              while($donnees = $archive->fetch()){?>					
+              <tr align="center">
+                  <td><?php echo $donnees['pseudo']; ?></td>
+                  <td><?php echo $donnees['nom']; ?></td>
+                  <td><?php echo $donnees['prenom']; ?></td>
+              </tr>
+              <?php
+          }
+          ?>	
+      </table></center>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="./bootstrap/bower_components/raphael/raphael-min.js"></script>
-    <script src="./bootstrap/bower_components/morrisjs/morris.min.js"></script>
-    <script src="./bootstrap/js/morris-data.js"></script>
+  </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--==============================================================================================================================================  -->
 
-    <!-- Custom Theme JavaScript -->
-    <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
-   
-    <script>
-        $(document).ready(function(){
-          $('.echanger').on('click', function(){ 
-               $('#myModalMail').modal('hide');
-          });
-   </script>
+<!-- jQuery -->
+<script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="./bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="./bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="./bootstrap/bower_components/raphael/raphael-min.js"></script>
+<script src="./bootstrap/bower_components/morrisjs/morris.min.js"></script>
+<script src="./bootstrap/js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="./bootstrap/dist/js/sb-admin-2.js"></script>
+
+<script>
+    $(document).ready(function(){
+      $('.echanger').on('click', function(){ 
+       $('#myModalMail').modal('hide');
+   });
+  </script>
 </body>
 
 </html>

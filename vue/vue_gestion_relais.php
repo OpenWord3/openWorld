@@ -202,9 +202,9 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <?php foreach($results as $result){ ?>
+                  <?php $i = 1; foreach($results as $result){ ;?>
                   <tr>
-                    <td>1</td>
+                    <td><?php echo $i++; ?></td>
                     <td><?php echo $result['nom_domain']; ?></td>
                     <td><?php echo $result['ip']; ?></td>
                     <td>
