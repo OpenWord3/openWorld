@@ -30,7 +30,17 @@
     <script src="<?PHP echo TWEENLITE ?>"></script>
     <script src="./bootstrap/js/jquery.min.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="./jquery.autocomplete.min.js"></script> 
 
+    <style>
+        body { font-family: Arial; }
+        .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+        .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+        .autocomplete-selected { background: #F0F0F0; }
+        .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+    </style>
+       
 </head>
 
 <body>
@@ -448,13 +458,7 @@ foreach($affiche_relais_demande as $result){
         </div>
     <!--==============================================================================================================================================  -->
 
-        <script>
-            $(document).ready(function(){
-              $('.echanger').on('click', function(){ 
-                   $('#myModalMail').modal('hide');
-              });
-            });
-       </script> 
+        
 
     <!-- ======================================================================================================================================== -->
 
@@ -474,10 +478,13 @@ foreach($affiche_relais_demande as $result){
 
     <!-- Custom Theme JavaScript -->
     <script src="./bootstrap/dist/js/sb-admin-2.js"></script>
-
- 
-
-
+   
+    <script>
+        $(document).ready(function(){
+          $('.echanger').on('click', function(){ 
+               $('#myModalMail').modal('hide');
+          });
+   </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
 	$pseudo = $_SESSION["pseudo"];
 	$id = id($pseudo);
 	if(isset($_POST["ajouter"])){
-		$domain = $_POST["domain"];
+		$domain = htmlspecialchars($_POST["domain"]);
 		$ip = $_POST["ip"];
 		$pseudo = $_SESSION["pseudo"];
 		$id = id($pseudo);
@@ -15,7 +15,7 @@
 			$verif_ip = ip($ip);
 			if($verif_ip == 0){
 				add_relais($domain,$ip,$id);
-				exec('sudo /var/script/add-relais.sh '.$domain.' '.$ip);
+				//exec('sudo /var/script/add-relais.sh '.$domain.' '.$ip);
 				$alerte = "Votre nom de domaine vient d’être ajouté parcontre patientez le temps que l’adimistrateur le valide.";
 				$results = liste_relais($id);
 				foreach($results as $cle => $result){

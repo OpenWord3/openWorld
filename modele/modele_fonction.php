@@ -329,7 +329,7 @@
 	function liste_relais($id){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT nom_domain, ip FROM relais_mail WHERE utilisateur_id_utilisateur = :id");
+		$req = $bdd->prepare("SELECT nom_domain, ip FROM relais_mail WHERE utilisateur_id_utilisateur = :id AND status_relais != '2'");
 		$req->execute(array("id"=>$id));
 		$result = $req->fetchAll();
 
@@ -534,20 +534,6 @@
 		return $result;
 	}
 
-	//Fonction qui verifie si utilisateur demande star
-	function verif_demande_star($id){
-		global $bdd;
-
-		$req = $bdd->prepare("SELECT devenir_star FROM utilisateur WHERE id_utilisateur = :id");
-		$req->execute(array("id"=>$id));
-
-		while($results = $req->fetch()){
-			$result = $results["devenir_star"];
-		}
-
-		return $result;
-	}
-
 	//Fonction qui liste les utilisateurs qui demandent d'etre une star
 	function liste_demande_star(){
 		global $bdd;
@@ -631,4 +617,44 @@
 		
 		return $results;
 	}*/
+
+	//Fonction qui recherche les utilisateurs pour l'admin 
+	/*function user($q){
+		global $bdd;
+
+//		$req = $bdd->get_results("SELECT pseudo as user FROM utilisateur WHERE pseudo LIKE '".$q."%' LIMIT 0, 10") or die (print_r($bdd->errorInfo()));
+		$req = $bdd->mysql_query("SELECT pseudo as user FROM utilisateur WHERE pseudo LIKE '".$q."%' LIMIT 0, 10") or die (print_r($bdd->errorInfo()));
+//		$req = $bdd->query("SELECT pseudo as user FROM utilisateur WHERE pseudo LIKE '".$q."%' LIMIT 0, 10") or die (print_r($bdd->errorInfo()));
+	
+		//$propositions = array();
+		//On parcourt les resultats de la requete SQL 
+		//while($result = $req->fetch(PDO::FETCH_ASSOC)){
+		while($result = mysql_fetch_array($req,MYSQL_ASSOC)){	
+			//$a = count($propositions);
+			//On ajoute les donnees dans un tableau  
+			
+			$result['user'] = htmlentities(stripslashes($result['user']));
+			$propositions[] = $result;
+
+			//$propositions['propositions'][] = $result['pseudo'];
+			//$propositions$a] = $result'pseudo'];
+		}
+
+		//On renvoie les donnees au format JSON pour le plugin
+		return $propositions;		
+	}*/
+
+	//Fonction qui verifie si utilisateur demande star
+	function verif_demande_star($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT devenir_star FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["devenir_star"];
+		}
+
+		return $result;
+	}
 ?>

@@ -31,7 +31,7 @@
 		include('./vue/vue_accueil.php');
 	} else {
 
-		switch($_GET["index"]){
+		switch(htmlentities($_GET["index"])){
 			case "vue_accueil":
 				include("./controleur/controleur_accueil.php");
 				break;
@@ -45,28 +45,56 @@
 				include("./controleur/controleur_conditions.php");
 				break;
 			case "vue_gestion_blog":
-				include("./controleur/controleur_gestion_blog.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					include("./controleur/controleur_gestion_blog.php");
+				}				
 				break;
 			case "vue_gestion_mail":
-				include("./controleur/controleur_gestion_mail.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					include("./controleur/controleur_gestion_mail.php");
+				}				
 				break;
 			case "vue_gestion_profil":
-				include("./controleur/controleur_gestion_profil.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					include("./controleur/controleur_gestion_profil.php");
+				}				
 				break;
 			case "vue_gestion_relais":
-				include("./controleur/controleur_gestion_relais.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					include("./controleur/controleur_gestion_relais.php");
+				}				
 				break;
 			case "vue_gestion_timeline":
-				include("./controleur/controleur_gestion_timeline.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					include("./controleur/controleur_gestion_timeline.php");
+				}				
 				break;
 			case "vue_gestion_abonnement":
-				include("./controleur/controleur_gestion_abonnement.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					include("./controleur/controleur_gestion_abonnement.php");
+				}				
 				break;
 			case "vue_parametres":
 				include("./controleur/controleur_parametres.php");
 				break;
 			case "vue_admin":
-				include("./controleur/controleur_admin.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				} else {
+					include("./controleur/controleur_admin.php");
+				}
 				break;			
 			case "recherche_blog":
 				include("./controleur/controleur_rech.php");
@@ -80,6 +108,34 @@
 			case "devenir_star":
 				include("./controleur/star.php");
 				break;
+			default:
+				include("./modele/modele_connexion_bdd.php");
+				include("./modele/modele_fonction.php");
+				//include("/var/www/wordpress/wp-load.php");
+
+				$liste_star = liste_star();
+				foreach($liste_star as $cle => $result){
+					//$liste_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+					$liste_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+				}
+				for($i=0; $i < count($liste_star); $i++){
+					$pseudo = $liste_star[$i]['pseudo'];
+					//$img_star = img_star($pseudo);
+					//$blog_name = blog_name($pseudo);
+					
+					foreach($blog_name as $result){
+						$blog[$pseudo] = $result->option_value;
+					}
+					if(empty($img_star)){
+					$img[$pseudo] = "./bootstrap/images/6.jpg"; 
+					}
+					else {
+						foreach($img_star as $res){
+							$img[$pseudo] = $res->guid;
+						}
+					}
+				}
+				include('./vue/vue_accueil.php');
 		}
 
 	}
