@@ -21,7 +21,7 @@ $res_rech = $_POST['res_rech'];
 		if(!empty($recherche)){
 			$rech_compteur++;	
 			foreach($recherche as $res){
-				$post_date = explode(" "$res->post_date);
+				$post_date = explode(" ",$res->post_date);
 				$rech[] = "<ol><h3><a href=" . $res->guid . " target=_blank><i class='fa fa-compass'></i> " . $res->post_title . "</a></h3></n>" . $res->guid . "<i class='fa fa-caret-down'></i></n>" . $post_date[0] . "</ol>";
 			}			
 		}	
