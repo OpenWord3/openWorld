@@ -21,7 +21,10 @@ $res_rech = $_POST['res_rech'];
 		if(!empty($recherche)){
 			$rech_compteur++;	
 			foreach($recherche as $res){
-				$rech[] = "Titre du poste : " . "<B>" . $res->post_title . "</B>" . " / "  . "<a href=" . $res->guid . " target=_blank>" . "Accéder à ce poste" . "</a>  ";
+				$post_date = explode(" ",$res->post_date);
+				$post_content = substr($res->post_content, 0, 200);
+				$post_content = str_split($post_content, 100);
+				$rech[] = "<ol><h4><a href=" . $res->guid . " target=_blank><i class='fa fa-compass'></i> " . $res->post_title . "</a></h4></n><h5 style='color:green;'>" . $res->guid . " <i class='fa fa-caret-down'></i></h5></n>" . $post_date[0] . "  <label>" . htmlentities($post_content[0]) . "</label><br><label>" . htmlentities($post_content[1]) . "..." . "</label></ol>";
 			}			
 		}	
 	}

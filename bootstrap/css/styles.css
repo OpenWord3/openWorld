@@ -526,3 +526,9 @@ table {
         border-collapse: separate;
         border-spacing: 50px 10px; /* Nombre de pixels d'espace horizontal (5px), vertical (8px) */
 }
+.taille {
+  max-width: 280px;
+  min-width: 280px;
+  max-height: 180px;
+  min-height: 180px;
+}

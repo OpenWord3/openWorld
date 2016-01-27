@@ -1,5 +1,5 @@
-<?php
-	//Fonction qui verifie si un compte existe
+	<?php
+	//Fonction qui verifie si un compte existe 
 	function compte($pseudo){
 		global $bdd;
 
@@ -378,7 +378,7 @@
 	function notifications () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status_relais = 0");
+		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status_relais = '2'");
 		
 		$donnees = $req->fetch();
 		$nb_demande = $donnees['nb_demande'];
@@ -637,7 +637,7 @@
 
 		return $check;
 	}
-	 
+
 	function img_star($pseudo){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$pseudo" , 'localhost'); 
 		
@@ -645,6 +645,7 @@
 		
 		return $results;
 	}
+
 	function blog_name($res){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
@@ -676,4 +677,5 @@
 		return $req;
 
 	}
+
 ?>

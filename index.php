@@ -4,7 +4,7 @@
 	if(!isset($_GET["index"])){
 		include("./modele/modele_connexion_bdd.php");
 		include("./modele/modele_fonction.php");
-		//include("/var/www/wordpress/wp-load.php");
+		include("/var/www/wordpress/wp-load.php");
 
 		$liste_star = liste_star();
 		foreach($liste_star as $cle => $result){
@@ -13,8 +13,8 @@
 		}
 		for($i=0; $i < count($liste_star); $i++){
 			$pseudo = $liste_star[$i]['pseudo'];
-			//$img_star = img_star($pseudo);
-			//$blog_name = blog_name($pseudo);
+			$img_star = img_star($pseudo);
+			$blog_name = blog_name($pseudo);
 			
 			foreach($blog_name as $result){
 				$blog[$pseudo] = $result->option_value;
