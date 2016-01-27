@@ -132,7 +132,7 @@
             <div class="row">
                 <center>
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue Administrateur <?php echo $_SESSION["pseudo"];?></h1>
+                    <h1 class="page-header">Bienvenue Administrateur</h1>
                 </div>
                 </center>
             </div>
@@ -459,14 +459,31 @@ foreach($affiche_relais_demande as $result){
 			<div class="modal-content">
 			<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 class="modal-title" id="myModalLabel">Archive des utilisateurs et Indésirables</h4>
+			<h4 class="modal-title" id="myModalLabel"></h4>
 			</div>
 			<div class="modal-body">
+
+				<center><table border="2" cellpadding="15" cellspacing="15" width="100%">
+					<tr align="center">
+						<th colspan="3"><center><h3>Archive des utilisateurs et Indésirables</h3></center></th>
+					</tr>
+					<tr align="center">
+						<td><h4>Pseudo</h4></td>
+						<td><h4>Nom</h4></td>
+						<td><h4>Prenom</h4></td>
+					</tr>
 			    <?php
-				while($donnees = $archive->fetch()){
-					echo "Pseudo : ",$donnees['pseudo'],"<br>";
+				while($donnees = $archive->fetch()){?>					
+					<tr align="center">
+						<td><?php echo $donnees['pseudo']; ?></td>
+						<td><?php echo $donnees['nom']; ?></td>
+						<td><?php echo $donnees['prenom']; ?></td>
+					</tr>
+				<?php
 				}
-				?>
+				?>	
+				</table></center>
+
 			</div>
 			</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->

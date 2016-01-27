@@ -407,7 +407,7 @@
 	function rech_utilisateurs($pseudo){
 		global $bdd;
 		
-		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_utilisateur = 0 AND pseudo LIKE '$pseudo'");
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_utilisateur = 0 AND pseudo LIKE '$pseudo%'");
 		
 		return $req;
 		
@@ -626,20 +626,20 @@
 
 		return $check;
 	}
-	
-	/*function img_star($pseudo){
+	 
+	function img_star($pseudo){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$pseudo" , 'localhost'); 
 		
 		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_mime_type LIKE 'image%' ORDER BY post_modified DESC LIMIT 1");
 		
 		return $results;
-	}*/
-	/*function blog_name($res){
+	}
+	function blog_name($res){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
 		
 		return $results;
-	}*/
+	}
 	function archive(){
 		global $bdd;
 		

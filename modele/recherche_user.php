@@ -1,15 +1,11 @@
 <?php
-   // include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_connexion_bdd.php");
+    include("C:\Users\wamp\www\OpenWorld\openWorld\modele\modele_connexion_bdd.php"); 
 
     if(isset($_GET['query'])) {
         // Mot tapé par l'utilisateur
         $q = htmlentities($_GET['query']);
         // Connexion à la base de données
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=openworld', 'root', '');
-        } catch(Exception $e) {
-            exit('Impossible de se connecter à la base de données.');
-        }
+
         // Requête SQL
         $requete = "SELECT * FROM utilisateur WHERE pseudo LIKE '". $q ."%' AND status_utilisateur = 0";
  
