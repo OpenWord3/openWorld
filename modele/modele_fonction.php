@@ -403,6 +403,15 @@
 		return $req;
 		
 		//$req->closeCursor;
+	}	
+	function rech_utilisateurs($pseudo){
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_utilisateur = 0 AND pseudo LIKE '$pseudo'");
+		
+		return $req;
+		
+		//$req->closeCursor;
 	}
 
 

@@ -81,7 +81,7 @@
 				include("./controleur/star.php");
 				break;			
 			case "recherche_user":
-				include("./controleur/recherche_user.php");
+				include("./controleur/controleur_rech_user.php");
 				break;
 		}
 
