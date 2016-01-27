@@ -104,9 +104,9 @@
             	foreach ($liste_star as $result) {
 					$pseudo = $result['pseudo'];
             ?>
-	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb taille">
 	                <a href="<?php echo "http://",$pseudo,".openworld.itinet.fr"; ?>" class="thumbnail gallery-box" target="_blank" >
-	                    <img src="<?php echo $img[$pseudo]; ?>" class="img-responsive" alt="Image 1">
+	                    <img src="<?php echo $img[$pseudo]; ?>" class="img-responsive taille" alt="Image 1">
 	                    <div class="gallery-box-caption">
 	                        <div class="gallery-box-content">
 	                        	<?php echo $result["pseudo"]; ?>
