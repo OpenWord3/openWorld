@@ -21,7 +21,7 @@ $res_rech = $_POST['res_rech'];
 		if(!empty($recherche)){
 			$rech_compteur++;	
 			foreach($recherche as $res){
-				$rech[] = "<ol class='ligne'><h3><a href=" . $res->guid . " target=_blank>" . $res->post_title . "</a></h3><br>" . $res->guid . "</ol>";
+				$rech[] = "<ol><h3><a href=" . $res->guid . " target=_blank>" . $res->post_title . "</a></h3><br  class='ligne'>" . $res->guid . "</ol>";
 			}			
 		}	
 	}
