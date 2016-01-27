@@ -377,7 +377,7 @@
 	function affiche_relais_demande () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = 0");
+		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = '1'");
 		return $req;
 		
 		$req->closeCursor();
@@ -478,7 +478,7 @@
 		$req->closeCursor();
 	}
 
-	//Fonction qui donne le nom de ceux qui veulent devenir star
+	//Fonction qui donne le nombre de ceux qui veulent devenir star
 	function nb_demande(){
 		global $bdd;
 
@@ -488,6 +488,18 @@
 		
 		$req->closeCursor();
 		return $result['nb_demande'];
+	}
+
+	//Fonction qui donne le nombre de ceux qui veulent enregistrer leur nom de domaine
+	function nb_demande_relais(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT COUNT(nom_domain) AS nb_demande_relais relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = '1'");
+		
+		$result = $req->fetch();
+		
+		$req->closeCursor();
+		return $result['nb_demande_relais'];
 	}
 
 	//Fonction qui donne la date lorsque l'utilisateur devient star

@@ -423,27 +423,13 @@ foreach($affiche_relais_demande as $result){
                     <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
-                            <input type="submit" value="Valider" class="panel panel-green" name="valider_relais"
-                                <?php 
-                                    $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?>
-                            >
+                            <input type="submit" value="Valider" class="panel panel-green" name="valider_relais">
                         </form> 
 					</td>
 					<td>
 						<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
-                            <input type="submit" value="refuser" class="panel panel-red" name="refuser_relais"
-                                <?php 
-                                    $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?>
-                            >
+                            <input type="submit" value="refuser" class="panel panel-red" name="refuser_relais">
                         </form> 
                     </td>
                   </tr>
