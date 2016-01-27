@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>RESULTATS</title>
+    <title>Résultat(s) de votre recherche pour <?php echo $res_rech; ?></title>
     <meta name="description" content="Page de connexion" />
     <link rel="icon" type="image/png" href="<?PHP echo IMAGE."logo.png"; ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +37,7 @@
 							}
 							else {
 							?>
-                        <H2>Suggestions pour : <?php echo "<B>$res_rech</B>"; ?> </H2>
+                        <h3>Résultat(s) de votre recherche pour <?php echo "<B>",$res_rech,"</B>"; ?></h3>
                         </center>
 						  <?php 
 								foreach($rech as $res){
@@ -53,6 +53,7 @@
                     </div>
                 </div>
             </div>
+
 	</body>
 	
 </html>
