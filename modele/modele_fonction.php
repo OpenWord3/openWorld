@@ -365,7 +365,7 @@
 	function notifications () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status_relais = 0");
+		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status_relais = '0'");
 		
 		$donnees = $req->fetch();
 		$nb_demande = $donnees['nb_demande'];
