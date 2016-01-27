@@ -365,7 +365,7 @@
 	function notifications () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status_relais = '0'");
+		$req = $bdd->query("SELECT COUNT(id_relais) AS nb_demande FROM relais_mail WHERE status_relais = '2'");
 		
 		$donnees = $req->fetch();
 		$nb_demande = $donnees['nb_demande'];
@@ -377,7 +377,7 @@
 	function affiche_relais_demande () {
 		global $bdd;
 		
-		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = '0'");
+		$req = $bdd->query("SELECT * FROM relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = '2'");
 		return $req;
 		
 		$req->closeCursor();
