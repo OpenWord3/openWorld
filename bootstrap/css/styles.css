@@ -526,3 +526,7 @@ table {
         border-collapse: separate;
         border-spacing: 50px 10px; /* Nombre de pixels d'espace horizontal (5px), vertical (8px) */
 }
+.taille {
+  width: 400px;
+  height: 300px;
+}
