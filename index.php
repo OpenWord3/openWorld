@@ -79,6 +79,9 @@
 				break;
 			case "devenir_star":
 				include("./controleur/star.php");
+				break;			
+			case "recherche_user":
+				include("./controleur/recherche_user.php");
 				break;
 		}
 

@@ -75,7 +75,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-                        <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
+                        <form action="<?php echo INDEX ?>?index=recherche_user" method="post" >
 
 	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
 	                        </form>

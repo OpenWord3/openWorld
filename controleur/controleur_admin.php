@@ -2,6 +2,7 @@
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_fonction.php");
 	
+	$affiche_relais_demande = affiche_relais_demande();
 	$archive = archive();
 	$nb_demande_mail = nb_demande();
     $nb_ancienne_star = nb_ancienne_star();

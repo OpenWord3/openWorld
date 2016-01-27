@@ -303,7 +303,7 @@
 	function liste_utilisateur(){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT id_utilisateur, pseudo FROM utilisateur WHERE status_utilisateur = ?");
+		$req = $bdd->prepare("SELECT id_utilisateur, pseudo FROM utilisateur WHERE status_utilisateur = ? AND fqdn_blog NOT LIKE 'supprimer'");
 		$req->execute(array(0));
 		$result = $req->fetchAll();
 		
