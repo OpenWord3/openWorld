@@ -204,7 +204,7 @@
 	function del_blog($id,$status){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `utilisateur` SET `fqdn_blog` = NULL WHERE `id_utilisateur` = $id");
+		$req = $bdd->query("UPDATE `utilisateur` SET `fqdn_blog` = 'supprimer' WHERE `id_utilisateur` = $id");
 		$req = $bdd->query("UPDATE `utilisateur` SET `status_blog` = '$status' WHERE `id_utilisateur` = $id");
 		
 		$req->closeCursor();
@@ -303,7 +303,7 @@
 	function liste_utilisateur(){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT id_utilisateur, pseudo FROM utilisateur WHERE status_utilisateur = ?");
+		$req = $bdd->prepare("SELECT id_utilisateur, pseudo FROM utilisateur WHERE status_utilisateur = ? AND fqdn_blog NOT LIKE 'supprimer'");
 		$req->execute(array(0));
 		$result = $req->fetchAll();
 		
@@ -399,6 +399,15 @@
 		global $bdd;
 		
 		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_utilisateur = 0");
+		
+		return $req;
+		
+		//$req->closeCursor;
+	}	
+	function rech_utilisateurs($pseudo){
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_utilisateur = 0 AND pseudo LIKE '$pseudo%'");
 		
 		return $req;
 		
@@ -615,46 +624,21 @@
 
 		return $check;
 	}
-	
-	/*function img_star($pseudo){
+	 
+	function img_star($pseudo){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$pseudo" , 'localhost'); 
 		
 		$results = $newdb->get_results("SELECT * FROM wp_posts WHERE post_mime_type LIKE 'image%' ORDER BY post_modified DESC LIMIT 1");
 		
 		return $results;
-	}*/
-	/*function blog_name($res){
+	}
+	function blog_name($res){
 		$newdb = new wpdb( 'root' , 'africainetfier' , "$res" , 'localhost'); 
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
 		
 		return $results;
-	}*/
 
-	//Fonction qui recherche les utilisateurs pour l'admin 
-	/*function user($q){
-		global $bdd;
-
-//		$req = $bdd->get_results("SELECT pseudo as user FROM utilisateur WHERE pseudo LIKE '".$q."%' LIMIT 0, 10") or die (print_r($bdd->errorInfo()));
-		$req = $bdd->mysql_query("SELECT pseudo as user FROM utilisateur WHERE pseudo LIKE '".$q."%' LIMIT 0, 10") or die (print_r($bdd->errorInfo()));
-//		$req = $bdd->query("SELECT pseudo as user FROM utilisateur WHERE pseudo LIKE '".$q."%' LIMIT 0, 10") or die (print_r($bdd->errorInfo()));
-	
-		//$propositions = array();
-		//On parcourt les resultats de la requete SQL 
-		//while($result = $req->fetch(PDO::FETCH_ASSOC)){
-		while($result = mysql_fetch_array($req,MYSQL_ASSOC)){	
-			//$a = count($propositions);
-			//On ajoute les donnees dans un tableau  
-			
-			$result['user'] = htmlentities(stripslashes($result['user']));
-			$propositions[] = $result;
-
-			//$propositions['propositions'][] = $result['pseudo'];
-			//$propositions$a] = $result'pseudo'];
-		}
-
-		//On renvoie les donnees au format JSON pour le plugin
-		return $propositions;		
-	}*/
+	}
 
 	//Fonction qui verifie si utilisateur demande star
 	function verif_demande_star($id){
@@ -668,5 +652,15 @@
 		}
 
 		return $result;
+
+	}
+	function archive(){
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM utilisateur WHERE status_mail = '0' AND status_blog = '0' AND fqdn_blog LIKE 'supprimer'");
+		
+		//$req->closeCursor();
+		return $req;
+
 	}
 ?>

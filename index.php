@@ -107,6 +107,9 @@
 				break;
 			case "devenir_star":
 				include("./controleur/star.php");
+				break;			
+			case "recherche_user":
+				include("./controleur/controleur_rech_user.php");
 				break;
 			default:
 				include("./modele/modele_connexion_bdd.php");

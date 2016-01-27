@@ -28,8 +28,8 @@
     <script src="./bootstrap/js/jquery.min.js"></script>
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
     <script src="<?PHP echo TWEENLITE ?>"></script>
-    <script src="./bootstrap/js/jquery.min.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
+
     <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <script type="text/javascript" src="./jquery.autocomplete.min.js"></script> 
 
@@ -39,8 +39,19 @@
         .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
         .autocomplete-selected { background: #F0F0F0; }
         .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
-    </style>
-       
+    </style>       
+
+	<script type="text/javascript" src="./jquery.autocomplete.min.js"></script>    
+	<script>
+		$(document).ready(function() {
+			$('#langages').autocomplete({
+				serviceUrl: './modele/recherche_user.php',
+
+				dataType: 'json'
+			});
+		});
+	</script>
+
 </head>
 
 <body>
@@ -56,26 +67,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo INDEX ?>">OPENWORLD</a>
+                <a class="navbar-brand" href="<?php echo INDEX ?>"><i><img src="./bootstrap/images/logo.png" height="40" width="50"></i>OPENWORLD</i></a>
             </div>
 
             <div class="navbar-collapse collapse" id="bs-navbar">
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                        <i class="fa fa-globe"></i>  <i><?php echo $nb_demande; ?></i>
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                        <i class="fa fa-envelope"></i>  <i></i>
-                    </a>
-                </li>
-            </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -91,21 +86,13 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
-                            <i class="fa fa-globe"></i>  <i>(Cpt)</i>
-                        </a>
-                    </li>
-                </ul>
-                <?php 
-                    $nb_demande = nb_demande();
-                    $nb_ancienne_star = nb_ancienne_star();
-                ?>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
-                            <i class="fa fa-envelope"></i>  <i><?php if($nb_demande > 0) {echo "<span style='color:red;'>".$nb_demande."</span>";}else{echo $nb_demande;} ?></i>
-                        </a>
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                        <form action="<?php echo INDEX ?>?index=recherche_user" method="post" >
+
+	                            <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="">
+	                        </form>
+                        </div>
                     </li>
                 </ul>
 
@@ -121,24 +108,44 @@
                     </li>
                 </ul>
 
+                <?php 
+
+                ?>
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <form action="<?php echo INDEX ?>?index=recherche_blog" method="post" >
-                                <i class="fa fa-search"> Recherche</i><input type="text" id="langages" name="res_rech" class="form-control" placeholder="...">
-                            </form>
-                        </div>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalArchive"  data-toggle="modal" data-target="#myModalArchive">
+                            <i class="fa fa-archive"></i>
+                        </a>
+                    </li>
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalNotifications"  data-toggle="modal" data-target="#myModalNotifications">
+                            <i class="fa fa-at"></i>  <i style="color: red;"><?php echo $nb_demande; ?></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#myModalMail"  data-toggle="modal" data-target="#myModalMail">
+                            <i class="fa fa-star-half-o"></i>  <i style="color: red;"><?php if($nb_demande_mail > 0) {echo "<span style='color:red;'>".$nb_demande_mail."</span>";}else{echo $nb_demande_mail;} ?></i>
+                        </a>
                     </li>
                 </ul>
 
             </div>
         </nav>
+		</div>
 
         <div id="page-wrapper-admin">
             <div class="row">
                 <center>
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue Administrateur <?php echo $_SESSION["pseudo"];?></h1>
+                    <h1 class="page-header">Bienvenue Administrateur</h1>
                 </div>
                 </center>
             </div>
@@ -186,7 +193,7 @@
                                 name="<?php if($status_blog != '2'){echo 'desactiver_blog';}else{echo 'activer_blog';} ?>" 
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
+                                    if($verif_blog == "supprimer"){
                                         echo "disabled='disabled'";
                                 } ?>
                             >
@@ -213,7 +220,7 @@
                             <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_blog"
                                 <?php 
                                     $verif_blog = blog($result['id_utilisateur']);
-                                    if($verif_blog == ""){
+                                    if($verif_blog == "supprimer"){
                                         echo "disabled='disabled'";
                                     } 
                                 ?>
@@ -383,18 +390,10 @@
 				<div class="modal-content">
 				<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Notifications</h4>
+				<h4 class="modal-title" id="myModalLabel">Ajout de domaines</h4>
 				</div>
 				<div class="modal-body">
-					<?php
-					/*
-foreach($affiche_relais_demande as $result){
-	echo $result['nom_domain'];
-	echo $result['ip'];
-	echo $result['pseudo'],"<br>";
-}*/
-
-?>
+					
 <table class="table table-striped table-hover">
                   <thead>
                       <tr>
@@ -405,7 +404,9 @@ foreach($affiche_relais_demande as $result){
                       </tr>
                   </thead>
                   <tbody>
-                  <?php foreach($affiche_relais_demande as $result){ ?>
+                  <?php
+	                  foreach($affiche_relais_demande as $result){
+                  ?>
                   <tr>
                     <td>
 						<?php echo $result['nom_domain']; ?>
@@ -423,13 +424,17 @@ foreach($affiche_relais_demande as $result){
                     <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
+
                             <input type="submit" value="Valider" class="panel panel-green" name="valider_relais">
+
                         </form> 
 					</td>
 					<td>
 						<form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                             <input class="form-control"  id="id_relais" type="hidden" name="id_relais" value="<?php echo $result['id_relais']; ?>" required>
+
                             <input type="submit" value="refuser" class="panel panel-red" name="refuser_relais">
+
                         </form> 
                     </td>
                   </tr>
@@ -442,11 +447,43 @@ foreach($affiche_relais_demande as $result){
 				</div><!-- /.modal -->
 			<!-- /.modal -->
         </div>
+
+		<!-- Modal -->
+			<div class="modal fade" id="myModalArchive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel"></h4>
+			</div>
+			<div class="modal-body">
+
+				<center><table border="2" cellpadding="15" cellspacing="15" width="100%">
+					<tr align="center">
+						<th colspan="3"><center><h3>Archive des utilisateurs et Indésirables</h3></center></th>
+					</tr>
+					<tr align="center">
+						<td><h4>Pseudo</h4></td>
+						<td><h4>Nom</h4></td>
+						<td><h4>Prenom</h4></td>
+					</tr>
+			    <?php
+				while($donnees = $archive->fetch()){?>					
+					<tr align="center">
+						<td><?php echo $donnees['pseudo']; ?></td>
+						<td><?php echo $donnees['nom']; ?></td>
+						<td><?php echo $donnees['prenom']; ?></td>
+					</tr>
+				<?php
+				}
+				?>	
+				</table></center>
+
+			</div>
+			</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
     <!--==============================================================================================================================================  -->
-
-        
-
-    <!-- ======================================================================================================================================== -->
 
     <!-- jQuery -->
     <script src="./bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
