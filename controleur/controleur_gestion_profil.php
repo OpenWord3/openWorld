@@ -1,15 +1,22 @@
 <?php
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_fonction.php");
+	include("./modele/modele_timeline.php");
+	include("./modele/modele_abonnement.php");
+	include("/var/www/wordpress/wp-load.php");
 
 	$pseudo = $_SESSION["pseudo"];
 	$id = id($pseudo);
+	$id_suivi = $_SESSION['id'];
+	$pseudo_suiveur = $pseudo;
+	$id_suiveur = id($pseudo_suiveur);
 
 	if(isset($_GET["desinscrire"])){
 		exec('sudo /var/script/remove_vhost.sh '.$pseudo);
 		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 		$domain = domain_user($id);
 		
+		suppr_abonne($id_suivi,$id_suiveur);
 		del_relais2($id);
 		logout($pseudo);
 		session_destroy();
