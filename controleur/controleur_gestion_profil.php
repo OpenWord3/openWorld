@@ -24,28 +24,34 @@
 		$nom = htmlspecialchars($_POST["nom"]);
 		$prenom = htmlspecialchars($_POST["prenom"]);
 		$email = $_POST["email"];
-		$mdp = $_POST["mdp"];
+		$mdp = htmlspecialchars($_POST["mdp"]);
 
-		$verif_mail = check_mail($email);
-		if($verif_mail != 0){
-			$alerte = "Ce compte mail existe déjà. Donc vos modifications n'ont pas été prises en compte.";
-			include("./vue/vue_gestion_profil.php");
-		} else{
+		if(filter_var($mot, FILTER_VALIDATE_EMAIL)) {
 
-			$_SESSION["mdp"] = $mdp;
-			$verif_mail = mail_open($id);
-			$mdp1 = hash_mdp($mdp);
-			if($verif_mail !== ""){
-				exec('sudo /var/script/change_passwd.sh '.$pseudo.' '.$mdp);
-				edit_profil($id,$nom,$prenom,$email,$mdp1);
-				$alerte = "Vos modifications ont bien été prises en compte.";
+			$verif_mail = check_mail($email);
+			if($verif_mail != 0){
+				$alerte = "Ce compte mail existe déjà. Donc vos modifications n'ont pas été prises en compte.";
 				include("./vue/vue_gestion_profil.php");
+			} else{
 
-			} else {
-				edit_profil($id,$nom,$prenom,$email,$mdp1);
-				$alerte = "Vos modifications ont bien été prises en compte.";
-				include("./vue/vue_gestion_profil.php");
+				$_SESSION["mdp"] = $mdp;
+				$verif_mail = mail_open($id);
+				$mdp1 = hash_mdp($mdp);
+				if($verif_mail !== ""){
+					exec('sudo /var/script/change_passwd.sh '.$pseudo.' '.$mdp);
+					edit_profil($id,$nom,$prenom,$email,$mdp1);
+					$alerte = "Vos modifications ont bien été prises en compte.";
+					include("./vue/vue_gestion_profil.php");
+
+				} else {
+					edit_profil($id,$nom,$prenom,$email,$mdp1);
+					$alerte = "Vos modifications ont bien été prises en compte.";
+					include("./vue/vue_gestion_profil.php");
+				}
 			}
+		} else {
+			$alerte = "L'adresse mail que vous avez entré n'est pas valide. Donc vos modifications n'ont pas été prises en compte.";
+			include("./vue/vue_gestion_profil.php");
 		} 
 	}else {
 		include("./vue/vue_gestion_profil.php");	

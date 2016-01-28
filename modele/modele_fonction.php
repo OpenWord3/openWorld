@@ -210,7 +210,7 @@
 		$req->closeCursor();
 	}
 
-	//Fonction qui retourne un nom de domain
+	//Fonction qui verifie un nom de domain
 	function domain($domain){
 		global $bdd;
 
@@ -329,7 +329,7 @@
 	function liste_relais($id){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT nom_domain, ip FROM relais_mail WHERE utilisateur_id_utilisateur = :id");
+		$req = $bdd->prepare("SELECT nom_domain, ip FROM relais_mail WHERE utilisateur_id_utilisateur = :id AND status_relais != '2'");
 		$req->execute(array("id"=>$id));
 		$result = $req->fetchAll();
 
@@ -352,14 +352,27 @@
 	}
 
 	//Fonction qui change le status d'un relais
-	function change_relais($nom,$status){
+	function change_relais($id_domain,$status){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `relais_mail` SET `status_relais` = '$status' WHERE `nom_domain` = '$nom'");
+		$req = $bdd->query("UPDATE `relais_mail` SET `status_relais` = '$status' WHERE `id_relais` = '$id_domain'");
 		
 		$req->closeCursor();
 	}
 
+	//Fonction qui recupere l'id d'un nom de domaine
+	function id_domaine($ip){
+		global $bdd;
+
+		$req = $bdd->query("SELECT id_relais FROM relais_mail WHERE ip = '$ip'");
+		//$req->execute(array("ip_domain"=>'$ip'));
+
+		while($results = $req->fetch()){
+			$result = $results["id_relais"];
+		}
+
+		return $result;
+	}
 	
 	//FONCTION POUR LA NOTIFICATION
 	function notifications () {
@@ -487,7 +500,7 @@
 		$req->closeCursor();
 	}
 
-	//Fonction qui donne le nom de ceux qui veulent devenir star
+	//Fonction qui donne le nombre de ceux qui veulent devenir star
 	function nb_demande(){
 		global $bdd;
 
@@ -497,6 +510,18 @@
 		
 		$req->closeCursor();
 		return $result['nb_demande'];
+	}
+
+	//Fonction qui donne le nombre de ceux qui veulent enregistrer leur nom de domaine
+	function nb_demande_relais(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT COUNT(nom_domain) AS nb_demande_relais relais_mail JOIN utilisateur ON relais_mail.utilisateur_id_utilisateur = utilisateur.id_utilisateur WHERE status_relais = '2'");
+		
+		$result = $req->fetch();
+		
+		$req->closeCursor();
+		return $result['nb_demande_relais'];
 	}
 
 	//Fonction qui donne la date lorsque l'utilisateur devient star
@@ -538,20 +563,6 @@
 
 		while($results = $req->fetch()){
 			$result = $results["star"];
-		}
-
-		return $result;
-	}
-
-	//Fonction qui verifie si utilisateur demande star
-	function verif_demande_star($id){
-		global $bdd;
-
-		$req = $bdd->prepare("SELECT devenir_star FROM utilisateur WHERE id_utilisateur = :id");
-		$req->execute(array("id"=>$id));
-
-		while($results = $req->fetch()){
-			$result = $results["devenir_star"];
 		}
 
 		return $result;
@@ -640,6 +651,22 @@
 		$results = $newdb->get_results("SELECT * FROM wp_options WHERE option_name LIKE 'blogname'");
 		
 		return $results;
+
+	}
+
+	//Fonction qui verifie si utilisateur demande star
+	function verif_demande_star($id){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT devenir_star FROM utilisateur WHERE id_utilisateur = :id");
+		$req->execute(array("id"=>$id));
+
+		while($results = $req->fetch()){
+			$result = $results["devenir_star"];
+		}
+
+		return $result;
+
 	}
 	function archive(){
 		global $bdd;
@@ -648,6 +675,7 @@
 		
 		//$req->closeCursor();
 		return $req;
+
 	}
 
 ?>

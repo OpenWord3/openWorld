@@ -1,4 +1,5 @@
 <?php
+
 	include("./modele/modele_connexion_bdd.php");
 	include("./modele/modele_fonction.php");
 
@@ -20,4 +21,5 @@
 		$id[] = $donnees['id_utilisateur'];
 	}
 	include("./vue/vue_rech_user.php");
+
 ?>

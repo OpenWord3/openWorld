@@ -378,6 +378,14 @@ table.dataTable thead .sorting:after {
     pointer-events: none;
 }
 
+
+.panel-star a {
+	color: #E1E901;
+}
+
+.panel-star a:hover {
+    color: #E1E901;
+
 .disabled a {
 	color: #000000;
 }
