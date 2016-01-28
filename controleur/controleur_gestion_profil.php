@@ -18,6 +18,7 @@
 		
 		del_relais2($id);
 		logout($pseudo);
+		session_destroy();
 		
 		header("location:index.php");
 	} else if (isset($_POST["modifier"])){
