@@ -146,8 +146,7 @@
                         <th>PSEUDO</th>
                         <th>SERVICE MAIL</th>
                         <th>SERVICE BLOG</th>
-                        <th>FERMER MAIL</th>
-                        <th>FERMER BLOG</th>
+                        <th>BANNIR UTILISATEUR</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -187,30 +186,16 @@
                         </form> 
                     </td>
                     <td>
-                    <?php //echo $status_mail; ?>
+                        <?php //echo $status_blog; ?>
                         <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $pseudo[$x]; ?>" required>
-                            <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_mail"
-                               <?php 
-                                    $verif_mail = mail_open($id[$x]);
-                                    if($verif_mail == ""){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?> 
-                            >
-                        </form> 
-                    </td>
-                    <td>
-                    <?php //echo $status_blog; ?>
-                        <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $pseudo[$x]; ?>" required>
-                            <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_blog"
-                                <?php 
-                                    $verif_blog = blog($id[$x]);
-                                    if($verif_blog == "supprimer"){
-                                        echo "disabled='disabled'";
-                                    } 
-                                ?>
+                            <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
+                            <input type="submit" value="Bannir" class="btn btn-raised btn-danger btn-xs" name="bannir"
+                            <?php 
+                                $verif_blog = blog($result['id_utilisateur']);
+                                if($verif_blog == "supprimer"){
+                                    echo "disabled='disabled'";
+                                } 
+                            ?>
                             >
                         </form> 
                     </td>
