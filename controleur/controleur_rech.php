@@ -25,7 +25,7 @@ $res_rech = $_POST['res_rech'];
 				$post_content = substr($res->post_content, 0, 400);
 				$post_content = str_replace(chr(34),"",$post_content);
 				//$post_content = str_split($post_content, 100);
-				$rech[] = "<ol><h4><a href=" . $res->guid . " target=_blank><i class='fa fa-compass'></i> " . $res->post_title . "</a></h4></n><h5 style='color:green;'>" . $res->guid . " <i class='fa fa-caret-down'></i></h5></n>" . $post_date[0] . "  <label>" . strip_tags($post_content) . "</label><br><label>" . "..." . "</label></ol>";
+				$rech[] = "<ol><h4><a href=" . $res->guid . " target=_blank><i class='fa fa-compass'></i> " . $res->post_title . "</a></h4></n><h5 style='color:green;'>" . $res->guid . " <i class='fa fa-caret-down'></i></h5></n>" . $post_date[0] . "  <label>" . strip_tags($post_content) . "</label><label>" . "..." . "</label></ol>";
 			}			
 		}	
 	}
