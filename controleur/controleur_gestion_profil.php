@@ -10,17 +10,16 @@
 		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 		$domain = domain_user($id);
 		
+		del_relais2($id);
+		logout($pseudo);
+		session_destroy();
 
 		foreach($domain as $nom){			
 			
 			exec('sudo /var/script/del-relais.sh '.$nom["nom_domain"]);
-		}		
+		}			
 		
-		del_relais2($id);
-		logout($pseudo);
-		session_destroy();
-		
-		header("location:index.php");
+		header("location:openworld.itinet.fr");
 	} else if (isset($_POST["modifier"])){
 		$nom = htmlspecialchars($_POST["nom"]);
 		$prenom = htmlspecialchars($_POST["prenom"]);
