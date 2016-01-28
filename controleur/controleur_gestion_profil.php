@@ -7,10 +7,10 @@
 
 	$pseudo = $_SESSION["pseudo"];
 	$id = id($pseudo);
-	$id_suivi = $_SESSION['id_suivi'];
-	echo $id_suivi." Suivi";
-	echo $id." Suiveur";
-	$pseudo_suiveur = $pseudo;
+	//$id_suivi = $_SESSION['id_suivi'];
+	//echo $id_suivi." Suivi";
+	//echo $id." Suiveur";
+	//$pseudo_suiveur = $pseudo;
 	//$id_suiveur = id($pseudo_suiveur);
 
 	if(isset($_GET["desinscrire"])){
@@ -18,7 +18,7 @@
 		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
 		$domain = domain_user($id);
 		
-		suppr_abonne($id_suivi,$id);
+		//suppr_abonne($id_suivi,$id);
 		del_relais2($id);
 		logout($pseudo);
 		session_destroy();
