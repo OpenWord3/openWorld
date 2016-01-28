@@ -18,6 +18,7 @@
     <link href="./bootstrap/css/sb-admin-2.css" rel="stylesheet">
     <link href="./bootstrap/morrisjs/morris.css" rel="stylesheet">
     <link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./bootstrap/css/autocomplete.css" rel="stylesheet">
     <script src="./bootstrap/js/jquery.min.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="./bootstrap/metisMenu/dist/metisMenu.min.js"></script>
