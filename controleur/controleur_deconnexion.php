@@ -3,6 +3,8 @@
 	include("./modele/modele_fonction.php");
 	include("/var/www/wordpress/wp-load.php");
 
+	session_destroy();	
+
 	$liste_star = liste_star();
 	foreach($liste_star as $cle => $result){
 		//$liste_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
@@ -18,7 +20,7 @@
 				$blog[$pseudo] = $result->option_value;
 		}
 		if(empty($img_star)){
-			$img[$pseudo] = "./bootstrap/images/6.jpg"; 
+			$img[$pseudo] = "./bootstrap/images/2.jpg"; 
 		}
 		else {
 			foreach($img_star as $res){
@@ -29,7 +31,5 @@
 			}
 		}
 	}
-	
-	include("./vue/vue_accueil.php");
-	//include("./modele/modele_accueil.php");
+	include('./vue/vue_accueil.php');
 ?>
