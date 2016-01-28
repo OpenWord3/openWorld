@@ -139,6 +139,9 @@
 			case "recherche_user":
 				include("./controleur/controleur_rech_user.php");
 				break;
+			case "deconnexion":
+				include("./controleur/controleur_deconnexion.php");
+				break;
 			default:
 				include("./modele/modele_connexion_bdd.php");
 				include("./modele/modele_fonction.php");
