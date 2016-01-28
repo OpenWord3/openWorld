@@ -79,7 +79,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li class="divider"></li>
-                            <li><a href="<?php echo INDEX ?>"><i class="fa fa-sign-out fa-fw"></i> Se Deconnecter</a>
+                            <li><a href="<?php echo INDEX ?>?index=deconnexion"><i class="fa fa-sign-out fa-fw"></i> Se Deconnecter</a>
                             </li>
                         </ul>
                     </li>
@@ -159,8 +159,7 @@
                 <th>PSEUDO</th>
                 <th>SERVICE MAIL</th>
                 <th>SERVICE BLOG</th>
-                <th>FERMER MAIL</th>
-                <th>FERMER BLOG</th>
+                <th>BANNIR UTILISATEUR</th>
             </tr>
         </thead>
         <tbody>
@@ -200,24 +199,10 @@
                 </form> 
             </td>
             <td>
-                <?php //echo $status_mail; ?>
-                <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
-                    <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                    <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_mail"
-                    <?php 
-                    $verif_mail = mail_open($result['id_utilisateur']);
-                    if($verif_mail == ""){
-                        echo "disabled='disabled'";
-                    } 
-                    ?> 
-                    >
-                </form> 
-            </td>
-            <td>
                 <?php //echo $status_blog; ?>
                 <form action="<?php echo INDEX ?>?index=vue_admin" method="post">
                     <input class="form-control" placeholder="Le nom du client" id="name" type="hidden" name="pseudo" value="<?php echo $result['pseudo']; ?>" required>
-                    <input type="submit" value="Supprimer" class="btn btn-raised btn-danger btn-xs" name="supprimer_blog"
+                    <input type="submit" value="Bannir" class="btn btn-raised btn-danger btn-xs" name="bannir"
                     <?php 
                     $verif_blog = blog($result['id_utilisateur']);
                     if($verif_blog == "supprimer"){

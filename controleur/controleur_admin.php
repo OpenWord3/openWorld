@@ -164,35 +164,72 @@
 		$pseudo = $_POST["pseudo"];
 		$id = id($pseudo);
 
-				$pseudo = $_SESSION["pseudo"];
-				$alerte = "Le compte mail de cet utilisateur vient d'être définitivement fermé.";
-				exec('sudo /var/script/del_mail_account.sh '.$pseudo);
-				del_mail($id);
-				desactive_mail($id);
+		$pseudo = $_SESSION["pseudo"];
+		$alerte = "Le compte mail de cet utilisateur vient d'être définitivement fermé.";
+		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
+		del_mail($id);
+		desactive_mail($id);
 
-				// On recupere la liste des utilisateurs	
-				$results = liste_utilisateur();
-				foreach($results as $cle => $result){
-					$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
-					$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
-				}
+		// On recupere la liste des utilisateurs	
+		$results = liste_utilisateur();
+		foreach($results as $cle => $result){
+			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
 
-				//On recupere la liste des demandeurs de devenir star
-				$liste_demande_star = liste_demande_star();
-				foreach($liste_demande_star as $cle => $result1){
-					$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
-					$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
-				}
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
 
-				//On recupere la liste des anciennes stars
-				$liste_ancienne_star = liste_ancienne_star();
-				foreach($liste_ancienne_star as $cle => $result2){
-					$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
-					$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
-				}
-				include("./vue/vue_admin.php");
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+		}
+		include("./vue/vue_admin.php");
 
-	} else if(isset($_POST["valider_relais"])){
+	} else if(isset($_POST["bannir"])){
+		$pseudo = $_POST["pseudo"];
+		$id = id($pseudo);
+
+		exec('sudo /var/script/remove_vhost.sh '.$pseudo);
+		exec('sudo /var/script/del_mail_account.sh '.$pseudo);
+		$domain = domain_user($id);		
+
+		foreach($domain as $nom){			
+			
+			exec('sudo /var/script/del-relais.sh '.$nom["nom_domain"]);
+		}		
+		
+		del_relais2($id);
+		logout($pseudo);
+
+		// On recupere la liste des utilisateurs	
+		$results = liste_utilisateur();
+		foreach($results as $cle => $result){
+			$results[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result["id_utilisateur"]));
+			$results[$cle]["pseudo"] = nl2br(htmlspecialchars($result["pseudo"]));
+		}
+
+		//On recupere la liste des demandeurs de devenir star
+		$liste_demande_star = liste_demande_star();
+		foreach($liste_demande_star as $cle => $result1){
+			$liste_demande_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result1["id_utilisateur"]));
+			$liste_demande_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result1["pseudo"]));
+		}
+
+		//On recupere la liste des anciennes stars
+		$liste_ancienne_star = liste_ancienne_star();
+		foreach($liste_ancienne_star as $cle => $result2){
+			$liste_ancienne_star[$cle]["id_utilisateur"] = nl2br(htmlspecialchars($result2["id_utilisateur"]));
+			$liste_ancienne_star[$cle]["pseudo"] = nl2br(htmlspecialchars($result2["pseudo"]));
+		}
+		include("./vue/vue_admin.php");
+	}else if(isset($_POST["valider_relais"])){
 
 		$domain = $_POST["nom_domain"];
 		$ip = $_POST["ip"];

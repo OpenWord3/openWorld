@@ -111,7 +111,15 @@
 				}				
 				break;
 			case "vue_parametres":
-				include("./controleur/controleur_parametres.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_parametres.php");
+					}
+				}
 				break;
 			case "vue_admin":
 				if(empty($_SESSION)){
@@ -128,7 +136,15 @@
 				include("./controleur/controleur_rech.php");
 				break;			
 			case "recherche_blog_name":
-				include("./controleur/controleur_rech_blog_name.php");
+				if(empty($_SESSION)){
+					include("./controleur/controleur_connexion.php");
+				}else{
+					if($_SESSION["pseudo"] == "admin"){
+						include("./controleur/controleur_connexion.php");
+					}else{
+						include("./controleur/controleur_rech_blog_name.php");
+					}
+				}
 				break;			
 			case "abonner":
 				include("./controleur/controleur_abonnement.php");

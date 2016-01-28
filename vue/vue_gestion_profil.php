@@ -60,7 +60,7 @@
                         <li><a href="<?php echo INDEX ?>?index=vue_parametres"><i class="fa fa-gear fa-fw"></i> Paramètres</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="<?php echo INDEX ?>"><i class="fa fa-sign-out fa-fw"></i> Se Deconnecter</a>
+                        <li><a href="<?php echo INDEX ?>?index=deconnexion"><i class="fa fa-sign-out fa-fw"></i> Se Deconnecter</a>
                         </li>
                     </ul>
                 </li>
