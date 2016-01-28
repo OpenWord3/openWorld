@@ -27,6 +27,7 @@ $_SESSION["id_suivi"] = $id_pseudo;
 		include("./vue/page_recherche.php");
 	}*/
 	if(isset($_POST['abonne'])){
+		$_SESSION["id_suivi"] = $id_pseudo;
 		$pseudo_suiveur = $_POST['pseudo'];
 	
 		$id_suiveur = id($pseudo_suiveur);
