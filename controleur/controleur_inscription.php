@@ -43,7 +43,7 @@
 				include("./vue/vue_inscription.php");
 			}
 		} else {
-			$alerte = "Veuillez éviter les caractères spéciaux !!!";
+			$alerte = "Veuillez éviter les caractères spéciaux et les lettres capitales !!!";
 			include("./vue/vue_inscription.php");
 		}					
 	} else {
