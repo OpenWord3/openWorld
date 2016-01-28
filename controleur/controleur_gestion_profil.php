@@ -19,7 +19,7 @@
 			exec('sudo /var/script/del-relais.sh '.$nom["nom_domain"]);
 		}			
 		
-		header("location:openworld.itinet.fr");
+		header("location:index.php");
 	} else if (isset($_POST["modifier"])){
 		$nom = htmlspecialchars($_POST["nom"]);
 		$prenom = htmlspecialchars($_POST["prenom"]);
