@@ -8,6 +8,7 @@
 
 $res_rech = $_POST['res_rech'];
 $id_pseudo = $_SESSION['id'];
+$_SESSION["id_suivi"] = $id_pseudo;
 //$hello = explode(" ", $res_rech);
 //$nbre_occurences = compteur_rech($hello);
 
