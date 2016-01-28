@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?PHP echo ANIMATE ?>" />
     <link rel="stylesheet" href="<?PHP echo IONICONS ?>" />
     <link rel="stylesheet" href="<?PHP echo STYLES ?>" />
+	<link href="./bootstrap/css/accueil-autocomplete.css" rel="stylesheet">
 
     <script src="<?PHP echo SCRIPT ?>"></script>
     <script src="<?PHP echo BOOTSTRAPJS ?>"></script>
