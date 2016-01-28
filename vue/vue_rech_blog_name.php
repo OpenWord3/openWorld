@@ -157,7 +157,7 @@ else {
 		for($x=0; $x < count($abonne); $x++){
 			if($pseudo[$i] == $abonne[$x]){
 				//$verif = true;
-				$button = "<h5 style='color:green;'>Vous êtes déjà abonné à ce Blog</h5>";
+				$button = "<h5 style='color:green;'>Vous venez d'être abonné à ce Blog</h5>";
 				//exit;
 			}
 		}
