@@ -8,7 +8,8 @@
 	$pseudo = $_SESSION["pseudo"];
 	$id = id($pseudo);
 	$id_suivi = $_SESSION['id'];
-	echo $id_suivi;
+	echo $id_suivi." Suivi";
+	echo $id." Suiveur";
 	$pseudo_suiveur = $pseudo;
 	//$id_suiveur = id($pseudo_suiveur);
 
