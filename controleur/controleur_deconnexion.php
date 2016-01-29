@@ -20,7 +20,7 @@
 				$blog[$pseudo] = $result->option_value;
 		}
 		if(empty($img_star)){
-			$img[$pseudo] = "./bootstrap/images/2.jpg"; 
+			$img[$pseudo] = "./bootstrap/images/6.jpg"; 
 		}
 		else {
 			foreach($img_star as $res){
