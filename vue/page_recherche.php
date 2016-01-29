@@ -9,6 +9,7 @@
     <meta name="generator" content="Codeply">
     <link rel="stylesheet" href="<?PHP echo CONNEXION ?>" />
     <link rel="stylesheet" href="<?PHP echo BOOTSTRAP ?>" />
+    <link href="./bootstrap/css/autocomplete.css" rel="stylesheet">
 	<link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="<?PHP echo TWEENLITE ?>"></script>
     <script src="<?PHP echo CONNECTION ?>"></script>

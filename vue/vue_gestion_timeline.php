@@ -141,7 +141,7 @@
             <!-- Portfolio Item Heading -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenue dans votre tiemeline
+                    <h1 class="page-header">Bienvenue dans votre timeline
                         <small><?php echo strtoupper($_SESSION["pseudo"]);?></small>
                     </h1>
                 </div>
